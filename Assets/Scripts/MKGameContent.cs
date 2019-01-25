@@ -9,13 +9,15 @@ public class MKGameContent : ScriptableObject
     {
         return m_MKCharacterContent;
     }
-    public MKRankingContent GetRankingContent()
+
+    public MKFurnitureContent GetFurnitureContent()
     {
-        return m_MKRankingContent;
+        return m_MKFurnitureContent;
     }
 
     [SerializeField]
     private MKCharacterContent m_MKCharacterContent;
+
     [SerializeField]
-    private MKRankingContent m_MKRankingContent;
+    private MKFurnitureContent m_MKFurnitureContent;
 }
