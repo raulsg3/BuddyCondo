@@ -18,34 +18,25 @@ public class MKFurnitureManager : MonoBehaviour
         //
     }
 
-    public bool CreateFurniture(List<FurnitureInfo> furnitureList)
+    public bool CreateFurniture(List<CellData> cellList)
     {
+        List<GameObject> furnitureList = MKGame.Instance.GetGameContent().GetFurnitureContent().furnitureList;
+        furnitureList = new List<GameObject>();
+
+        foreach (CellData cell in cellList)
+        {
+            // Initialize the cell in the GameManager
+
+
+            // Instantiate the GameObjects with the cell data
+            GameObject furniture = Instantiate(Resources.Load(cell.PrefabName)) as GameObject;
+            Debug.Log("Added: " + cell.PrefabName);
+            furnitureList.Add(furniture);
+        }
+
+
         return false;
     }
 
-    public struct FurnitureInfo
-    {
-        private int PosX { get; set; }
-        private int PosY { get; set; }
-        private string PrefabName { get; set; }
-        private EColor Color { get; set; }
-        private EFurnitureType FurnitureType { get; set; }
-    }
-
-    // Different colors for furniture
-    private enum EColor
-    {
-        None = 0,
-        Black,
-        Blue,
-        Red,
-        Yellow
-    }
-
-    // Furniture type
-    private enum EFurnitureType
-    {
-        Movable = 0,
-        No_movable
-    }
+    
 }
