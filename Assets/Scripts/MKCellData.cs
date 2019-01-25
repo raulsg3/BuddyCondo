@@ -2,12 +2,12 @@
 [System.Serializable]
 public class MKCellData
 {
-    public int PosX { get; }
-    public int PosY { get; }
-    public string PrefabName { get; }
-    public string RotationY { get; }
-    public EColor Color { get; }
-    public ECellType CellType { get; }
+    public int PosX;
+    public int PosY;
+    public string PrefabName;
+    public string RotationY;
+    public EColor Color;
+    public ECellType CellType;
 
 
     // Different colors for furniture
