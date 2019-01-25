@@ -1,12 +1,12 @@
 ﻿// Cell information, that wil be serialized by the LevelLoader
-public class CellData
+public class MKCellData
 {
     public int PosX { get; }
     public int PosY { get; }
     public string PrefabName { get; }
     public string RotationY { get; }
     public EColor Color { get; }
-    public EFurnitureType FurnitureType { get; }
+    public ECellType CellType { get; }
 
 
     // Different colors for furniture
@@ -19,11 +19,13 @@ public class CellData
         Yellow
     }
 
-    // Furniture type
-    public enum EFurnitureType
+    // Cell type
+    public enum ECellType
     {
-        Movable = 0,
+        Empty = 0,
+        Movable,
         Decoration,
-        Target
+        Target,
+        Player
     }
 }

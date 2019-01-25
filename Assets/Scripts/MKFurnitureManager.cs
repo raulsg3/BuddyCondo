@@ -18,18 +18,19 @@ public class MKFurnitureManager : MonoBehaviour
         //
     }
 
-    public bool CreateFurniture(List<CellData> cellList)
+    public bool CreateFurniture(List<MKCellData> cellList)
     {
         List<GameObject> furnitureList = MKGame.Instance.GetGameContent().GetFurnitureContent().furnitureList;
-        furnitureList = new List<GameObject>();
+        furnitureList = new List<GameObject>();     
 
-        foreach (CellData cell in cellList)
+        foreach (MKCellData cell in cellList)
         {
             // Initialize the cell in the GameManager
 
 
             // Instantiate the GameObjects with the cell data
             GameObject furniture = Instantiate(Resources.Load(cell.PrefabName)) as GameObject;
+
             Debug.Log("Added: " + cell.PrefabName);
             furnitureList.Add(furniture);
         }
