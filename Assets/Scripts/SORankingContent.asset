@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5186248e1c511d146a0709adceb26dda, type: 3}
-  m_Name: SOGameContent
+  m_Script: {fileID: 11500000, guid: a3efb00fc119a814799a57bb43b48da1, type: 3}
+  m_Name: SORankingContent
   m_EditorClassIdentifier: 
-  m_MKCharacterContent: {fileID: 11400000, guid: 899c82515f60c154ea6f6792fa49a6c8,
-    type: 2}
-  m_MKRankingContent: {fileID: 11400000, guid: a134dba28c87bb646b54dfc8491114c9, type: 2}
