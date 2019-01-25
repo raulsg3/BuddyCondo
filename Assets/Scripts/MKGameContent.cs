@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SOGameContent", menuName = "MK/SOGameContent", order = 0)]
 public class MKGameContent : ScriptableObject
 {
-    public GetCharacterContent()
+    public MKCharacterContent GetCharacterContent()
     {
         return m_MKCharacterContent;
     }

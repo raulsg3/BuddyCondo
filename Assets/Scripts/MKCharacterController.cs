@@ -8,8 +8,6 @@ public class MKCharacterController : MonoBehaviour
     void Start()
     {
         MKRankingManager rankingManager = MKGame.Instance.GetRankingManager();
-
-        Debug.Log("a");
     }
 
     // Update is called once per frame
