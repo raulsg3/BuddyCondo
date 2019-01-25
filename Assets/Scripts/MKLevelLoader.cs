@@ -24,28 +24,19 @@ public class MKLevelLoader : MonoBehaviour
         Debug.Log(jsonString);
         LevelJson loadedData = new LevelJson(); 
         loadedData = JsonUtility.FromJson<LevelJson>(jsonString);
-        Debug.Log(loadedData.furnitureList.Count);
+        MKGame.Instance.GetFurnitureManager().CreateFurniture(loadedData.cellDataList);
+    }
 
-        foreach (FurnitureTest item in loadedData.furnitureList){
-            Debug.Log("create");
-           GameObject gameObjectInstance = Instantiate(Resources.Load(item.prefabName)) as GameObject;         
-        }        
+    public void AllFurnitureLoaded(){
+        
     }
     
 }
 
 [System.Serializable]
-public class FurnitureTest{
-    public int i;
-    public int j;
-    public string prefabName;
-}
-
-
-[System.Serializable]
 public class LevelJson{
     public LevelJson(){
-        this.furnitureList = new List<FurnitureTest>();
+        this.cellDataList = new List<MKCellData>();
     }
-    public List<FurnitureTest> furnitureList; 
+    public List<MKCellData> cellDataList; 
 }
