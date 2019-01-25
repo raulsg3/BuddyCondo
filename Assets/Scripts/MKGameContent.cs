@@ -10,6 +10,14 @@ public class MKGameContent : ScriptableObject
         return m_MKCharacterContent;
     }
 
+    public MKFurnitureContent GetFurnitureContent()
+    {
+        return m_MKFurnitureContent;
+    }
+
     [SerializeField]
     private MKCharacterContent m_MKCharacterContent;
+
+    [SerializeField]
+    private MKFurnitureContent m_MKFurnitureContent;
 }

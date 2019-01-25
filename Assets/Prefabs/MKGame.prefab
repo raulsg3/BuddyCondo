@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2449130686279421278}
   - component: {fileID: 8969757254552236458}
+  - component: {fileID: 6419378501694874796}
+  - component: {fileID: 6419378501694874797}
   m_Layer: 0
   m_Name: MKGame
   m_TagString: Untagged
@@ -41,5 +43,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3479ba0a385b885488972e1b213e0fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MKRankingManager: {fileID: 6419378501694874796}
+  m_MKFurnitureManager: {fileID: 6419378501694874797}
+  m_MKGameContent: {fileID: 0}
+--- !u!114 &6419378501694874796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6419378501694874795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002f1bc3da5d5ec4f945e7186619f5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6419378501694874797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6419378501694874795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a3cfbc0a65d4349899af4a006a0ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
