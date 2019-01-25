@@ -1,4 +1,5 @@
 ﻿// Cell information, that wil be serialized by the LevelLoader
+[System.Serializable]
 public class MKCellData
 {
     public int PosX { get; }
