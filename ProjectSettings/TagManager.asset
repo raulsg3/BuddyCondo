@@ -10,6 +10,7 @@ TagManager:
   - VictoryUI
   - StartingUI
   - UIData
+  - FadeImage
   layers:
   - Default
   - TransparentFX
