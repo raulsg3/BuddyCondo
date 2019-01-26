@@ -6,12 +6,10 @@ using UnityEngine;
 
 public class MKRankingManager : MonoBehaviour
 {
-    MKScores m_scores; 
-   
     // Start is called before the first frame update
     void Start()
     {
-        PopulateRankingData();
+        //PopulateRankingData();
     }
 
     // Update is called once per frame
@@ -22,9 +20,8 @@ public class MKRankingManager : MonoBehaviour
     [Button]
     public void ScoreToJson()
     {
-        /*m_MKGameManagerContent = MKGameContent.GetGameManagerContent();*/
-        //MKScore score = new MKScore(m_MKGameManagerContent.playerOne, m_MKGameManagerContent.playerTwo, m_MKGameManagerContent.level, m_MKGameManagerContent.score);
-        MKScore score = new MKScore("ASD", "asd", 2, 2);
+        m_MKGameManager = MKGame.Instance.GetGameManager();
+        MKScore score = new MKScore(m_MKGameManager.Player1Name, m_MKGameManager.Player2Name, m_MKGameManager.GameCurrentLevel, m_MKGameManager.GameAccTime);
         m_scores.scores.Add(score);
         SortRankingData();
         string json = JsonUtility.ToJson(m_scores);
@@ -41,20 +38,21 @@ public class MKRankingManager : MonoBehaviour
 
     public void SortRankingData()
     {
-        m_scores.scores.Sort((x,y) => x.score > y.score ? -1 : (x.score == y.score ? (x.level > y.level ? -1 : 0 ) : 1));
+        m_scores.scores.Sort((x, y) => x.score > y.score ? -1 : (x.score == y.score ? (x.level > y.level ? -1 : 0) : 1));
     }
 
-    //public MKGameManagerContent m_MKGameManagerContent;
+    public MKGameManager m_MKGameManager;
+    public MKScores m_scores;
 
     [Serializable]
     public struct MKScore
     {
         public string playerOne;
         public string playerTwo;
-        public int level;
-        public int score;
+        public uint level;
+        public float score;
 
-        public MKScore(string playerOne, string playerTwo, int level, int score)
+        public MKScore(string playerOne, string playerTwo, uint level, float score)
         {
             this.playerOne = playerOne;
             this.playerTwo = playerTwo;
