@@ -14,6 +14,7 @@ public class MKGameManager : MonoBehaviour
 
     //Time
     protected float m_gameAccTime;
+    protected float m_levelInitTime;
 
     //Targets
     protected uint m_levelTargetsLeft;
@@ -24,7 +25,7 @@ public class MKGameManager : MonoBehaviour
     public uint GameCurrentLevel
     {
         get { return m_gameCurrentLevel; }
-        private set { m_gameCurrentLevel = value; }
+        protected set { m_gameCurrentLevel = value; }
     }
 
     public String Player1Name
@@ -42,13 +43,13 @@ public class MKGameManager : MonoBehaviour
     public float GameAccTime
     {
         get { return m_gameAccTime; }
-        private set { m_gameAccTime = value; }
+        protected set { m_gameAccTime = value; }
     }
 
     public uint LevelTargetsLeft
     {
         get { return m_levelTargetsLeft; }
-        private set { m_levelTargetsLeft = value; }
+        protected set { m_levelTargetsLeft = value; }
     }
 
     void Start()
@@ -87,6 +88,18 @@ public class MKGameManager : MonoBehaviour
     public void IncLevelTargetsLeft()
     {
         LevelTargetsLeft++;
+    }
+
+    public void StartLevel()
+    {
+        m_levelInitTime = Time.time;
+    }
+
+    protected void EndLevel()
+    {
+        //@TODO Time
+        IncGameCurrentLevel();
+        MKGame.Instance.GetFlowManager().WinLevel(GameCurrentLevel);
     }
 
     public Vector3 GetWorldPosition(uint row, uint col)
