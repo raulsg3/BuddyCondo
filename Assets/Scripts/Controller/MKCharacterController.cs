@@ -182,6 +182,7 @@ public class MKCharacterController : MonoBehaviour
         {
             return;
         }
+        Debug.Log("asdfsad");
 
         SetPlayerFacingWithVector(_MovementToProcess);
 
@@ -198,13 +199,14 @@ public class MKCharacterController : MonoBehaviour
             // Check the remaining time
             if (m_TimeRemainingToMove <= 0 && _MovementToProcess.magnitude > 0.1f)
             {
-                Vector2 PositionToSet = transform.position;
+                // Vector2 PositionToSet = transform.position;
 
                 // Update the indexes
                 // m_CharacterIndexPosition = PrecalculatedPositionIndex;
 
                 // Update the position
-                m_PositionToMove += new Vector3(_MovementToProcess.x, 0.0f, _MovementToProcess.y);
+                // m_PositionToMove += new Vector3(_MovementToProcess.x, 0.0f, _MovementToProcess.y);
+                m_PositionToMove = MKGame.Instance.GetGameManager().GetWorldPosition(m_CharacterIndexPositionX,m_CharacterIndexPositionY);
                 m_TimeRemainingToMove = m_CharacterContent.m_MoveCooldown;
                 m_MovementStartPosition = transform.position;
 
