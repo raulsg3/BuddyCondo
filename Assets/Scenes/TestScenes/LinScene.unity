@@ -281,6 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d21fa135f664f41a942b23acee1a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testLevelName: 
   currentLevelJson:
     cellDataList:
     - PosX: 0
@@ -307,6 +308,7 @@ MonoBehaviour:
       PrefabName: Furniture_GreenChair
       Color: 5
       Type: 4
+  characterPrefab: {fileID: 0}
 --- !u!1001 &757447277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -442,6 +444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510797933137070719, guid: dffbeb7ef359a604d964ffd127e6c8a6,
+        type: 3}
+      propertyPath: testLevelName
+      value: 2_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dffbeb7ef359a604d964ffd127e6c8a6, type: 3}
