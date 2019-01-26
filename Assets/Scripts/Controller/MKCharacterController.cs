@@ -173,6 +173,9 @@ public class MKCharacterController : MonoBehaviour
         }
     }
 
+    // private float currentMoveCooldown = 0;
+    // private float moveCooldown = 2;
+
     void ProcessCharacterMovement(Vector2 _MovementToProcess)
     {
         // Debug.Log(_MovementToProcess);
@@ -185,26 +188,27 @@ public class MKCharacterController : MonoBehaviour
 
         SetPlayerFacingWithVector(_MovementToProcess);
 
-        if(MKGame.Instance.GetGameManager().MoveToCell(ref m_CharacterIndexPositionX,ref m_CharacterIndexPositionY,GetEMKMoveFromVector(_MovementToProcess))){
-            Debug.Log("true");
+        if (m_TimeRemainingToMove <= 0 && _MovementToProcess.magnitude > 0.1f)
+        {
+            if(MKGame.Instance.GetGameManager().MoveToCell(ref m_CharacterIndexPositionX,ref m_CharacterIndexPositionY,GetEMKMoveFromVector(_MovementToProcess))){
+            // Debug.Log("true");
             // Precalculate the adjacent cell position
-            Vector2 PrecalculatedPositionIndex;
+            // Vector2 PrecalculatedPositionIndex;
             
-            PrecalculatedPositionIndex.x = m_CharacterIndexPositionX;
-            PrecalculatedPositionIndex.y = m_CharacterIndexPositionY;
+            // PrecalculatedPositionIndex.x = m_CharacterIndexPositionX;
+            // PrecalculatedPositionIndex.y = m_CharacterIndexPositionY;
 
-            PrecalculatedPositionIndex += _MovementToProcess;
+            // PrecalculatedPositionIndex += _MovementToProcess;
 
             // Check the remaining time
-            if (m_TimeRemainingToMove <= 0 && _MovementToProcess.magnitude > 0.1f)
-            {
-                Vector2 PositionToSet = transform.position;
+                // Vector2 PositionToSet = transform.position;
 
                 // Update the indexes
                 // m_CharacterIndexPosition = PrecalculatedPositionIndex;
 
                 // Update the position
-                m_PositionToMove += new Vector3(_MovementToProcess.x, 0.0f, _MovementToProcess.y);
+                // m_PositionToMove += new Vector3(_MovementToProcess.x, 0.0f, _MovementToProcess.y);
+                m_PositionToMove = MKGame.Instance.GetGameManager().GetWorldPosition(m_CharacterIndexPositionX,m_CharacterIndexPositionY);
                 m_TimeRemainingToMove = m_CharacterContent.m_MoveCooldown;
                 m_MovementStartPosition = transform.position;
 

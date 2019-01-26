@@ -25,8 +25,15 @@ public class CellGenerator : MonoBehaviour
                 Gizmos.color = Color.green;
             else if(mKCellData.Color == EMKColor.Red)
                 Gizmos.color = Color.red;
-            
-            Gizmos.DrawWireSphere(transform.position,0.5f);
+
+            if (mKCellData.Type == EMKCellType.Movable)
+            {
+                Gizmos.DrawWireSphere(transform.position, 0.5f);
+            }
+            else // Target
+            {
+                Gizmos.DrawWireSphere(transform.position, 1.0f);
+            }
         }
 
         if (mKCellData != null && mKCellData.Type == EMKCellType.Button)
