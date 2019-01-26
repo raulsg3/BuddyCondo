@@ -173,6 +173,9 @@ public class MKCharacterController : MonoBehaviour
         }
     }
 
+    // private float currentMoveCooldown = 0;
+    // private float moveCooldown = 2;
+
     void ProcessCharacterMovement(Vector2 _MovementToProcess)
     {
         // Debug.Log(_MovementToProcess);
@@ -182,11 +185,13 @@ public class MKCharacterController : MonoBehaviour
         {
             return;
         }
-        Debug.Log("asdfsad");
 
         SetPlayerFacingWithVector(_MovementToProcess);
 
-        if(MKGame.Instance.GetGameManager().MoveToCell(ref m_CharacterIndexPositionX,ref m_CharacterIndexPositionY,GetEMKMoveFromVector(_MovementToProcess))){
+        if (m_TimeRemainingToMove <= 0 && _MovementToProcess.magnitude > 0.1f)
+        {
+            Debug.Log("asdfsad");
+            if(MKGame.Instance.GetGameManager().MoveToCell(ref m_CharacterIndexPositionX,ref m_CharacterIndexPositionY,GetEMKMoveFromVector(_MovementToProcess))){
             // Debug.Log("true");
             // Precalculate the adjacent cell position
             // Vector2 PrecalculatedPositionIndex;
@@ -197,8 +202,6 @@ public class MKCharacterController : MonoBehaviour
             // PrecalculatedPositionIndex += _MovementToProcess;
 
             // Check the remaining time
-            if (m_TimeRemainingToMove <= 0 && _MovementToProcess.magnitude > 0.1f)
-            {
                 // Vector2 PositionToSet = transform.position;
 
                 // Update the indexes
