@@ -35,13 +35,17 @@ public class MKFlowManager : MonoBehaviour
 
     public void LoadLevel(uint level)
     {
-        m_MKLevelLoader.LoadLevel("level_" + level.ToString());
+        m_MKLevelLoader.LoadLevel(level.ToString());
         m_State.GameStatus = (int)Status.LoadingLevel;
     }
 
     public void NextLevelLoaded()
     {
-        if (m_State.GameStatus != (int)Status.LoadingLevel || m_State.GameStatus != (int)Status.Menu) { throw new System.Exception("No puedes llamarme desde fuera del Loading o del menu."); }
+        if (m_State.GameStatus != (int)Status.LoadingLevel && m_State.GameStatus != (int)Status.Menu)
+        {
+            Debug.Log(m_State.GameStatus);
+            throw new System.Exception("No puedes llamarme desde fuera del Loading o del menu.");
+        }
 
         //ALGO PARA FADE OUT EL CARTEL DE VICTORIA?
         GameObject uIDataGO = GameObject.FindGameObjectWithTag("UIData");
