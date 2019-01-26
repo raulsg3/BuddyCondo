@@ -1,4 +1,35 @@
-﻿// Cell information, that will be serialized by the LevelLoader
+﻿//Grid movement
+public enum EMKMove
+{
+    Up = 0,
+    Right,
+    Bottom,
+    Left
+}
+
+//Colors for characters and furniture
+public enum EMKColor
+{
+    None = 0,
+    Black,
+    Blue,
+    Red,
+    Yellow,
+    Green
+}
+
+//Cell type
+public enum EMKCellType
+{
+    Empty = 0,
+    Movable,
+    Decoration,
+    Target,
+    Player,
+    PlayerWithMovable
+}
+
+// Cell information, that will be serialized by the LevelLoader
 [System.Serializable]
 public class MKCellData
 {
@@ -8,27 +39,6 @@ public class MKCellData
     public string PrefabName;
     public EMKColor Color;
     public EMKCellType Type;
-
-    //Cell type
-    public enum EMKCellType
-    {
-        Empty = 0,
-        Movable,
-        Decoration,
-        Target,
-        Player
-    }
-
-    //Colors for characters and furniture
-    public enum EMKColor
-    {
-        None = 0,
-        Black,
-        Blue,
-        Red,
-        Yellow,
-        Green
-    }
 
     //Cell typedef
     public struct TMKCell
