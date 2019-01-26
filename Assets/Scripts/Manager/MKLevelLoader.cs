@@ -5,25 +5,46 @@ using System.IO;
 
 public class MKLevelLoader : MonoBehaviour
 {
+    public string testLevelName;
     public LevelJson currentLevelJson;
+    public GameObject characterPrefab;
 
     [Button]
-    public void Debug_LoadLevel1(){
-        LoadLevel(1);
+    public void Debug_LoadLevelTest(){
+        LoadLevel(testLevelName);
     }
     [Button]
     public void Debug_Save(){
-    File.WriteAllText(Application.streamingAssetsPath + "/level_"+1+".json",JsonUtility.ToJson(currentLevelJson)); 
+    File.WriteAllText(Application.streamingAssetsPath + "/level_" + testLevelName + ".json",JsonUtility.ToJson(currentLevelJson)); 
 
     }
-    public void LoadLevel(int levelNumber){
+    public void LoadLevel(string levelName){
 
         // Read the json from the file into a string
-        string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/level_"+levelNumber+".json"); 
+        string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/level_" + levelName + ".json"); 
         Debug.Log(jsonString);
         LevelJson loadedData = new LevelJson(); 
         loadedData = JsonUtility.FromJson<LevelJson>(jsonString);
+
+        //Los muebles los intancia lin e ignora los playesr
         MKGame.Instance.GetFurnitureManager().CreateFurniture(loadedData.cellDataList);
+
+        foreach (MKCellData mKCellData in loadedData.cellDataList)
+        {   
+            //SI es jugador lo instancio
+            if(mKCellData.Type == EMKCellType.Player1){
+                if(MKGame.Instance.GetGameManager().PlaceInCell(mKCellData.PosX,mKCellData.PosY,mKCellData.Type)){
+                    GameObject characterInstance = Instantiate(characterPrefab);
+                    characterInstance.transform.position = MKGame.Instance.GetGameManager().GetWorldPosition(mKCellData.PosX,mKCellData.PosY); 
+                    MKCharacterController characterController = characterInstance.GetComponent<MKCharacterController>();
+                    if(mKCellData.Type == EMKCellType.Player1) characterController.m_PlayerNumber = EMKPlayerNumber.Player1;
+                    else characterController.m_PlayerNumber = EMKPlayerNumber.Player2;
+                    characterController.m_CharacterIndexPosition.x = mKCellData.PosX;
+                    characterController.m_CharacterIndexPosition.y = mKCellData.PosY;
+
+                }
+            }
+        }
     }
 
     public void AllFurnitureLoaded(){

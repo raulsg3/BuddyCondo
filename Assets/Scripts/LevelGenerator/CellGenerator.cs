@@ -8,7 +8,10 @@ public class CellGenerator : MonoBehaviour
     
     [Button]
     public void SetFurniture(){
-        mKCellData.PrefabName = gameObject.transform.GetChild(0).gameObject.name;
-        mKCellData.RotationY = gameObject.transform.GetChild(0).eulerAngles.y;
+        if (transform.childCount > 0)
+        {
+            mKCellData.PrefabName = gameObject.transform.GetChild(0).gameObject.name;
+            mKCellData.RotationY = gameObject.transform.GetChild(0).eulerAngles.y;
+        }
     }
 }
