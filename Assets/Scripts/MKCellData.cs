@@ -16,7 +16,8 @@ public class MKCellData
         Movable,
         Decoration,
         Target,
-        Player
+        Player1,
+        Player2,
     }
 
     //Colors for characters and furniture
