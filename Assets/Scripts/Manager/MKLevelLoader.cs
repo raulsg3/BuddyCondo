@@ -5,11 +5,12 @@ using System.IO;
 
 public class MKLevelLoader : MonoBehaviour
 {
+    public int testLevelNumber;
     public LevelJson currentLevelJson;
 
     [Button]
-    public void Debug_LoadLevel1(){
-        LoadLevel(1);
+    public void Debug_LoadLevelTest(){
+        LoadLevel(testLevelNumber);
     }
     [Button]
     public void Debug_Save(){

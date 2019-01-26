@@ -23,7 +23,7 @@ public class MKColorController : MonoBehaviour
         
     }
 
-    public void SetColor(MKCellData.EMKColor baseColor)
+    public void SetColor(MKCellData.EMKColor baseColor, MKCellData.EMKColor color)
     {
         furnitureColor = colorMap[baseColor];
     }

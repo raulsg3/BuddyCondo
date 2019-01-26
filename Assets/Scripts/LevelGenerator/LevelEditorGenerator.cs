@@ -1,17 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class LevelEditorGenerator : MonoBehaviour
 {
     public float xSize;
     public float ySize;
 
+    public string levelNumber;
+
     public GameObject cellPrefab;
     public Transform cellParent;
 
+    public LevelJson currentLevelJson;
+
     [Button]
     public void SaveJson(){
+        currentLevelJson = new LevelJson();
+        foreach (Transform item in cellParent)
+        {
+            currentLevelJson.cellDataList.Add(item.GetComponent<CellGenerator>().mKCellData);
+        }
+        
+       File.WriteAllText(Application.streamingAssetsPath + "/level_"+1+"_"+System.DateTime.Now.Minute+".json",JsonUtility.ToJson(currentLevelJson)); 
+
+    }
+
+    [Button]
+    public void Debug_Save(){
+       File.WriteAllText(Application.streamingAssetsPath + "/level_"+1+".json",JsonUtility.ToJson(currentLevelJson)); 
 
     }
     public void Delete(){
