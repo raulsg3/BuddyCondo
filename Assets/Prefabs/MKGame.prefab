@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 6419378501694874797}
   - component: {fileID: 329381344334606323}
   - component: {fileID: 4385821974260989515}
+  - component: {fileID: 8510797933137070719}
+  - component: {fileID: 6388695879665218621}
   m_Layer: 0
   m_Name: MKGame
   m_TagString: Untagged
@@ -50,8 +52,10 @@ MonoBehaviour:
   m_MKRankingManager: {fileID: 6419378501694874796}
   m_MKFurnitureManager: {fileID: 6419378501694874797}
   m_MKGameManager: {fileID: 329381344334606323}
-  m_MKGameContent: {fileID: 11400000, guid: 34d916bd9a37fe240a113245b0a29ded, type: 2}
   m_MKGameUIManager: {fileID: 4385821974260989515}
+  m_MKFlowManager: {fileID: 6388695879665218621}
+  m_MKLevelLoader: {fileID: 8510797933137070719}
+  m_MKGameContent: {fileID: 11400000, guid: 34d916bd9a37fe240a113245b0a29ded, type: 2}
 --- !u!114 &6419378501694874796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,5 +102,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2481468f7a9e6e49ba1b2d073687ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8510797933137070719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6419378501694874795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d21fa135f664f41a942b23acee1a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevelJson:
+    cellDataList: []
+--- !u!114 &6388695879665218621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6419378501694874795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ef88c7339ec1c41a8309ef14a8c684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
