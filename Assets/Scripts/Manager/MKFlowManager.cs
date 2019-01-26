@@ -20,7 +20,7 @@ public class MKFlowManager : MonoBehaviour
     public void ChangeLevel()
     {
         int level = Random.Range(1,1); //1 FOR DEBUG PORPOUSES
-        m_MKLevelLoader.LoadLevel(level);
+        m_MKLevelLoader.LoadLevel("level_"+level.ToString());
         if (m_State.GameStatus != (int)Status.Game)
         {
             m_State.GameStatus = (int)Status.Game;
