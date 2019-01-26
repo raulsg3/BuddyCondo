@@ -147,27 +147,27 @@ public class MKGameManager : MonoBehaviour
     /*********************************************************
     * Move
     *********************************************************/
-    public bool MoveToCell(uint currentCellRow, uint currentCellCol, EMKMove move)
+    public bool MoveToCell(ref uint currentCellRow, ref uint currentCellCol, EMKMove move)
     {
         EMKCellType currentCellType = m_cells[currentCellRow, currentCellCol].type;
 
         //Players
         if (currentCellType == EMKCellType.Player)
         {
-            return CanMovePlayerToCell(currentCellRow, currentCellCol, move);
+            return CanMovePlayerToCell(ref currentCellRow, ref currentCellCol, move);
         }
 
         //Players with a movable object
         if (currentCellType == EMKCellType.PlayerWithMovable)
         {
-            return CanMoveMovableToCell(currentCellRow, currentCellCol, move);
+            return CanMoveMovableToNextCell(ref currentCellRow, ref currentCellCol, move);
         }
 
         //Only players can move
         return false;
     }
 
-    protected bool CanMovePlayerToCell(uint currentCellRow, uint currentCellCol, EMKMove move)
+    protected bool CanMovePlayerToCell(ref uint currentCellRow, ref uint currentCellCol, EMKMove move)
     {
         Vector2 nextCell = GetNextLogicPosition(currentCellRow, currentCellCol, move);
         uint nextCellRow = (uint)nextCell.x;
@@ -185,18 +185,33 @@ public class MKGameManager : MonoBehaviour
         m_cells[nextCellRow, nextCellCol].type = EMKCellType.Player;
         m_cells[currentCellRow, currentCellCol].type = EMKCellType.Empty;
 
+        currentCellRow = nextCellRow;
+        currentCellCol = nextCellCol;
+
         return true;
     }
 
-    protected bool CanMoveMovableToCell(uint currentCellRow, uint currentCellCol, EMKMove move)
+    protected bool CanMoveMovableToNextCell(ref uint playerCellRow, ref uint playerCellCol, EMKMove move)
     {
-        //@TODO
-        Vector2 nextCell = GetNextLogicPosition(currentCellRow, currentCellCol, move);
-        uint nextCellRow = (uint)nextCell.x;
-        uint nextCellCol = (uint)nextCell.y;
+        Vector2 movableCell = GetNextLogicPosition(playerCellRow, playerCellCol, move);
+        uint movableCellRow = (uint)movableCell.x;
+        uint movableCellCol = (uint)movableCell.y;
+
+        //Grid limits
+        if (movableCellRow == playerCellRow && movableCellCol == playerCellCol)
+            return false;
+
+        Vector2 nextMovableCell = GetNextLogicPosition(movableCellRow, movableCellCol, move);
+        uint nextMovableCellRow = (uint)movableCell.x;
+        uint nextMovableCellCol = (uint)movableCell.y;
+
+        //Grid limits again
+        if (nextMovableCellRow == movableCellRow && nextMovableCellCol == movableCellRow)
+            return false;
 
         bool canMove = false;
 
+        /*
         if (m_cells[nextCellRow, nextCellCol].type == EMKCellType.Empty)
         {
             canMove = true;
@@ -205,6 +220,19 @@ public class MKGameManager : MonoBehaviour
         {
             canMove = true;
         }
+
+
+        //The next for the movable object is not empty
+        if (m_cells[nextCellRow, nextCellCol].type != EMKCellType.Empty)
+            return false;
+
+        //Next cell is empty
+        m_cells[nextCellRow, nextCellCol].type = EMKCellType.Player;
+        m_cells[currentCellRow, currentCellCol].type = EMKCellType.Empty;
+
+        currentCellRow = nextCellRow;
+        currentCellCol = nextCellCol;
+        */
 
         return canMove;
     }
