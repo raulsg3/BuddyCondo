@@ -109,6 +109,7 @@ public class MKCharacterController : MonoBehaviour
 
     void ProcessCharacterMovement(Vector2 _MovementToProcess)
     {
+        Debug.Log(_MovementToProcess);
         // Check if we can move to that cell!
         if (bIsMoving)
         {

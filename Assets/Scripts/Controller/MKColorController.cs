@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class MKColorController : MonoBehaviour
 {
+    private Color furnitureColor;
+
+    private void Awake()
+    {
+        //colorMap
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +23,19 @@ public class MKColorController : MonoBehaviour
         
     }
 
-    public void SetColor(EMKColor baseColor)
+    public void SetColor(EMKColor baseColor, EMKColor color)
     {
-        Debug.Log("MKColorController.SetColor() NOT IMPLEMENTED");
+        furnitureColor = colorMap[baseColor];
     }
+
+    private IDictionary<EMKColor, Color> colorMap = new Dictionary<EMKColor, Color>()
+    {
+        { EMKColor.None, Color.white},
+        { EMKColor.Black, Color.black},
+        { EMKColor.Blue, Color.blue},
+        { EMKColor.Red, Color.red},
+        { EMKColor.Yellow, Color.yellow},
+        { EMKColor.Green, Color.green}
+    };
+
 }

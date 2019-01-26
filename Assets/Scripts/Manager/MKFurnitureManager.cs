@@ -25,16 +25,24 @@ public class MKFurnitureManager : MonoBehaviour
 
         foreach (MKCellData cell in cellList)
         {
+            if(cell.Type == EMKCellType.Player1 || cell.Type == EMKCellType.Player2 ) {
+                continue;
+            }
+
             // Initialize the cell in the GameManager
             MKGame.Instance.GetGameManager().PlaceInCell(cell.PosX, cell.PosY, cell.Type);
+            if(cell.Type == EMKCellType.Target){
 
+            }
             // Instantiate the GameObjects with the cell data
-            Debug.Log("Cell (" + cell.PosX + "," + cell.PosY + ") Added: " + cell.PrefabName + ", color " + cell.Color);
-            GameObject furnitureObject = Instantiate(Resources.Load(cell.PrefabName)) as GameObject;
-            furnitureObject.transform.position = MKGame.Instance.GetGameManager().GetWorldPosition(cell.PosX, cell.PosY);
-            furnitureObject.transform.Rotate(0f, cell.RotationY, 0f);
-            furnitureObject.GetComponent<MKColorController>().SetColor(cell.Color);
-            furnitureList.Add(furnitureObject);
+            if(!string.IsNullOrEmpty( cell.PrefabName)){
+                Debug.Log("Cell (" + cell.PosX + "," + cell.PosY + ") Added: " + cell.PrefabName + ", color " + cell.Color);
+                GameObject furnitureObject = Instantiate(Resources.Load(cell.PrefabName)) as GameObject;
+                furnitureObject.transform.position = MKGame.Instance.GetGameManager().GetWorldPosition(cell.PosX, cell.PosY);
+                furnitureObject.transform.Rotate(0f, cell.RotationY, 0f);
+                furnitureObject.GetComponent<MKColorController>().SetColor(cell.Color,cell.Color);
+                furnitureList.Add(furnitureObject);
+            }
         }
 
         return true;

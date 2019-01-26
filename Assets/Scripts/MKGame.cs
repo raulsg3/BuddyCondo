@@ -25,14 +25,24 @@ public class MKGame : USSimpleSingleton<MKGame>
         return m_MKGameManager;
     }
 
-    public MKGameContent GetGameContent()
-    {
-        return m_MKGameContent;
-    }
-
     public MKGameUIManager GetUIManager()
     {
         return m_MKGameUIManager;
+    }
+
+    public MKFlowManager GetFlowManager()
+    {
+        return m_MKFlowManager;
+    }
+
+    public MKLevelLoader GetLevelLoader()
+    {
+        return m_MKLevelLoader;
+    }
+
+    public MKGameContent GetGameContent()
+    {
+        return m_MKGameContent;
     }
 
     [SerializeField]
@@ -45,11 +55,14 @@ public class MKGame : USSimpleSingleton<MKGame>
     private MKGameManager m_MKGameManager;
 
     [SerializeField]
-    private MKGameContent m_MKGameContent;
-
-    [SerializeField]
     private MKGameUIManager m_MKGameUIManager;
 
+    [SerializeField]
+    private MKFlowManager m_MKFlowManager;
 
+    [SerializeField]
+    private MKLevelLoader m_MKLevelLoader;
 
+    [SerializeField]
+    private MKGameContent m_MKGameContent;
 }

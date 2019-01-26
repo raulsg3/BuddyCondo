@@ -25,11 +25,13 @@ public enum EMKCellType
     Movable,
     Decoration,
     Target,
+    Player1,
+    Player2,
     Player,
     PlayerWithMovable
 }
 
-// Cell information, that will be serialized by the LevelLoader
+//Cell information, that will be serialized by the LevelLoader
 [System.Serializable]
 public class MKCellData
 {
