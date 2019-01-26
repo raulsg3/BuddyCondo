@@ -188,6 +188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuRanking
       objectReference: {fileID: 0}
+    - target: {fileID: 2502974428632514351, guid: 816c677c92e50c047953c184b4975ae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2502974428632514348, guid: 816c677c92e50c047953c184b4975ae6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1506,7 +1511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &507035968
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2509,7 +2514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1139837551
 RectTransform:
   m_ObjectHideFlags: 0
