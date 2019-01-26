@@ -28,7 +28,9 @@ public class MKFurnitureManager : MonoBehaviour
             // Instantiate the GameObjects with the cell data
             if(!string.IsNullOrEmpty(cell.PrefabName))
             {
-                GameObject furnitureObject = Instantiate(Resources.Load(cell.PrefabName)) as GameObject;                
+                GameObject furnitureObject = Instantiate(Resources.Load(cell.PrefabName)) as GameObject;       
+                furnitureObject.transform.parent = MKGame.Instance.GetLevelLoader().levelContainer;
+
                 furnitureObject.transform.Rotate(0f, cell.RotationY, 0f);
                 furnitureObject.GetComponent<MKColorController>().SetColor(cell.Color,cell.Type);
 
