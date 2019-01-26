@@ -8,6 +8,7 @@ public enum EMKMove
 }
 
 //Colors for characters and furniture
+[System.Serializable]
 public enum EMKColor
 {
     None = 0,
@@ -19,6 +20,7 @@ public enum EMKColor
 }
 
 //Cell type
+[System.Serializable]
 public enum EMKCellType
 {
     Empty = 0,
@@ -44,6 +46,7 @@ public class MKCellData
     public EMKCellType Type;
 
     //Cell typedef
+    [System.Serializable]
     public struct TMKCell
     {
         public uint row;

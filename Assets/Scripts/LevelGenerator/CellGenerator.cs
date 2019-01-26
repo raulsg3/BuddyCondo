@@ -14,4 +14,24 @@ public class CellGenerator : MonoBehaviour
             mKCellData.RotationY = gameObject.transform.GetChild(0).eulerAngles.y;
         }
     }
+
+    void OnDrawGizmos(){
+        if(mKCellData != null && mKCellData.Type == EMKCellType.Target ){
+            if(mKCellData.Color == EMKColor.Blue)
+                Gizmos.color = Color.blue;
+            else if(mKCellData.Color == EMKColor.Green)
+                Gizmos.color = Color.green;
+            else if(mKCellData.Color == EMKColor.Red)
+                Gizmos.color = Color.red;
+            
+            Gizmos.DrawWireSphere(transform.position,0.5f);
+        }
+
+        if(mKCellData != null && mKCellData.Type == EMKCellType.Player1 ){
+            Gizmos.DrawWireCube(transform.position,new Vector3(0.5f,0.5f,0.5f));
+        }
+            if(mKCellData != null && mKCellData.Type == EMKCellType.Player2 ){
+            Gizmos.DrawWireCube(transform.position,new Vector3(0.5f,0.5f,0.5f));
+        }
+    }
 }

@@ -128,7 +128,7 @@ public class MKCharacterController : MonoBehaviour
         // Check if the player wants to perform a grab
         if (m_PlayerNumber == EMKPlayerNumber.Player1 && Input.GetButtonDown("Grab1"))
         {
-            if(MKGame.Instance.GetGameManager().InteractWithCell((uint)m_CharacterIndexPosition.x,(uint)m_CharacterIndexPosition.y,GetMoveFromFacing())){
+            if(MKGame.Instance.GetGameManager().InteractWithCell(m_CharacterIndexPositionX,m_CharacterIndexPositionY,GetMoveFromFacing())){
                 Debug.Log("Suscceful grab player 1");
                 // Hack! use cheated object to grab if defined
                 if (m_CheatedObjectToGrab)
@@ -139,7 +139,7 @@ public class MKCharacterController : MonoBehaviour
         }
         else if(m_PlayerNumber == EMKPlayerNumber.Player2 && Input.GetButtonDown("Grab2"))
         {
-            if(MKGame.Instance.GetGameManager().InteractWithCell((uint)m_CharacterIndexPosition.x,(uint)m_CharacterIndexPosition.y,GetMoveFromFacing())){
+            if(MKGame.Instance.GetGameManager().InteractWithCell(m_CharacterIndexPositionX,m_CharacterIndexPositionY,GetMoveFromFacing())){
                 Debug.Log("Suscceful grab player 2");
                 // Hack! use cheated object to grab if defined
                 if (m_CheatedObjectToGrab)
@@ -182,10 +182,13 @@ public class MKCharacterController : MonoBehaviour
 
         SetPlayerFacingWithVector(_MovementToProcess);
 
-        // if(MKGame.Instance.GetGameManager().MoveToCell((uint)m_CharacterIndexPosition.x,(uint)m_CharacterIndexPosition.y,GetEMKMoveFromVector(_MovementToProcess))){
-        if(true){
+        if(MKGame.Instance.GetGameManager().MoveToCell(ref m_CharacterIndexPositionX,ref m_CharacterIndexPositionY,GetEMKMoveFromVector(_MovementToProcess))){
             // Precalculate the adjacent cell position
-            Vector2 PrecalculatedPositionIndex = m_CharacterIndexPosition;
+            Vector2 PrecalculatedPositionIndex;
+            
+            PrecalculatedPositionIndex.x = m_CharacterIndexPositionX;
+            PrecalculatedPositionIndex.y = m_CharacterIndexPositionY;
+
             PrecalculatedPositionIndex += _MovementToProcess;
 
             // Check the remaining time
@@ -194,7 +197,7 @@ public class MKCharacterController : MonoBehaviour
                 Vector2 PositionToSet = transform.position;
 
                 // Update the indexes
-                m_CharacterIndexPosition = PrecalculatedPositionIndex;
+                // m_CharacterIndexPosition = PrecalculatedPositionIndex;
 
                 // Update the position
                 m_PositionToMove += new Vector3(_MovementToProcess.x, 0.0f, _MovementToProcess.y);
@@ -261,7 +264,9 @@ public class MKCharacterController : MonoBehaviour
 
     public EMKPlayerNumber m_PlayerNumber = EMKPlayerNumber.Player1;
 
-    public Vector2 m_CharacterIndexPosition = new Vector2(0.0f, 0.0f);
+    // public Vector2 m_CharacterIndexPosition = new Vector2(0.0f, 0.0f);
+    public uint m_CharacterIndexPositionX=0;
+    public uint m_CharacterIndexPositionY=0;
 
     // ----------------------------------
 

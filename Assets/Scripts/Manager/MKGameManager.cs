@@ -130,7 +130,7 @@ public class MKGameManager : MonoBehaviour
 
     public bool PlaceInCell(uint row, uint col, EMKCellType type, EMKColor color)
     {
-        if (CanPlaceInCell(row, col, type))
+        if (!CanPlaceInCell(row, col, type))
             return false;
 
         if (type == EMKCellType.Target)
@@ -162,6 +162,7 @@ public class MKGameManager : MonoBehaviour
         //Players with a movable object
         if (currentCellType == EMKCellType.PlayerWithMovable)
         {
+            //@TODO
             return CanMoveMovableToNextCell(ref currentCellRow, ref currentCellCol, move);
         }
 

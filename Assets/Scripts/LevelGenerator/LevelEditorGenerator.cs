@@ -70,6 +70,7 @@ public class LevelEditorGenerator : MonoBehaviour
         foreach(GameObject go in Selection.gameObjects)
         {
             GameObject newGO = Instantiate(GOtoCopy, Vector3.zero, Quaternion.identity);
+            newGO.name = newGO.name.Replace("(Clone)", "");
             newGO.transform.parent = go.transform;
             newGO.transform.localPosition = Vector3.zero;
         }
