@@ -15,7 +15,6 @@ public enum PlayerPower{
     VERTICAL,HORIZONTAL
 }
 
-
 public class MKCharacterController : MonoBehaviour
 {
     // --------------------------------------------------------------
@@ -60,6 +59,7 @@ public class MKCharacterController : MonoBehaviour
     void Update()
     {
         if(!playerActive) return;
+
         
         // Process input, grab & movement
         Vector2 CurrentInput = ProcessPlayerInput();
@@ -73,12 +73,24 @@ public class MKCharacterController : MonoBehaviour
 
         UpdateMovement();
     }
+    public LayerMask layermask;
+    private void CastRayForFeedback(){
+        
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position,Vector3.forward,out hit,layermask)){
+
+        }
+    }
 
     // --------------------------------------------------------------
 
     void SetPlayerNumber(EMKPlayerNumber _PlayerNumber)
     {
         m_PlayerNumber = _PlayerNumber;
+    }
+
+    void OnDrawGizmos(){
+        // Gizmos.DrawRay(Transform.position,Vector3.forward);
     }
 
     // --------------------------------------------------------------
@@ -119,7 +131,6 @@ public class MKCharacterController : MonoBehaviour
         return CurrentInput;
     }
 
-    public bool isObjectGrabbed;
 
     void ProcessCharacterGrab()
     {
@@ -132,23 +143,13 @@ public class MKCharacterController : MonoBehaviour
         if (m_PlayerNumber == EMKPlayerNumber.Player1 && Input.GetButtonDown("Grab1"))
         {
             if(MKGame.Instance.GetGameManager().InteractWithCell(m_CharacterIndexPositionX,m_CharacterIndexPositionY,GetMoveFromFacing())){
-                Debug.Log("Suscceful grab player 1");
-                // Hack! use cheated object to grab if defined
-                if (m_CheatedObjectToGrab)
-                {
-                    m_GrabbedGameObject = m_CheatedObjectToGrab;
-                }
+                Debug.Log("Suscceful grab or drop player 1");
             }
         }
         else if(m_PlayerNumber == EMKPlayerNumber.Player2 && Input.GetButtonDown("Grab2"))
         {
             if(MKGame.Instance.GetGameManager().InteractWithCell(m_CharacterIndexPositionX,m_CharacterIndexPositionY,GetMoveFromFacing())){
-                Debug.Log("Suscceful grab player 2");
-                // Hack! use cheated object to grab if defined
-                if (m_CheatedObjectToGrab)
-                {
-                    m_GrabbedGameObject = m_CheatedObjectToGrab;
-                }
+                Debug.Log("Suscceful grab or drop player 2");
             }
         }
         else
@@ -212,6 +213,7 @@ public class MKCharacterController : MonoBehaviour
                 m_TimeRemainingToMove = m_CharacterContent.m_MoveCooldown;
                 m_MovementStartPosition = transform.position;
 
+
                 bIsMoving = true;
             }
         }
@@ -235,12 +237,11 @@ public class MKCharacterController : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, m_PositionToMove, m_CharacterContent.m_MovementInterpSpeed * Time.deltaTime);
 
-            // Lerp the grabbed object position if required
-            if(m_GrabbedGameObject)
-            {
-                Debug.Log("asdf");
-                m_GrabbedGameObject.transform.position = Vector3.Lerp(m_GrabbedGameObject.transform.position, m_MovementStartPosition, m_CharacterContent.m_MovementInterpSpeed * Time.deltaTime);
-            }
+            // // Lerp the grabbed object position if required
+            // if(m_GrabbedGameObject)
+            // {
+            //     m_GrabbedGameObject.transform.position = Vector3.Lerp(m_GrabbedGameObject.transform.position, m_MovementStartPosition, m_CharacterContent.m_MovementInterpSpeed * Time.deltaTime);
+            // }
 
             // Stop moving if destination reached
             if (Vector3.Distance(transform.position, m_PositionToMove) <= 0.01f)

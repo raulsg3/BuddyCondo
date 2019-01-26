@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3754997251738001958}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6537703793085690092}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3754997251738001978
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -107,9 +107,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlayerFacing: 0
   m_transform: {fileID: 3754997251738001979}
+  playerPower: 0
+  playerActive: 0
+  layermask:
+    serializedVersion: 2
+    m_Bits: 1
   m_PlayerNumber: 0
-  m_CharacterIndexPosition: {x: 0, y: 0}
+  m_CharacterIndexPositionX: 0
+  m_CharacterIndexPositionY: 0
   m_TimeRemainingToMove: 0
+  m_GrabbedGameObject: {fileID: 0}
   m_CheatedObjectToGrab: {fileID: 0}
 --- !u!1 &5240882728825886890
 GameObject:

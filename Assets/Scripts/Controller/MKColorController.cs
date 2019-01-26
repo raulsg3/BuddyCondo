@@ -5,10 +5,12 @@ using UnityEngine;
 public class MKColorController : MonoBehaviour
 {
     private Color furnitureColor;
-    
-    public MeshRenderer[] meshRendererArray;
-    public List<MeshRenderer> meshRendererList;
 
+    [HideInInspector]
+    public MeshRenderer[] meshRendererArray;
+    [HideInInspector]
+    public List<MeshRenderer> meshRendererList;
+    public EMKCellType myType;
     private void Awake()
     {
         meshRendererList = new List<MeshRenderer>();
@@ -21,6 +23,7 @@ public class MKColorController : MonoBehaviour
 
     public void SetColor(EMKColor baseColor, EMKCellType type)
     {
+        myType = type;
         if(type == EMKCellType.Target){
           foreach (MeshRenderer meshRenderer in meshRendererList){
             meshRenderer.enabled = false;

@@ -8,6 +8,7 @@ public class MKLevelLoader : MonoBehaviour
     public string testLevelName;
     public LevelJson currentLevelJson;
     public GameObject characterPrefab;
+    public Transform levelContainer;
 
     [Button]
     public void Debug_LoadLevelTest(){
@@ -35,7 +36,7 @@ public class MKLevelLoader : MonoBehaviour
             if(mKCellData.Type == EMKCellType.Player1 || mKCellData.Type == EMKCellType.Player2){
                 // if(true){
                 if(MKGame.Instance.GetGameManager().PlaceInCell(mKCellData.PosX,mKCellData.PosY,mKCellData.Type,mKCellData.Color)){
-                    GameObject characterInstance = Instantiate(characterPrefab);
+                    GameObject characterInstance = Instantiate(characterPrefab,levelContainer);
                     characterInstance.transform.position = MKGame.Instance.GetGameManager().GetWorldPosition(mKCellData.PosX,mKCellData.PosY); 
                     MKCharacterController characterController = characterInstance.GetComponent<MKCharacterController>();
                     if(mKCellData.Type == EMKCellType.Player1){
@@ -60,7 +61,12 @@ public class MKLevelLoader : MonoBehaviour
         MKGame.Instance.GetFlowManager().NextLevelLoaded();
     }
 
-   
+    public void DestroyLevel(){
+        foreach (Transform child in levelContainer)
+        {
+            DestroyImmediate(child,gameObject);
+        }
+    }
     
 }
 
