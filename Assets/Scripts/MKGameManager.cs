@@ -9,63 +9,41 @@ public class MKGameManager : MonoBehaviour
     //Tiempo
     //Nivel actual
 
-    //Tipos de casillas y contenido
-    private enum EMKTileType
-    {
-        Empty,
-        Character,
-        Obstacle,
-        Container,
-        Object
-    }
-
-    //Colores de personajes y objetos
-    private enum EMKColor
-    {
-        None,
-        Black,
-        Blue,
-        Red,
-        Yellow
-    }
-
-    //Typedef TILE
-    private struct MKTile
-    {
-        public uint row;
-        public uint col;
-        public EMKTileType type;
-    }
-
-    //Grid del juego
-    private MKTile[,] m_grid;
+    //Game grid
+    private MKCellData.TMKCell[,] m_cells;
 
     void Start()
     {
-        uint gridWidth = MKGame.Instance.GetGameContent().GetGameManagerContent().m_gridWidth;
+        uint gridWidth  = MKGame.Instance.GetGameContent().GetGameManagerContent().m_gridWidth;
         uint gridHeight = MKGame.Instance.GetGameContent().GetGameManagerContent().m_gridHeight;
 
-        m_grid = new MKTile[gridWidth, gridHeight];
+        m_cells = new MKCellData.TMKCell[gridWidth, gridHeight];
 
         for (uint r = 0; r < gridWidth; ++r)
         {
             for (uint c = 0; c < gridHeight; ++c)
             {
-                m_grid[r, c].row = r;
-                m_grid[r, c].col = c;
-                m_grid[r, c].type = EMKTileType.Empty;
+                m_cells[r, c].row = r;
+                m_cells[r, c].col = c;
+                m_cells[r, c].type = MKCellData.EMKCellType.Empty;
             }
         }
     }
 
-    internal void InitiaizeCell(int posX, int posY, MKCellData.ECellType cellType, MKCellData.EColor color)
+    public bool InitializeCell(int row, int col, MKCellData.EMKCellType type)
     {
-        Debug.Log("MKGameManager.GetWorldPosition() NOT IMPLEMENTED");
+        if (m_cells[row, col].type != MKCellData.EMKCellType.Empty)
+            return false;
+
+        m_cells[row, col].type = type;
+        return true;
     }
 
     public Vector3 GetWorldPosition(Vector2 logicPosition)
     {
-        Debug.Log("MKGameManager.GetWorldPosition() NOT IMPLEMENTED");
-        return new Vector3(0, 0, 0);
+        float cellWidth  = MKGame.Instance.GetGameContent().GetGameManagerContent().m_cellWidth;
+        float cellHeight = MKGame.Instance.GetGameContent().GetGameManagerContent().m_cellHeight;
+
+        return new Vector3(logicPosition.x + cellWidth / 2, 0, logicPosition.y + cellHeight / 2);
     }
 }

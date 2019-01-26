@@ -7,4 +7,7 @@ public class MKGameManagerContent : ScriptableObject
 {
     public uint m_gridWidth  = 40;
     public uint m_gridHeight = 20;
+
+    public float m_cellWidth  = 1;
+    public float m_cellHeight = 1;
 }

@@ -16,7 +16,7 @@ public class MKColorController : MonoBehaviour
         
     }
 
-    public void SetColor(MKCellData.EColor baseColor)
+    public void SetColor(MKCellData.EMKColor baseColor)
     {
         Debug.Log("MKColorController.SetColor() NOT IMPLEMENTED");
     }

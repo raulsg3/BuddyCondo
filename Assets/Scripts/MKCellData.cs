@@ -1,17 +1,26 @@
-﻿// Cell information, that wil be serialized by the LevelLoader
+﻿// Cell information, that will be serialized by the LevelLoader
 [System.Serializable]
 public class MKCellData
 {
     public int PosX;
     public int PosY;
-    public string PrefabName;
     public float RotationY;
-    public EColor Color;
-    public ECellType CellType;
+    public string PrefabName;
+    public EMKColor Color;
+    public EMKCellType Type;
 
+    //Cell type
+    public enum EMKCellType
+    {
+        Empty = 0,
+        Movable,
+        Decoration,
+        Target,
+        Player
+    }
 
-    // Different colors for furniture
-    public enum EColor
+    //Colors for characters and furniture
+    public enum EMKColor
     {
         None = 0,
         Black,
@@ -20,13 +29,11 @@ public class MKCellData
         Yellow
     }
 
-    // Cell type
-    public enum ECellType
+    //Cell typedef
+    public struct TMKCell
     {
-        Empty = 0,
-        Movable,
-        Decoration,
-        Target,
-        Player
+        public uint row;
+        public uint col;
+        public EMKCellType type;
     }
 }
