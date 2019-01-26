@@ -26,7 +26,7 @@ public class MKFurnitureManager : MonoBehaviour
         foreach (MKCellData cell in cellList)
         {
             // Initialize the cell in the GameManager
-            MKGame.Instance.GetGameManager().InitiaizeCell(cell.PosX, cell.PosY, cell.CellType, cell.Color);
+            MKGame.Instance.GetGameManager().InitializeCell(cell.PosX, cell.PosY, cell.Type);
 
             // Instantiate the GameObjects with the cell data
             GameObject furnitureObject = Instantiate(Resources.Load(cell.PrefabName)) as GameObject;

@@ -5,15 +5,48 @@ using UnityEngine;
 
 public class MKGameManager : MonoBehaviour
 {
-    //Nombre de jugadores
-    //Tiempo
-    //Nivel actual
+    //Players
+    private String m_player1Name;
+    private String m_player2Name;
+
+    //Time
+    private float m_gameAccTime;
+
+    //Level
+    private uint m_gameCurrentLevel;
 
     //Game grid
     private MKCellData.TMKCell[,] m_cells;
 
+    public String Player1Name
+    {
+        get { return m_player1Name; }
+        set { m_player1Name = value; }
+    }
+
+    public String Player2Name
+    {
+        get { return m_player2Name; }
+        set { m_player2Name = value; }
+    }
+
+    public float GameAccTime
+    {
+        get { return m_gameAccTime; }
+        private set { m_gameAccTime = value; }
+    }
+
+    public uint GameCurrentLevel
+    {
+        get { return m_gameCurrentLevel; }
+        private set { m_gameCurrentLevel = value; }
+    }
+
     void Start()
     {
+        GameAccTime = 0;
+        GameCurrentLevel = 1;
+
         uint gridWidth  = MKGame.Instance.GetGameContent().GetGameManagerContent().m_gridWidth;
         uint gridHeight = MKGame.Instance.GetGameContent().GetGameManagerContent().m_gridHeight;
 
