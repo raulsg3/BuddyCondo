@@ -231,11 +231,12 @@ public class MKGameManager : MonoBehaviour
         if (nextCellRow == currentCellRow && nextCellCol == currentCellCol)
             return false;
 
-        //Next cell is not empty
-        if (m_cells[nextCellRow, nextCellCol].type != EMKCellType.Empty)
+        //Next cell is not empty and not Target_Empty
+        if (m_cells[nextCellRow, nextCellCol].type != EMKCellType.Empty &&
+            m_cells[nextCellRow, nextCellCol].type != EMKCellType.Target)
             return false;
 
-        //Next cell is empty
+        //Next cell is empty or Target_Empty
         m_cells[nextCellRow, nextCellCol].type = m_cells[currentCellRow, currentCellCol].type;
         m_cells[nextCellRow, nextCellCol].color = m_cells[currentCellRow, currentCellCol].color;
 
