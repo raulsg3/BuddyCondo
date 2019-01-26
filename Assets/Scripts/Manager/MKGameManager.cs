@@ -46,7 +46,6 @@ public class MKGameManager : MonoBehaviour
     {
         GameAccTime = 0;
         GameCurrentLevel = 1;
-
         uint gridWidth  = MKGame.Instance.GetGameContent().GetGameManagerContent().m_gridWidth;
         uint gridHeight = MKGame.Instance.GetGameContent().GetGameManagerContent().m_gridHeight;
 
@@ -85,23 +84,23 @@ public class MKGameManager : MonoBehaviour
         return m_cells[row, col].type != MKCellData.EMKCellType.Empty;
     }
 
-    protected bool CanMoveToCell(uint currentCellRow, uint currentCellCol, MKCharacterController.EMKCharacterMove move)
+    protected bool CanMoveToCell(uint currentCellRow, uint currentCellCol, EMKCharacterMove move)
     {
         int nextCellRow = (int)currentCellRow;
         int nextCellCol = (int)currentCellCol;
 
         switch (move)
         {
-            case MKCharacterController.EMKCharacterMove.Up:
+            case EMKCharacterMove.Up:
                 nextCellRow -= 1;
                 break;
-            case MKCharacterController.EMKCharacterMove.Right:
+            case EMKCharacterMove.Right:
                 nextCellCol += 1;
                 break;
-            case MKCharacterController.EMKCharacterMove.Bottom:
+            case EMKCharacterMove.Bottom:
                 nextCellRow += 1;
                 break;
-            case MKCharacterController.EMKCharacterMove.Left:
+            case EMKCharacterMove.Left:
                 nextCellCol -= 1;
                 break;
         }

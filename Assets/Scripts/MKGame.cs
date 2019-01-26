@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class MKGame : USSimpleSingleton<MKGame>
 {
+    void Awake(){
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
+    }
+
     public MKRankingManager GetRankingManager()
     {
         return m_MKRankingManager;
@@ -25,6 +30,11 @@ public class MKGame : USSimpleSingleton<MKGame>
         return m_MKGameContent;
     }
 
+    public MKGameUIManager GetUIManager()
+    {
+        return m_MKGameUIManager;
+    }
+
     [SerializeField]
     private MKRankingManager m_MKRankingManager;
 
@@ -36,4 +46,10 @@ public class MKGame : USSimpleSingleton<MKGame>
 
     [SerializeField]
     private MKGameContent m_MKGameContent;
+
+    [SerializeField]
+    private MKGameUIManager m_MKGameUIManager;
+
+
+
 }
