@@ -48,5 +48,9 @@ public class MKFurnitureManager : MonoBehaviour
         return true;
     }
 
+    public void MoveFurniture(uint oldX, uint oldY, uint newX, uint newY){
+
+    }
+
     
 }
