@@ -144,6 +144,9 @@ public class MKGameManager : MonoBehaviour
         return m_cells[row, col].type == EMKCellType.Empty;
     }
 
+    /*********************************************************
+    * Move
+    *********************************************************/
     public bool MoveToCell(uint currentCellRow, uint currentCellCol, EMKMove move)
     {
         EMKCellType currentCellType = m_cells[currentCellRow, currentCellCol].type;
@@ -154,7 +157,7 @@ public class MKGameManager : MonoBehaviour
             return CanMovePlayerToCell(currentCellRow, currentCellCol, move);
         }
 
-        //Players pushing a movable object
+        //Players with a movable object
         if (currentCellType == EMKCellType.PlayerWithMovable)
         {
             return CanMoveMovableToCell(currentCellRow, currentCellCol, move);
@@ -206,5 +209,47 @@ public class MKGameManager : MonoBehaviour
         return canMove;
     }
 
-}
+    /*********************************************************
+    * Interact
+    *********************************************************/
+    public bool InteractWithCell(uint currentCellRow, uint currentCellCol, EMKMove move)
+    {
+        EMKCellType currentCellType = m_cells[currentCellRow, currentCellCol].type;
 
+        //Players
+        if (currentCellType == EMKCellType.Player)
+        {
+            return CanPlayerInteractWithCell(currentCellRow, currentCellCol, move);
+        }
+
+        //Players with a movable object
+        if (currentCellType == EMKCellType.PlayerWithMovable)
+        {
+            m_cells[currentCellRow, currentCellCol].type = EMKCellType.Player;
+            return true;
+        }
+
+        //Only players can interact
+        return false;
+    }
+
+    protected bool CanPlayerInteractWithCell(uint currentCellRow, uint currentCellCol, EMKMove move)
+    {
+        Vector2 nextCell = GetNextLogicPosition(currentCellRow, currentCellCol, move);
+        uint objCellRow = (uint)nextCell.x;
+        uint objCellCol = (uint)nextCell.y;
+
+        //Grid limits
+        if (objCellRow == currentCellRow && objCellCol == currentCellCol)
+            return false;
+
+        //The objective cell is not a Movable object
+        if (m_cells[objCellRow, objCellCol].type != EMKCellType.Movable)
+            return false;
+
+        //The objective cell is a Movable object
+        m_cells[currentCellRow, currentCellCol].type = EMKCellType.PlayerWithMovable;
+
+        return true;
+    }
+}
