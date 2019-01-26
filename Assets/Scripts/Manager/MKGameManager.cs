@@ -274,6 +274,9 @@ public class MKGameManager : MonoBehaviour
             //The next cell for the movable object is empty
             canMove = true;
 
+            MKGame.Instance.GetFurnitureManager().MoveFurniture(
+                movableCellRow, movableCellCol, nextMovableCellRow, nextMovableCellCol);
+
             m_cells[nextMovableCellRow, nextMovableCellCol].type = EMKCellType.Movable;
             m_cells[nextMovableCellRow, nextMovableCellCol].color = m_cells[movableCellRow, movableCellCol].color;
 
@@ -298,6 +301,9 @@ public class MKGameManager : MonoBehaviour
                 //Movable object and target with the same color
                 canMove = true;
                 DecLevelTargetsLeft();
+
+                MKGame.Instance.GetFurnitureManager().MoveFurniture(
+                    movableCellRow, movableCellCol, nextMovableCellRow, nextMovableCellCol);
 
                 m_cells[nextMovableCellRow, nextMovableCellCol].type = EMKCellType.TargetFull;
 
@@ -334,6 +340,8 @@ public class MKGameManager : MonoBehaviour
         m_cells[nextPlayerCellRow, nextPlayerCellCol].color = m_cells[playerCellRow, playerCellCol].color;
 
         //@TODO Mover el movable object asociado
+        //MKGame.Instance.GetFurnitureManager().MoveFurniture(
+        //  movableCellRow, movableCellCol, nextMovableCellRow, nextMovableCellCol);
         //m_cells[playerCellRow, playerCellCol].type = EMKCellType.Empty;
         //m_cells[playerCellRow, playerCellCol].color = EMKColor.None;
 
