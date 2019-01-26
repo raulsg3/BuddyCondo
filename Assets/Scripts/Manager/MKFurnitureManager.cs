@@ -40,7 +40,7 @@ public class MKFurnitureManager : MonoBehaviour
                 GameObject furnitureObject = Instantiate(Resources.Load(cell.PrefabName)) as GameObject;
                 furnitureObject.transform.position = MKGame.Instance.GetGameManager().GetWorldPosition(cell.PosX, cell.PosY);
                 furnitureObject.transform.Rotate(0f, cell.RotationY, 0f);
-                furnitureObject.GetComponent<MKColorController>().SetColor(cell.Color,cell.Color);
+                furnitureObject.GetComponent<MKColorController>().SetColor(cell.Color,cell.Type);
                 furnitureList.Add(furnitureObject);
             }
         }
