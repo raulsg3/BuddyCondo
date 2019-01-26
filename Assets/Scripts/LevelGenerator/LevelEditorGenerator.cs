@@ -27,11 +27,7 @@ public class LevelEditorGenerator : MonoBehaviour
 
     }
 
-    [Button]
-    public void Debug_Save(){
-       File.WriteAllText(Application.streamingAssetsPath + "/level_"+1+".json",JsonUtility.ToJson(currentLevelJson)); 
-
-    }
+  
     public void Delete(){
         List<GameObject> destroyList = new List<GameObject>(); 
         foreach (Transform item in cellParent)
