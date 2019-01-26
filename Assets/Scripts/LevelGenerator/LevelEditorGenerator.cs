@@ -20,6 +20,7 @@ public class LevelEditorGenerator : MonoBehaviour
         currentLevelJson = new LevelJson();
         foreach (Transform item in cellParent)
         {
+            item.GetComponent<CellGenerator>().SetFurniture();
             currentLevelJson.cellDataList.Add(item.GetComponent<CellGenerator>().mKCellData);
         }
         
