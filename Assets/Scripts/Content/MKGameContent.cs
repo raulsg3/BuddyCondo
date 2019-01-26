@@ -5,6 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SOGameContent", menuName = "MK/SOGameContent", order = 0)]
 public class MKGameContent : ScriptableObject
 {
+    public MKGameManagerContent GetGameManagerContent()
+    {
+        return m_MKGameManagerContent;
+    }
+
     public MKCharacterContent GetCharacterContent()
     {
         return m_MKCharacterContent;
@@ -14,6 +19,9 @@ public class MKGameContent : ScriptableObject
     {
         return m_MKFurnitureContent;
     }
+
+    [SerializeField]
+    private MKGameManagerContent m_MKGameManagerContent;
 
     [SerializeField]
     private MKCharacterContent m_MKCharacterContent;
