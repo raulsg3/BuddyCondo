@@ -17,18 +17,22 @@ public class MKRankingManager : MonoBehaviour
     {
 
     }
-    [Button]
+
     public void ScoreToJson()
     {
-        m_MKGameManager = MKGame.Instance.GetGameManager();
-        MKScore score = new MKScore(m_MKGameManager.Player1Name, m_MKGameManager.Player2Name, m_MKGameManager.GameCurrentLevel, m_MKGameManager.GameAccTime);
+        /*m_MKGameManager = MKGame.Instance.GetGameManager();
+        MKScore score = new MKScore(m_MKGameManager.Player1Name, m_MKGameManager.Player2Name, m_MKGameManager.GameCurrentLevel, m_MKGameManager.GameAccTime);*/
+        MKScore score = new MKScore("XCV", "TSS", 1, 7);
         m_scores.scores.Add(score);
         SortRankingData();
+        while (m_scores.scores.Count > 10 )
+        {
+            m_scores.scores.RemoveAt(m_scores.scores.Count - 1);
+        }
         string json = JsonUtility.ToJson(m_scores);
         File.WriteAllText(Application.persistentDataPath + "/ranking.json", json);
     }
-
-    [Button]
+    
     public void PopulateRankingData()
     {
         m_scores = new MKScores();
@@ -41,8 +45,8 @@ public class MKRankingManager : MonoBehaviour
         m_scores.scores.Sort((x, y) => x.score > y.score ? -1 : (x.score == y.score ? (x.level > y.level ? -1 : 0) : 1));
     }
 
-    public MKGameManager m_MKGameManager;
-    public MKScores m_scores;
+    private MKGameManager m_MKGameManager;
+    private MKScores m_scores;
 
     [Serializable]
     public struct MKScore
