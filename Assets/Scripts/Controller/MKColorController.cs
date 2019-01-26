@@ -58,11 +58,40 @@ public class MKColorController : MonoBehaviour
     public GameObject grabGOInstance;
 
     public void ShowFeedback(){
-        Debug.Log("Show");
+        if(grabGOInstance == null){
+           grabGOInstance = Instantiate(MKGame.Instance.GetFurnitureManager().grabFeedbackPrefab,transform);
+        }
+        if(grabGOInstance == null){
+            Debug.LogError("No se ha instanciado el feeback. Return"); 
+            return;
+        }
+
+        grabGOInstance.transform.SetParent( transform,false);
+        grabGOInstance.GetComponent<GrabFeedBack>().canvas.enabled=true;
+    
     }
+
     public void HideFeedback(){
-        Debug.Log("Hide");
+        grabGOInstance.GetComponent<GrabFeedBack>().canvas.enabled=false;
     }
+    private bool isGrabbed = false;
+    public void ToogleGrabFeedBack(){
+        if(grabGOInstance == null){
+            Debug.LogError("No se ha instanciado el feeback. Return"); 
+            return;
+        }
+
+        isGrabbed = !isGrabbed;
+        if(isGrabbed){
+            grabGOInstance.GetComponent<GrabFeedBack>().ShowAsGrabbed();
+
+        }else{
+            grabGOInstance.GetComponent<GrabFeedBack>().ShowAsUnGrabbed();
+
+        }
+
+    }
+ 
 
     private IDictionary<EMKColor, Color> colorMap = new Dictionary<EMKColor, Color>()
     {

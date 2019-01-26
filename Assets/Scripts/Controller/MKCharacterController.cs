@@ -83,17 +83,25 @@ public class MKCharacterController : MonoBehaviour
         if(myTransform == null) myTransform = transform;
         
         if(Physics.Raycast(myTransform.position,myTransform.forward,out hit,layermask)){
+            Debug.Log(hit.transform.gameObject.name);
             MKColorController colorController = hit.transform.GetComponentInParent(typeof(MKColorController)) as MKColorController;
             if (colorController != null && colorController.myType == EMKCellType.Movable ){
                 currentColorController = colorController;
                 currentColorController.ShowFeedback();
             }
-        }else{
-            if(currentColorController != null)
+            else
             {
-                currentColorController.HideFeedback();
-                currentColorController = null;
+                if(currentColorController!= null){
+
+                    currentColorController.HideFeedback();
+                    currentColorController = null;
+                }
             }
+        }
+        else if (currentColorController != null)
+        {
+            currentColorController.HideFeedback();
+            currentColorController = null;
         }
     }
 
@@ -157,12 +165,14 @@ public class MKCharacterController : MonoBehaviour
         {
             if(MKGame.Instance.GetGameManager().InteractWithCell(m_CharacterIndexPositionX,m_CharacterIndexPositionY,GetMoveFromFacing())){
                 Debug.Log("Suscceful grab or drop player 1");
+                currentColorController.ToogleGrabFeedBack();
             }
         }
         else if(m_PlayerNumber == EMKPlayerNumber.Player2 && Input.GetButtonDown("Grab2"))
         {
             if(MKGame.Instance.GetGameManager().InteractWithCell(m_CharacterIndexPositionX,m_CharacterIndexPositionY,GetMoveFromFacing())){
                 Debug.Log("Suscceful grab or drop player 2");
+                currentColorController.ToogleGrabFeedBack();
             }
         }
         else
