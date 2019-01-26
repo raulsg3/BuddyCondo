@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4385821974260989515}
   - component: {fileID: 8510797933137070719}
   - component: {fileID: 6388695879665218621}
+  - component: {fileID: 134360193229674116}
   m_Layer: 0
   m_Name: MKGame
   m_TagString: Untagged
@@ -56,6 +57,7 @@ MonoBehaviour:
   m_MKFlowManager: {fileID: 6388695879665218621}
   m_MKLevelLoader: {fileID: 8510797933137070719}
   m_MKGameContent: {fileID: 11400000, guid: 34d916bd9a37fe240a113245b0a29ded, type: 2}
+  m_MKCharacterManager: {fileID: 134360193229674116}
 --- !u!114 &6419378501694874796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,3 +135,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ef88c7339ec1c41a8309ef14a8c684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &134360193229674116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6419378501694874795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f957cbd58dd68f458e4cfca0f6ed9b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}

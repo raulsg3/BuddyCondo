@@ -10,6 +10,7 @@ public class MKFlowManager : MonoBehaviour
     {
         m_State = new State();
         m_MKLevelLoader = MKGame.Instance.GetLevelLoader();
+        m_MKCharacterManager = MKGame.Instance.GetCharacterManager();
     }
 
     // Update is called once per frame
@@ -22,18 +23,25 @@ public class MKFlowManager : MonoBehaviour
     {
         if (m_State.GameStatus != (int)Status.Game) { throw new System.Exception("No puedes llamarme desde fuera del Game."); }
 
+        m_MKCharacterManager.SetPlayerActiveStatus(false);
+
         //ALGO PARA FADE IN EL CARTEL DE VICTORIA?
         GameObject uIDataGO = GameObject.FindGameObjectWithTag("UIData");
         GameObject victoryUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("victoryUI");
         victoryUIGO.SetActive(true);
 
-        m_MKLevelLoader.LoadLevel("level_"+level.ToString());
+        LoadLevel(level);
+    }
+
+    public void LoadLevel(uint level)
+    {
+        m_MKLevelLoader.LoadLevel("level_" + level.ToString());
         m_State.GameStatus = (int)Status.LoadingLevel;
     }
-    [Button]
+
     public void NextLevelLoaded()
     {
-        //if (m_State.GameStatus != (int)Status.LoadingLevel) { throw new System.Exception("No puedes llamarme desde fuera del Loading."); }
+        if (m_State.GameStatus != (int)Status.LoadingLevel || m_State.GameStatus != (int)Status.Menu) { throw new System.Exception("No puedes llamarme desde fuera del Loading o del menu."); }
 
         //ALGO PARA FADE OUT EL CARTEL DE VICTORIA?
         GameObject uIDataGO = GameObject.FindGameObjectWithTag("UIData");
@@ -59,13 +67,10 @@ public class MKFlowManager : MonoBehaviour
         startingUIGO.GetComponent<Text>().text = "GO!";
         yield return new WaitForSeconds(1);
         startingUIGO.SetActive(false);
-        //FUNCION DE EMPIEZA PUNTUACIÓN
-    }
 
-    public void GameOver()
-    {
-        
-    }
+        m_MKCharacterManager.SetPlayerActiveStatus(true);
+        MKGame.Instance.GetGameManager().StartLevel();
+    } 
 
     internal class State
     {
@@ -86,4 +91,5 @@ public class MKFlowManager : MonoBehaviour
     enum Status { Menu, Game, GameOver, LoadingLevel }
     State m_State;
     MKLevelLoader m_MKLevelLoader;
+    MKCharacterManager m_MKCharacterManager;
 }

@@ -186,6 +186,7 @@ public class MKCharacterController : MonoBehaviour
         SetPlayerFacingWithVector(_MovementToProcess);
 
         if(MKGame.Instance.GetGameManager().MoveToCell(ref m_CharacterIndexPositionX,ref m_CharacterIndexPositionY,GetEMKMoveFromVector(_MovementToProcess))){
+            Debug.Log("true");
             // Precalculate the adjacent cell position
             Vector2 PrecalculatedPositionIndex;
             
