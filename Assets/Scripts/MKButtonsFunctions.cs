@@ -11,6 +11,17 @@ public class MKButtonsFunctions : MonoBehaviour
 
     public void MainMenuButton()
     {
-        Debug.Log("To implement mainmenu.");
+        MKUIData uiDataGO = GameObject.FindGameObjectWithTag("UIData").GetComponent<MKUIData>();
+        uiDataGO.GetUIGO("rankingUI").SetActive(false);
+        uiDataGO.GetUIGO("menupanelgoUI").SetActive(true);
+        uiDataGO.GetUIGO("titleUI").SetActive(true);
+    }
+
+    public void RankingButton()
+    {
+        MKUIData uiDataGO = GameObject.FindGameObjectWithTag("UIData").GetComponent<MKUIData>();
+        uiDataGO.GetUIGO("rankingUI").SetActive(true);
+        uiDataGO.GetUIGO("menupanelgoUI").SetActive(false);
+        uiDataGO.GetUIGO("titleUI").SetActive(false);
     }
 }

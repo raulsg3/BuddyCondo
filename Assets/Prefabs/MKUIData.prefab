@@ -43,5 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1f414fb72ad1c4dbb8274905883447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rankingUI: {fileID: 0}
   victoryUI: {fileID: 0}
   startingUI: {fileID: 0}
+  menupanelgoUI: {fileID: 0}
