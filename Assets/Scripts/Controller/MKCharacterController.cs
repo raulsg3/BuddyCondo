@@ -190,7 +190,6 @@ public class MKCharacterController : MonoBehaviour
 
         if (m_TimeRemainingToMove <= 0 && _MovementToProcess.magnitude > 0.1f)
         {
-            Debug.Log("asdfsad");
             if(MKGame.Instance.GetGameManager().MoveToCell(ref m_CharacterIndexPositionX,ref m_CharacterIndexPositionY,GetEMKMoveFromVector(_MovementToProcess))){
             // Debug.Log("true");
             // Precalculate the adjacent cell position
