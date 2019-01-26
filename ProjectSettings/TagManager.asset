@@ -7,6 +7,9 @@ TagManager:
   - LevelTextTag
   - TimeTextTag
   - MenuRanking
+  - VictoryUI
+  - StartingUI
+  - UIData
   layers:
   - Default
   - TransparentFX
