@@ -38,6 +38,7 @@ public class MKColorController : MonoBehaviour
           }
         }else if (type == EMKCellType.Movable){
             foreach (MeshRenderer meshRenderer in meshRendererList){
+                //set outline
                 cakeslice.Outline outline = meshRenderer.gameObject.AddComponent<cakeslice.Outline>();
                 if(baseColor == EMKColor.Red){
                     outline.color = 0;
@@ -46,10 +47,21 @@ public class MKColorController : MonoBehaviour
                 }else if (baseColor == EMKColor.Blue){
                     outline.color = 2;
                 }
+                //set layer
+                meshRenderer.gameObject.layer = LayerMask.NameToLayer("FurnitureRayLayer");
           }
         }
         furnitureColor = colorMap[baseColor];
+    }
 
+    public GameObject grabPrefab;
+    public GameObject grabGOInstance;
+
+    public void ShowFeedback(){
+        Debug.Log("Show");
+    }
+    public void HideFeedback(){
+        Debug.Log("Hide");
     }
 
     private IDictionary<EMKColor, Color> colorMap = new Dictionary<EMKColor, Color>()
