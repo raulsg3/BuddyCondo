@@ -8,8 +8,16 @@ public class MKCharacterManager : MonoBehaviour
   public MKCharacterController player2;
 
   public void SetPlayerActiveStatus(bool status){
-    player1.playerActive = status;
-    player2.playerActive = status;
+    if(player1 != null){
+        player1.playerActive = status;
+    }else{
+        Debug.Log("player 1 is null");
+    }
+    if(player2 != null){
+        player2.playerActive = status;
+    }else{
+        Debug.Log("player 2 is null");
+    }
   }
   public void ChangePowers(){
     if(player1.playerPower == PlayerPower.HORIZONTAL){
