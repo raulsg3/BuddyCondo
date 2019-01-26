@@ -53,7 +53,7 @@ public class MKLevelLoader : MonoBehaviour
             }
         }
 
-        //TODO llamar a kaito para decirle que se ha cargado el nivel
+        MKGame.Instance.GetFlowManager().NextLevelLoaded();
     }
 
    
