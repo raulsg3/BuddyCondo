@@ -366,7 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlayerNumber: 1
   m_TimeRemainingToMove: 0
-  m_CheatedObjectToGrab: {fileID: 0}
+  m_CheatedObjectToGrab: {fileID: 1576112941}
 --- !u!65 &1495584411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -597,5 +597,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3754997251738001959, guid: 717b1333e0d2f794e84e5f5da29d31ed,
+        type: 3}
+      propertyPath: m_CheatedObjectToGrab
+      value: 
+      objectReference: {fileID: 1576112941}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717b1333e0d2f794e84e5f5da29d31ed, type: 3}
