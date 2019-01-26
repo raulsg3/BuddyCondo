@@ -25,13 +25,13 @@ public class MKFurnitureManager : MonoBehaviour
 
         foreach (MKCellData cell in cellList)
         {
-            if(cell.Type == MKCellData.EMKCellType.Player1 || cell.Type == MKCellData.EMKCellType.Player2 ) {
+            if(cell.Type == EMKCellType.Player1 || cell.Type == EMKCellType.Player2 ) {
                 continue;
             }
 
             // Initialize the cell in the GameManager
             MKGame.Instance.GetGameManager().PlaceInCell(cell.PosX, cell.PosY, cell.Type);
-            if(cell.Type == MKCellData.EMKCellType.Target){
+            if(cell.Type == EMKCellType.Target){
 
             }
             // Instantiate the GameObjects with the cell data

@@ -23,19 +23,19 @@ public class MKColorController : MonoBehaviour
         
     }
 
-    public void SetColor(MKCellData.EMKColor baseColor, MKCellData.EMKColor color)
+    public void SetColor(EMKColor baseColor, EMKColor color)
     {
         furnitureColor = colorMap[baseColor];
     }
 
-    private IDictionary<MKCellData.EMKColor, Color> colorMap = new Dictionary<MKCellData.EMKColor, Color>()
+    private IDictionary<EMKColor, Color> colorMap = new Dictionary<EMKColor, Color>()
     {
-        { MKCellData.EMKColor.None, Color.white},
-        { MKCellData.EMKColor.Black, Color.black},
-        { MKCellData.EMKColor.Blue, Color.blue},
-        { MKCellData.EMKColor.Red, Color.red},
-        { MKCellData.EMKColor.Yellow, Color.yellow},
-        { MKCellData.EMKColor.Green, Color.green}
+        { EMKColor.None, Color.white},
+        { EMKColor.Black, Color.black},
+        { EMKColor.Blue, Color.blue},
+        { EMKColor.Red, Color.red},
+        { EMKColor.Yellow, Color.yellow},
+        { EMKColor.Green, Color.green}
     };
 
 }

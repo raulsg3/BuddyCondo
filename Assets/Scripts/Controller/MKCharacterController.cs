@@ -8,14 +8,6 @@ public enum EMKPlayerNumber
     Player2,
 }
 
-public enum EMKCharacterMove
-{
-    Up = 0,
-    Right,
-    Bottom,
-    Left
-}
-
 public class MKCharacterController : MonoBehaviour
 {
     // --------------------------------------------------------------
