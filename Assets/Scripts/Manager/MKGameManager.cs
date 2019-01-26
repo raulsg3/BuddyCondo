@@ -260,8 +260,8 @@ public class MKGameManager : MonoBehaviour
             return false;
 
         Vector2 nextMovableCell = GetNextLogicPosition(movableCellRow, movableCellCol, move);
-        uint nextMovableCellRow = (uint)movableCell.x;
-        uint nextMovableCellCol = (uint)movableCell.y;
+        uint nextMovableCellRow = (uint)nextMovableCell.x;
+        uint nextMovableCellCol = (uint)nextMovableCell.y;
 
         //Grid limits again
         if (nextMovableCellRow == movableCellRow && nextMovableCellCol == movableCellRow)
