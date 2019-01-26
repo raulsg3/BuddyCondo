@@ -5,7 +5,6 @@ using System.IO;
 
 public class MKLevelLoader : MonoBehaviour
 {
-
     public LevelJson currentLevelJson;
 
     [Button]
