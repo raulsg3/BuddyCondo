@@ -129,7 +129,7 @@ public class MKGameManager : MonoBehaviour
 
     public bool PlaceInCell(uint row, uint col, EMKCellType type)
     {
-        if (CanPlaceInCell(row, col, type))
+        if (!CanPlaceInCell(row, col, type))
             return false;
 
         if (type == EMKCellType.Target)
