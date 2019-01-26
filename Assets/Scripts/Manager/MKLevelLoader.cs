@@ -64,7 +64,7 @@ public class MKLevelLoader : MonoBehaviour
     public void DestroyLevel(){
         foreach (Transform child in levelContainer)
         {
-            DestroyImmediate(child,gameObject);
+            DestroyImmediate(child.gameObject);
         }
     }
     
