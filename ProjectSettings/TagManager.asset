@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LevelTextTag
   - TimeTextTag
+  - MenuRanking
   layers:
   - Default
   - TransparentFX
