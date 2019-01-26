@@ -61,10 +61,16 @@ public class MKLevelLoader : MonoBehaviour
         MKGame.Instance.GetFlowManager().NextLevelLoaded();
     }
 
+    [Button]
     public void DestroyLevel(){
+        List<GameObject> objectToDestroy = new List<GameObject>();
         foreach (Transform child in levelContainer)
         {
-            DestroyImmediate(child.gameObject);
+            objectToDestroy.Add(child.gameObject);
+        }
+        foreach (GameObject GO in objectToDestroy)
+        {
+            DestroyImmediate(GO);
         }
     }
     
