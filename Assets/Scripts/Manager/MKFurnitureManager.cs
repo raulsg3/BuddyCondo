@@ -42,6 +42,8 @@ public class MKFurnitureManager : MonoBehaviour
             }
         }
 
+        MKGame.Instance.GetGameContent().GetFurnitureContent().furnitureList = furnitureList;
+
         return true;
     }
 
@@ -57,14 +59,14 @@ public class MKFurnitureManager : MonoBehaviour
         movableFurniture.GetComponent<MKFurniturePositionHelper>().UpdatePosition(newX, newY);
     }
 
-    private GameObject GetMovableFromPosition(uint oldX, uint oldY)
+    private GameObject GetMovableFromPosition(uint posX, uint posY)
     {
         List<GameObject> furnitureList = MKGame.Instance.GetGameContent().GetFurnitureContent().furnitureList;
         foreach (GameObject furniture in furnitureList)
         {
             if(furniture.GetComponent<MKFurniturePositionHelper>() != null &&
-                furniture.GetComponent<MKFurniturePositionHelper>().PosX == oldX &&
-                furniture.GetComponent<MKFurniturePositionHelper>().PosY == oldY)
+                furniture.GetComponent<MKFurniturePositionHelper>().PosX == posX &&
+                furniture.GetComponent<MKFurniturePositionHelper>().PosY == posY)
             {
                 return furniture;
             }
