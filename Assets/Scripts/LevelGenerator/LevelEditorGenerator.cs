@@ -26,6 +26,10 @@ public class LevelEditorGenerator : MonoBehaviour
             item.GetComponent<CellGenerator>().SetFurniture();
             currentLevelJson.cellDataList.Add(item.GetComponent<CellGenerator>().mKCellData);
         }
+        foreach (MKCellData item in currentLevelJson.cellDataList)
+        {
+            Debug.Log(item.Type);
+        }
         
        File.WriteAllText(Application.streamingAssetsPath + "/level_" + levelNumber + "_" + System.DateTime.Now.Minute + ".json", JsonUtility.ToJson(currentLevelJson)); 
 
