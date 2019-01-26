@@ -6,7 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class MKMenuManager : MonoBehaviour
 {
-     public Image fadeImage;
+    #region Singleton
+    private static MKMenuManager s_instance = null;
+    public static MKMenuManager Instance
+    {
+        get { return s_instance; }
+    }
+    void Awake()
+    {
+        s_instance = this;
+    }
+    #endregion
+
+    public Image fadeImage;
     public GameObject menuGO;
     public GameObject enterNameGO;
     private bool loading = false;
@@ -33,6 +45,8 @@ public class MKMenuManager : MonoBehaviour
             Invoke("DeactivatePlayer2Error",2f);
             return;
         }
+        MKGame.Instance.GetGameManager().Player1Name = player1.text;
+        MKGame.Instance.GetGameManager().Player2Name = player1.text;
         StartCoroutine(FadeAndLoad());
     }
     public void DeactivatePlayer1Error(){

@@ -46,7 +46,6 @@ public class MKGameManager : MonoBehaviour
     {
         GameAccTime = 0;
         GameCurrentLevel = 1;
-
         uint gridWidth  = MKGame.Instance.GetGameContent().GetGameManagerContent().m_gridWidth;
         uint gridHeight = MKGame.Instance.GetGameContent().GetGameManagerContent().m_gridHeight;
 
