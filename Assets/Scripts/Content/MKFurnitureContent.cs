@@ -6,5 +6,7 @@ using UnityEngine;
 public class MKFurnitureContent : ScriptableObject
 {
     public List<GameObject> furnitureList;
+    public List<GameObject> movableObjectsList;
+
 
 }
