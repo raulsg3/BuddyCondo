@@ -29,12 +29,12 @@ public class MKFurnitureManager : MonoBehaviour
             MKGame.Instance.GetGameManager().InitializeCell(cell.PosX, cell.PosY, cell.Type);
 
             // Instantiate the GameObjects with the cell data
+            Debug.Log("Cell (" + cell.PosX + "," + cell.PosY + ") Added: " + cell.PrefabName + ", color " + cell.Color);
             GameObject furnitureObject = Instantiate(Resources.Load(cell.PrefabName)) as GameObject;
             Vector2 furniturePosition = new Vector2(cell.PosX, cell.PosY);
             furnitureObject.transform.position = MKGame.Instance.GetGameManager().GetWorldPosition(furniturePosition);
             furnitureObject.transform.Rotate(0f, cell.RotationY, 0f);
             furnitureObject.GetComponent<MKColorController>().SetColor(cell.Color);
-            Debug.Log("Added: " + cell.PrefabName);
             furnitureList.Add(furnitureObject);
         }
 
