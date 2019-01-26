@@ -117,7 +117,7 @@ public class MKCharacterController : MonoBehaviour
 
     void ProcessCharacterMovement(Vector2 _MovementToProcess)
     {
-        Debug.Log(_MovementToProcess);
+        // Debug.Log(_MovementToProcess);
         // Check if we can move to that cell!
         if (bIsMoving)
         {
@@ -187,7 +187,7 @@ public class MKCharacterController : MonoBehaviour
 
     public EMKPlayerNumber m_PlayerNumber = EMKPlayerNumber.Player1;
 
-    private Vector2 m_CharacterIndexPosition = new Vector2(0.0f, 0.0f);
+    public Vector2 m_CharacterIndexPosition = new Vector2(0.0f, 0.0f);
 
     // ----------------------------------
 
