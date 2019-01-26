@@ -20,6 +20,7 @@ public class MKButtonsFunctions : MonoBehaviour
     public void RankingButton()
     {
         MKUIData uiDataGO = GameObject.FindGameObjectWithTag("UIData").GetComponent<MKUIData>();
+        MKGame.Instance.GetRankingManager().FillRankingMenuData();
         uiDataGO.GetUIGO("rankingUI").SetActive(true);
         uiDataGO.GetUIGO("menupanelgoUI").SetActive(false);
         uiDataGO.GetUIGO("titleUI").SetActive(false);

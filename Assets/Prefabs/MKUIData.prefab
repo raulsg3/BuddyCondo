@@ -47,3 +47,4 @@ MonoBehaviour:
   victoryUI: {fileID: 0}
   startingUI: {fileID: 0}
   menupanelgoUI: {fileID: 0}
+  titleUI: {fileID: 0}
