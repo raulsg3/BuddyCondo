@@ -36,4 +36,5 @@ public class MKGame : USSimpleSingleton<MKGame>
 
     [SerializeField]
     private MKGameContent m_MKGameContent;
+
 }
