@@ -11,4 +11,15 @@ public class MKCharacterManager : MonoBehaviour
     player1.playerActive = status;
     player2.playerActive = status;
   }
+  public void ChangePowers(){
+    if(player1.playerPower == PlayerPower.HORIZONTAL){
+        player1.playerPower = PlayerPower.VERTICAL;
+    }else
+        player1.playerPower = PlayerPower.HORIZONTAL;
+
+    if(player2.playerPower == PlayerPower.HORIZONTAL){
+        player2.playerPower = PlayerPower.VERTICAL;
+    }else
+        player2.playerPower = PlayerPower.HORIZONTAL;
+   }
 }

@@ -41,16 +41,16 @@ public class MKLevelLoader : MonoBehaviour
                     if(mKCellData.Type == EMKCellType.Player1){
                         characterController.m_PlayerNumber = EMKPlayerNumber.Player1;
                         characterController.playerPower = PlayerPower.HORIZONTAL;
-                        characterController.playerActive = false;
-                        // MKGame.Instance.GetFlowManager().player1 = characterController;
+                        MKGame.Instance.GetCharacterManager().player1 = characterController; 
                     } 
                     else
                     {
                         characterController.m_PlayerNumber = EMKPlayerNumber.Player2;
                         characterController.playerPower = PlayerPower.VERTICAL;
-                        characterController.playerActive = false;
-                        // MKGame.Instance.GetFlowManager().player2 = characterController;
+                        MKGame.Instance.GetCharacterManager().player2 =characterController; 
+
                     } 
+                    MKGame.Instance.GetCharacterManager().SetPlayerActiveStatus(false);
                     characterController.m_CharacterIndexPositionX = mKCellData.PosX;
                     characterController.m_CharacterIndexPositionY = mKCellData.PosY;
                 }
