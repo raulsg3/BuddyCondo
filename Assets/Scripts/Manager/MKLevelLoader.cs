@@ -46,13 +46,14 @@ public class MKLevelLoader : MonoBehaviour
                         characterController.m_PlayerNumber = EMKPlayerNumber.Player2;
                         characterController.playerPower = PlayerPower.HORIZONTAL;
                     } 
-                    characterController.m_CharacterIndexPosition.x = mKCellData.PosX;
-                    characterController.m_CharacterIndexPosition.y = mKCellData.PosY;
+                    characterController.m_CharacterIndexPositionX = mKCellData.PosX;
+                    characterController.m_CharacterIndexPositionY = mKCellData.PosY;
                 }
             }
         }
 
         //TODO llamar a kaito para decirle que se ha cargado el nivel
+        // MKGame.Instance.GetFlowManager().nex
     }
 
    
