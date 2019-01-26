@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MKRankingManager : MonoBehaviour
 {
@@ -17,15 +18,15 @@ public class MKRankingManager : MonoBehaviour
     {
 
     }
-
+    
     public void ScoreToJson()
     {
         /*m_MKGameManager = MKGame.Instance.GetGameManager();
         MKScore score = new MKScore(m_MKGameManager.Player1Name, m_MKGameManager.Player2Name, m_MKGameManager.GameCurrentLevel, m_MKGameManager.GameAccTime);*/
-        MKScore score = new MKScore("XCV", "TSS", 1, 7);
+        MKScore score = new MKScore("xxx", "vvv", 1, 8);
         m_scores.scores.Add(score);
         SortRankingData();
-        while (m_scores.scores.Count > 10 )
+        while (m_scores.scores.Count > 8 )
         {
             m_scores.scores.RemoveAt(m_scores.scores.Count - 1);
         }
@@ -38,6 +39,26 @@ public class MKRankingManager : MonoBehaviour
         m_scores = new MKScores();
         string json = File.ReadAllText(Application.persistentDataPath + "/ranking.json");
         m_scores = JsonUtility.FromJson<MKScores>(json);
+    }
+
+    public void FillRankingMenuData()
+    {
+        Debug.Log(m_scores);
+        Debug.Log(m_scores.scores);
+        Debug.Log(m_scores.scores.Count);
+        if (m_scores == null || m_scores.scores.Count==0) PopulateRankingData();
+
+        GameObject menuRankingGO = GameObject.FindGameObjectWithTag("MenuRanking");
+        MKMenuRanking menuRankingCO = menuRankingGO.GetComponent<MKMenuRanking>();
+        for (int i = 0; i <= m_scores.scores.Count - 1; i++)
+        {
+            MKScoreVisual scoreCO = menuRankingCO.scores[i].GetComponent<MKScoreVisual>();
+            scoreCO.Player1.GetComponent<Text>().text = m_scores.scores[i].playerOne;
+            Debug.Log(m_scores.scores[i]);
+            scoreCO.Player2.GetComponent<Text>().text = m_scores.scores[i].playerTwo;
+            scoreCO.Level.GetComponent<Text>().text = m_scores.scores[i].level.ToString();
+            scoreCO.Score.GetComponent<Text>().text = m_scores.scores[i].score.ToString();
+        }
     }
 
     public void SortRankingData()

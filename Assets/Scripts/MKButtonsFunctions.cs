@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class MKButtonsFunctions : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void PlayAgainButton()
     {
-        
+        Debug.Log("To implement playagain.");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MainMenuButton()
     {
-        
+        Debug.Log("To implement mainmenu.");
     }
-
-
 }
