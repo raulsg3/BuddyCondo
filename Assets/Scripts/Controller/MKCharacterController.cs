@@ -186,14 +186,14 @@ public class MKCharacterController : MonoBehaviour
         SetPlayerFacingWithVector(_MovementToProcess);
 
         if(MKGame.Instance.GetGameManager().MoveToCell(ref m_CharacterIndexPositionX,ref m_CharacterIndexPositionY,GetEMKMoveFromVector(_MovementToProcess))){
-            Debug.Log("true");
+            // Debug.Log("true");
             // Precalculate the adjacent cell position
-            Vector2 PrecalculatedPositionIndex;
+            // Vector2 PrecalculatedPositionIndex;
             
-            PrecalculatedPositionIndex.x = m_CharacterIndexPositionX;
-            PrecalculatedPositionIndex.y = m_CharacterIndexPositionY;
+            // PrecalculatedPositionIndex.x = m_CharacterIndexPositionX;
+            // PrecalculatedPositionIndex.y = m_CharacterIndexPositionY;
 
-            PrecalculatedPositionIndex += _MovementToProcess;
+            // PrecalculatedPositionIndex += _MovementToProcess;
 
             // Check the remaining time
             if (m_TimeRemainingToMove <= 0 && _MovementToProcess.magnitude > 0.1f)
