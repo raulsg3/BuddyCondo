@@ -6,17 +6,17 @@ using UnityEngine;
 public class MKGameManager : MonoBehaviour
 {
     //Players
-    private String m_player1Name;
-    private String m_player2Name;
+    protected String m_player1Name;
+    protected String m_player2Name;
 
     //Time
-    private float m_gameAccTime;
+    protected float m_gameAccTime;
 
     //Level
-    private uint m_gameCurrentLevel;
+    protected uint m_gameCurrentLevel;
 
     //Game grid
-    private MKCellData.TMKCell[,] m_cells;
+    protected MKCellData.TMKCell[,] m_cells;
 
     public String Player1Name
     {
@@ -62,20 +62,50 @@ public class MKGameManager : MonoBehaviour
         }
     }
 
-    public bool InitializeCell(int row, int col, MKCellData.EMKCellType type)
+    public Vector3 GetWorldPosition(uint row, uint col)
     {
-        if (m_cells[row, col].type != MKCellData.EMKCellType.Empty)
+        float cellWidth  = MKGame.Instance.GetGameContent().GetGameManagerContent().m_cellWidth;
+        float cellHeight = MKGame.Instance.GetGameContent().GetGameManagerContent().m_cellHeight;
+
+        return new Vector3(row + cellWidth / 2, 0, col + cellHeight / 2);
+    }
+
+    public bool PlaceInCell(uint row, uint col, MKCellData.EMKCellType type)
+    {
+        if (CanPlaceInCell(row, col, type))
             return false;
 
         m_cells[row, col].type = type;
         return true;
     }
 
-    public Vector3 GetWorldPosition(Vector2 logicPosition)
+    protected bool CanPlaceInCell(uint row, uint col, MKCellData.EMKCellType type)
     {
-        float cellWidth  = MKGame.Instance.GetGameContent().GetGameManagerContent().m_cellWidth;
-        float cellHeight = MKGame.Instance.GetGameContent().GetGameManagerContent().m_cellHeight;
-
-        return new Vector3(logicPosition.x + cellWidth / 2, 0, logicPosition.y + cellHeight / 2);
+        return m_cells[row, col].type != MKCellData.EMKCellType.Empty;
     }
+
+    protected bool CanMoveToCell(uint currentCellRow, uint currentCellCol, EMKCharacterMove move)
+    {
+        int nextCellRow = (int)currentCellRow;
+        int nextCellCol = (int)currentCellCol;
+
+        switch (move)
+        {
+            case EMKCharacterMove.Up:
+                nextCellRow -= 1;
+                break;
+            case EMKCharacterMove.Right:
+                nextCellCol += 1;
+                break;
+            case EMKCharacterMove.Bottom:
+                nextCellRow += 1;
+                break;
+            case EMKCharacterMove.Left:
+                nextCellCol -= 1;
+                break;
+        }
+
+        return m_cells[nextCellRow, nextCellCol].type == MKCellData.EMKCellType.Empty;
+    }
+
 }
