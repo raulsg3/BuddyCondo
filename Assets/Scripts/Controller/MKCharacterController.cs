@@ -82,7 +82,7 @@ public class MKCharacterController : MonoBehaviour
     private void CastRayForFeedback(){
         if(myTransform == null) myTransform = transform;
         
-        if(Physics.Raycast(myTransform.position,Vector3.forward,out hit,layermask)){
+        if(Physics.Raycast(myTransform.position,myTransform.forward,out hit,layermask)){
             MKColorController colorController = hit.transform.GetComponentInParent(typeof(MKColorController)) as MKColorController;
             if (colorController != null && colorController.myType == EMKCellType.Movable ){
                 currentColorController = colorController;
@@ -104,9 +104,7 @@ public class MKCharacterController : MonoBehaviour
         m_PlayerNumber = _PlayerNumber;
     }
 
-    void OnDrawGizmos(){
-        // Gizmos.DrawRay(Transform.position,Vector3.forward);
-    }
+
 
     // --------------------------------------------------------------
 

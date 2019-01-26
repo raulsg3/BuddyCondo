@@ -54,6 +54,9 @@ public class MKColorController : MonoBehaviour
         furnitureColor = colorMap[baseColor];
     }
 
+    public GameObject grabPrefab;
+    public GameObject grabGOInstance;
+
     public void ShowFeedback(){
         Debug.Log("Show");
     }

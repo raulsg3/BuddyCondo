@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MKFurnitureManager : MonoBehaviour
 {
+    public GameObject grabFeedbackPrefab;
     public bool CreateFurniture(List<MKCellData> cellList)
     {
         List<GameObject> furnitureList = MKGame.Instance.GetGameContent().GetFurnitureContent().furnitureList;
