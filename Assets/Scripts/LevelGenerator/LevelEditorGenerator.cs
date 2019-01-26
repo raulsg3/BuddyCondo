@@ -21,9 +21,12 @@ public class LevelEditorGenerator : MonoBehaviour
     [Button]
     public void SaveJson(){
         currentLevelJson = new LevelJson();
+
+        SetBordersAsDecoration();
+
         foreach (Transform item in cellParent)
         {
-            item.GetComponent<CellGenerator>().SetFurniture();
+            item.GetComponent<CellGenerator>().SetFurniture();            
             currentLevelJson.cellDataList.Add(item.GetComponent<CellGenerator>().mKCellData);
         }
         foreach (MKCellData item in currentLevelJson.cellDataList)
@@ -77,6 +80,24 @@ public class LevelEditorGenerator : MonoBehaviour
             newGO.name = newGO.name.Replace("(Clone)", "");
             newGO.transform.parent = go.transform;
             newGO.transform.localPosition = Vector3.zero;
+        }
+    }
+
+    [Button]
+    public void SetBordersAsDecoration()
+    {
+        foreach (Transform item in cellParent)
+        {
+            CellGenerator cell = item.GetComponent<CellGenerator>();
+            // Is a border
+            if ((cell.mKCellData.PosX == 0) ||
+                (cell.mKCellData.PosX == 14) ||
+                (cell.mKCellData.PosY == 0) ||
+                (cell.mKCellData.PosY == 9) ||
+                (cell.mKCellData.PosX == 7)) // -> middle border
+            {
+                cell.mKCellData.Type = EMKCellType.Decoration;
+            }
         }
     }
 

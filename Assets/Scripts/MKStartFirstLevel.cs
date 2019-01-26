@@ -5,7 +5,7 @@ using UnityEngine;
 public class MKStartFirstLevel : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         MKGame.Instance.GetFlowManager().LoadLevel(1);
     }

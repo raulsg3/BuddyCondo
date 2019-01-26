@@ -90,6 +90,11 @@ public class MKGameManager : MonoBehaviour
         LevelTargetsLeft++;
     }
 
+    public void DecLevelTargetsLeft()
+    {
+        LevelTargetsLeft--;
+    }
+
     public void StartLevel()
     {
         m_levelInitTime = Time.time;
@@ -185,8 +190,31 @@ public class MKGameManager : MonoBehaviour
         //Players with a movable object
         if (IsCellTypePlayerWithMovable(currentCellType))
         {
-            //@TODO
-            return CanMoveMovableToNextCell(ref currentCellRow, ref currentCellCol, move);
+            Vector2 nextCell = GetNextLogicPosition(currentCellRow, currentCellCol, move);
+            uint nextCellRow = (uint)nextCell.x;
+            uint nextCellCol = (uint)nextCell.y;
+
+            bool nextCellMovable = true;
+
+            if (nextCellRow == currentCellRow && nextCellCol == currentCellCol)
+            {
+                nextCellMovable = false; //Grid limits
+            }
+            else if (m_cells[nextCellRow, nextCellCol].type != EMKCellType.Movable)
+            {
+                nextCellMovable = false; //Next cell is not the movable object related to the player
+            }
+
+            if (nextCellMovable)
+            {
+                //The player is pushing the movable object
+                return CanMoveMovableToNextCell(ref currentCellRow, ref currentCellCol, move);
+            }
+            else
+            {
+                //The player is pulling the movable object
+                return CanMovePlayerWithMovableToNextCell(ref currentCellRow, ref currentCellCol, move);
+            }
         }
 
         //Only players can move
@@ -203,11 +231,12 @@ public class MKGameManager : MonoBehaviour
         if (nextCellRow == currentCellRow && nextCellCol == currentCellCol)
             return false;
 
-        //Next cell is not empty
-        if (m_cells[nextCellRow, nextCellCol].type != EMKCellType.Empty)
+        //Next cell is not empty and not Target_Empty
+        if (m_cells[nextCellRow, nextCellCol].type != EMKCellType.Empty &&
+            m_cells[nextCellRow, nextCellCol].type != EMKCellType.Target)
             return false;
 
-        //Next cell is empty
+        //Next cell is empty or Target_Empty
         m_cells[nextCellRow, nextCellCol].type = m_cells[currentCellRow, currentCellCol].type;
         m_cells[nextCellRow, nextCellCol].color = m_cells[currentCellRow, currentCellCol].color;
 
@@ -268,6 +297,7 @@ public class MKGameManager : MonoBehaviour
             {
                 //Movable object and target with the same color
                 canMove = true;
+                DecLevelTargetsLeft();
 
                 m_cells[nextMovableCellRow, nextMovableCellCol].type = EMKCellType.TargetFull;
 
@@ -283,6 +313,34 @@ public class MKGameManager : MonoBehaviour
         }
 
         return canMove;
+    }
+
+    protected bool CanMovePlayerWithMovableToNextCell(ref uint playerCellRow, ref uint playerCellCol, EMKMove move)
+    {
+        Vector2 nextPlayerCell = GetNextLogicPosition(playerCellRow, playerCellCol, move);
+        uint nextPlayerCellRow = (uint)nextPlayerCell.x;
+        uint nextPlayerCellCol = (uint)nextPlayerCell.y;
+
+        //Grid limits
+        if (nextPlayerCellRow == playerCellRow && nextPlayerCellCol == playerCellCol)
+            return false;
+
+        //Next player cell is not empty
+        if (m_cells[nextPlayerCellRow, nextPlayerCellCol].type != EMKCellType.Empty)
+            return false;
+
+        //Next player cell is empty
+        m_cells[nextPlayerCellRow, nextPlayerCellCol].type = m_cells[playerCellRow, playerCellCol].type;
+        m_cells[nextPlayerCellRow, nextPlayerCellCol].color = m_cells[playerCellRow, playerCellCol].color;
+
+        //@TODO Mover el movable object asociado
+        //m_cells[playerCellRow, playerCellCol].type = EMKCellType.Empty;
+        //m_cells[playerCellRow, playerCellCol].color = EMKColor.None;
+
+        playerCellRow = nextPlayerCellRow;
+        playerCellCol = nextPlayerCellCol;
+
+        return true;
     }
 
     /*********************************************************

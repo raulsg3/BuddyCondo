@@ -16,22 +16,36 @@ public class CellGenerator : MonoBehaviour
     }
 
     void OnDrawGizmos(){
-        if(mKCellData != null && mKCellData.Type == EMKCellType.Target ){
+        if(mKCellData != null &&
+            (mKCellData.Type == EMKCellType.Target || mKCellData.Type == EMKCellType.Movable))
+        {
             if(mKCellData.Color == EMKColor.Blue)
                 Gizmos.color = Color.blue;
             else if(mKCellData.Color == EMKColor.Green)
                 Gizmos.color = Color.green;
             else if(mKCellData.Color == EMKColor.Red)
                 Gizmos.color = Color.red;
-            
-            Gizmos.DrawWireSphere(transform.position,0.5f);
+
+            if (mKCellData.Type == EMKCellType.Movable)
+            {
+                Gizmos.DrawWireSphere(transform.position, 0.5f);
+            }
+            else // Target
+            {
+                Gizmos.DrawWireSphere(transform.position, 1.0f);
+            }
         }
 
-        if(mKCellData != null && mKCellData.Type == EMKCellType.Player1 ){
-            Gizmos.DrawWireCube(transform.position,new Vector3(0.5f,0.5f,0.5f));
+        if (mKCellData != null && mKCellData.Type == EMKCellType.Button)
+        {
+            Gizmos.DrawWireCube(transform.position, new Vector3(0.9f, 1.0f, 0.9f));
+        }
+
+        if (mKCellData != null && mKCellData.Type == EMKCellType.Player1 ){
+            Gizmos.DrawWireCube(transform.position,new Vector3(0.5f,1.5f,0.5f));
         }
             if(mKCellData != null && mKCellData.Type == EMKCellType.Player2 ){
-            Gizmos.DrawWireCube(transform.position,new Vector3(0.5f,0.5f,0.5f));
+            Gizmos.DrawWireCube(transform.position,new Vector3(0.5f,1.5f,0.5f));
         }
     }
 }
