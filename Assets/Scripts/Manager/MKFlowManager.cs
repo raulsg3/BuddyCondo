@@ -19,24 +19,27 @@ public class MKFlowManager : MonoBehaviour
 
     }
 
+    [Button]
+    public void test() { WinLevel(1); }
+    [Button]
+    public void test2() { WinLevel(2); }
     public void WinLevel(uint level)
     {
-        if (m_State.GameStatus != (int)Status.Game) { throw new System.Exception("No puedes llamarme desde fuera del Game."); }
+        //if (m_State.GameStatus != (int)Status.Game) { throw new System.Exception("No puedes llamarme desde fuera del Game."); }
 
         m_MKCharacterManager.SetPlayerActiveStatus(false);
 
-        //ALGO PARA FADE IN EL CARTEL DE VICTORIA?
         GameObject uIDataGO = GameObject.FindGameObjectWithTag("UIData");
         GameObject victoryUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("victoryUI");
         victoryUIGO.SetActive(true);
 
-        LoadLevel(level);
+        StartCoroutine(FadeInLoadLevel(level));
     }
 
     public void LoadLevel(uint level)
     {
-        m_MKLevelLoader.LoadLevel(level.ToString());
         m_State.GameStatus = (int)Status.LoadingLevel;
+        m_MKLevelLoader.LoadLevel(level.ToString());
     }
 
     public void NextLevelLoaded()
@@ -47,15 +50,34 @@ public class MKFlowManager : MonoBehaviour
             throw new System.Exception("No puedes llamarme desde fuera del Loading o del menu.");
         }
 
-        //ALGO PARA FADE OUT EL CARTEL DE VICTORIA?
-        GameObject uIDataGO = GameObject.FindGameObjectWithTag("UIData");
-        GameObject victoryUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("victoryUI");
-        victoryUIGO.SetActive(false);
-        GameObject startingUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("startingUI");
-        startingUIGO.SetActive(true);
-        StartCoroutine(TimeToStart());
+        StartCoroutine(FadeOut());
+    }
 
-        m_State.GameStatus = (int)Status.Game;
+    IEnumerator DelayDestroyCreate(uint level)
+    {
+        yield return new WaitForSeconds(2);
+        LoadLevel(level);
+    }
+    
+    IEnumerator FadeInLoadLevel(uint level)
+    {
+        if (loading) yield break;
+        loading = true;
+        fadeImage.gameObject.SetActive(true);
+        Color currentColor = fadeImage.color;
+        currentColor.a = 0f;
+        fadeImage.color = currentColor;
+        while (fadeImage.color.a < 1f)
+        {
+            currentColor.a += Time.deltaTime * fadeSpeed;
+            fadeImage.color = currentColor;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(2);
+        m_MKLevelLoader.DestroyLevel();
+        StartCoroutine(DelayDestroyCreate(level));
+        loading = false;
     }
 
     IEnumerator TimeToStart()
@@ -74,7 +96,40 @@ public class MKFlowManager : MonoBehaviour
 
         m_MKCharacterManager.SetPlayerActiveStatus(true);
         MKGame.Instance.GetGameManager().StartLevel();
-    } 
+    }
+
+
+    IEnumerator FadeOut()
+    {
+        if (loading) yield break;
+        loading = true;
+        if (fadeImage == null) { fadeImage = GameObject.FindGameObjectWithTag("FadeImage").GetComponent<Image>(); }
+        try { GameObject.FindGameObjectWithTag("UIData").GetComponent<MKUIData>().GetUIGO("victoryUI").SetActive(false); } catch { }
+        fadeImage.gameObject.SetActive(true);
+        Color currentColor = fadeImage.color;
+        currentColor.a = 1f;
+        fadeImage.color = currentColor;
+        while (fadeImage.color.a > 0f)
+        {
+            currentColor.a -= Time.deltaTime * fadeSpeed;
+            fadeImage.color = currentColor;
+            yield return null;
+        }
+        fadeImage.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(1);
+
+        GameObject uIDataGO = GameObject.FindGameObjectWithTag("UIData");
+        GameObject victoryUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("victoryUI");
+        victoryUIGO.SetActive(false);
+        GameObject startingUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("startingUI");
+        startingUIGO.SetActive(true);
+
+        yield return StartCoroutine(TimeToStart());
+
+        m_State.GameStatus = (int)Status.Game;
+        loading = false;
+    }
 
     internal class State
     {
@@ -96,4 +151,7 @@ public class MKFlowManager : MonoBehaviour
     State m_State;
     MKLevelLoader m_MKLevelLoader;
     MKCharacterManager m_MKCharacterManager;
+    public Image fadeImage;
+    private bool loading;
+    public float fadeSpeed = 0.5f;
 }
