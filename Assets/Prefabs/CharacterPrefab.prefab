@@ -111,7 +111,7 @@ MonoBehaviour:
   playerActive: 0
   layermask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 512
   m_PlayerNumber: 0
   m_CharacterIndexPositionX: 0
   m_CharacterIndexPositionY: 0

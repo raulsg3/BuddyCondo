@@ -22,6 +22,10 @@ public class MKCharacterController : MonoBehaviour
     public Transform m_transform; 
     public PlayerPower playerPower; 
     public bool playerActive = false;
+     public LayerMask layermask;
+    private MKColorController currentColorController;
+    RaycastHit hit;
+    private Transform myTransform;
     void Start()
     {
         m_CharacterContent = MKGame.Instance.GetGameContent().GetCharacterContent();
@@ -60,6 +64,7 @@ public class MKCharacterController : MonoBehaviour
     {
         if(!playerActive) return;
 
+        CastRayForFeedback();
         
         // Process input, grab & movement
         Vector2 CurrentInput = ProcessPlayerInput();
@@ -73,12 +78,22 @@ public class MKCharacterController : MonoBehaviour
 
         UpdateMovement();
     }
-    public LayerMask layermask;
+   
     private void CastRayForFeedback(){
+        if(myTransform == null) myTransform = transform;
         
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position,Vector3.forward,out hit,layermask)){
-
+        if(Physics.Raycast(myTransform.position,Vector3.forward,out hit,layermask)){
+            MKColorController colorController = hit.transform.GetComponentInParent(typeof(MKColorController)) as MKColorController;
+            if (colorController != null && colorController.myType == EMKCellType.Movable ){
+                currentColorController = colorController;
+                currentColorController.ShowFeedback();
+            }
+        }else{
+            if(currentColorController != null)
+            {
+                currentColorController.HideFeedback();
+                currentColorController = null;
+            }
         }
     }
 
