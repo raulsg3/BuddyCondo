@@ -40,13 +40,13 @@ public class MKLevelLoader : MonoBehaviour
                     MKCharacterController characterController = characterInstance.GetComponent<MKCharacterController>();
                     if(mKCellData.Type == EMKCellType.Player1){
                         characterController.m_PlayerNumber = EMKPlayerNumber.Player1;
-                        characterController.playerPower = PlayerPower.HORIZONTAL;
+                        characterController.playerPower = PlayerPower.VERTICAL;
                         MKGame.Instance.GetCharacterManager().player1 = characterController; 
                     } 
                     else
                     {
                         characterController.m_PlayerNumber = EMKPlayerNumber.Player2;
-                        characterController.playerPower = PlayerPower.VERTICAL;
+                        characterController.playerPower = PlayerPower.HORIZONTAL;
                         MKGame.Instance.GetCharacterManager().player2 = characterController; 
 
                     } 

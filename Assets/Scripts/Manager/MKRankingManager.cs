@@ -26,7 +26,7 @@ public class MKRankingManager : MonoBehaviour
         MKScore score = new MKScore("xxx", "vvv", 1, 8);
         m_scores.scores.Add(score);
         SortRankingData();
-        while (m_scores.scores.Count > 8 )
+        while (m_scores.scores.Count > 6 )
         {
             m_scores.scores.RemoveAt(m_scores.scores.Count - 1);
         }
@@ -37,27 +37,32 @@ public class MKRankingManager : MonoBehaviour
     public void PopulateRankingData()
     {
         m_scores = new MKScores();
-        string json = File.ReadAllText(Application.persistentDataPath + "/ranking.json");
-        m_scores = JsonUtility.FromJson<MKScores>(json);
+        try
+        {
+            string json = File.ReadAllText(Application.persistentDataPath + "/ranking.json");
+            m_scores = JsonUtility.FromJson<MKScores>(json);
+        }catch(Exception e)
+        {
+
+        }
     }
 
     public void FillRankingMenuData()
     {
-        Debug.Log(m_scores);
-        Debug.Log(m_scores.scores);
-        Debug.Log(m_scores.scores.Count);
-        if (m_scores == null || m_scores.scores.Count==0) PopulateRankingData();
-
-        GameObject menuRankingGO = GameObject.FindGameObjectWithTag("MenuRanking");
-        MKMenuRanking menuRankingCO = menuRankingGO.GetComponent<MKMenuRanking>();
-        for (int i = 0; i <= m_scores.scores.Count - 1; i++)
-        {
-            MKScoreVisual scoreCO = menuRankingCO.scores[i].GetComponent<MKScoreVisual>();
-            scoreCO.Player1.GetComponent<Text>().text = m_scores.scores[i].playerOne;
-            Debug.Log(m_scores.scores[i]);
-            scoreCO.Player2.GetComponent<Text>().text = m_scores.scores[i].playerTwo;
-            scoreCO.Level.GetComponent<Text>().text = m_scores.scores[i].level.ToString();
-            scoreCO.Score.GetComponent<Text>().text = m_scores.scores[i].score.ToString();
+        PopulateRankingData();
+        if (m_scores != null && m_scores.scores.Count != 0)
+        { 
+            MKUIData uiData = GameObject.FindGameObjectWithTag("UIData").GetComponent<MKUIData>();
+            MKMenuRanking menuRankingCO = uiData.GetUIGO("rankingUI").GetComponent<MKMenuRanking>();
+            for (int i = 0; i <= m_scores.scores.Count - 1; i++)
+            {
+                MKScoreVisual scoreCO = menuRankingCO.scores[i].GetComponent<MKScoreVisual>();
+                scoreCO.Player1.GetComponent<Text>().text = m_scores.scores[i].playerOne;
+                Debug.Log(m_scores.scores[i]);
+                scoreCO.Player2.GetComponent<Text>().text = m_scores.scores[i].playerTwo;
+                scoreCO.Level.GetComponent<Text>().text = m_scores.scores[i].level.ToString();
+                scoreCO.Score.GetComponent<Text>().text = m_scores.scores[i].score.ToString();
+            }
         }
     }
 
