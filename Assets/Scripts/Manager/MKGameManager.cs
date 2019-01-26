@@ -159,6 +159,16 @@ public class MKGameManager : MonoBehaviour
         return m_cells[row, col].type == EMKCellType.Empty;
     }
 
+    protected bool IsCellTypePlayer(EMKCellType cellType)
+    {
+        return cellType == EMKCellType.Player1 || cellType == EMKCellType.Player2;
+    }
+
+    protected bool IsCellTypePlayerWithMovable(EMKCellType cellType)
+    {
+        return cellType == EMKCellType.PlayerWithMovable1 || cellType == EMKCellType.PlayerWithMovable2;
+    }
+
     /*********************************************************
     * Move
     *********************************************************/
@@ -167,13 +177,13 @@ public class MKGameManager : MonoBehaviour
         EMKCellType currentCellType = m_cells[currentCellRow, currentCellCol].type;
 
         //Players
-        if (currentCellType == EMKCellType.Player)
+        if (IsCellTypePlayer(currentCellType))
         {
             return CanMovePlayerToCell(ref currentCellRow, ref currentCellCol, move);
         }
 
         //Players with a movable object
-        if (currentCellType == EMKCellType.PlayerWithMovable)
+        if (IsCellTypePlayerWithMovable(currentCellType))
         {
             //@TODO
             return CanMoveMovableToNextCell(ref currentCellRow, ref currentCellCol, move);
@@ -198,7 +208,7 @@ public class MKGameManager : MonoBehaviour
             return false;
 
         //Next cell is empty
-        m_cells[nextCellRow, nextCellCol].type = EMKCellType.Player;
+        m_cells[nextCellRow, nextCellCol].type = m_cells[currentCellRow, currentCellCol].type;
         m_cells[nextCellRow, nextCellCol].color = m_cells[currentCellRow, currentCellCol].color;
 
         m_cells[currentCellRow, currentCellCol].type = EMKCellType.Empty;
@@ -238,7 +248,7 @@ public class MKGameManager : MonoBehaviour
             m_cells[nextMovableCellRow, nextMovableCellCol].type = EMKCellType.Movable;
             m_cells[nextMovableCellRow, nextMovableCellCol].color = m_cells[movableCellRow, movableCellCol].color;
 
-            m_cells[movableCellRow, movableCellCol].type = EMKCellType.Player;
+            m_cells[movableCellRow, movableCellCol].type = m_cells[playerCellRow, playerCellCol].type;
             m_cells[movableCellRow, movableCellCol].color = m_cells[playerCellRow, playerCellCol].color;
 
             m_cells[playerCellRow, playerCellCol].type = EMKCellType.Empty;
@@ -261,7 +271,7 @@ public class MKGameManager : MonoBehaviour
 
                 m_cells[nextMovableCellRow, nextMovableCellCol].type = EMKCellType.TargetFull;
 
-                m_cells[movableCellRow, movableCellCol].type = EMKCellType.Player;
+                m_cells[movableCellRow, movableCellCol].type = m_cells[playerCellRow, playerCellCol].type;
                 m_cells[movableCellRow, movableCellCol].color = m_cells[playerCellRow, playerCellCol].color;
 
                 m_cells[playerCellRow, playerCellCol].type = EMKCellType.Empty;
@@ -283,15 +293,16 @@ public class MKGameManager : MonoBehaviour
         EMKCellType currentCellType = m_cells[currentCellRow, currentCellCol].type;
 
         //Players
-        if (currentCellType == EMKCellType.Player)
+        if (IsCellTypePlayer(currentCellType))
         {
             return CanPlayerInteractWithCell(currentCellRow, currentCellCol, move);
         }
 
         //Players with a movable object
-        if (currentCellType == EMKCellType.PlayerWithMovable)
+        if (IsCellTypePlayerWithMovable(currentCellType))
         {
-            m_cells[currentCellRow, currentCellCol].type = EMKCellType.Player;
+            EMKCellType typePlayer = (currentCellType == EMKCellType.PlayerWithMovable1) ? EMKCellType.Player1 : EMKCellType.Player2;
+            m_cells[currentCellRow, currentCellCol].type = typePlayer;
             return true;
         }
 
@@ -314,7 +325,9 @@ public class MKGameManager : MonoBehaviour
             return false;
 
         //The objective cell is a Movable object
-        m_cells[currentCellRow, currentCellCol].type = EMKCellType.PlayerWithMovable;
+        EMKCellType currentCellType = m_cells[currentCellRow, currentCellCol].type;
+        EMKCellType typePlayer = (currentCellType == EMKCellType.Player1) ? EMKCellType.PlayerWithMovable1 : EMKCellType.PlayerWithMovable2;
+        m_cells[currentCellRow, currentCellCol].type = typePlayer;
 
         return true;
     }
