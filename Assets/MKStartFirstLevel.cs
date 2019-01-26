@@ -7,7 +7,7 @@ public class MKStartFirstLevel : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        MKGame.Instance.LoadLevel(1);
+        MKGame.Instance.GetFlowManager().LoadLevel(1);
     }
 
     // Update is called once per frame
