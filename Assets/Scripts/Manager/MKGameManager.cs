@@ -316,71 +316,30 @@ public class MKGameManager : MonoBehaviour
 
     protected bool CanMovePlayerWithMovableToNextCell(ref uint playerCellRow, ref uint playerCellCol, EMKMove move)
     {
-        /*
-        Vector2 movableCell = GetNextLogicPosition(playerCellRow, playerCellCol, move);
-        uint movableCellRow = (uint)movableCell.x;
-        uint movableCellCol = (uint)movableCell.y;
+        Vector2 nextPlayerCell = GetNextLogicPosition(playerCellRow, playerCellCol, move);
+        uint nextPlayerCellRow = (uint)nextPlayerCell.x;
+        uint nextPlayerCellCol = (uint)nextPlayerCell.y;
 
         //Grid limits
-        if (movableCellRow == playerCellRow && movableCellCol == playerCellCol)
+        if (nextPlayerCellRow == playerCellRow && nextPlayerCellCol == playerCellCol)
             return false;
 
-        Vector2 nextMovableCell = GetNextLogicPosition(movableCellRow, movableCellCol, move);
-        uint nextMovableCellRow = (uint)movableCell.x;
-        uint nextMovableCellCol = (uint)movableCell.y;
-
-        //Grid limits again
-        if (nextMovableCellRow == movableCellRow && nextMovableCellCol == movableCellRow)
+        //Next player cell is not empty
+        if (m_cells[nextPlayerCellRow, nextPlayerCellCol].type != EMKCellType.Empty)
             return false;
 
-        bool canMove = false;
+        //Next player cell is empty
+        m_cells[nextPlayerCellRow, nextPlayerCellCol].type = m_cells[playerCellRow, playerCellCol].type;
+        m_cells[nextPlayerCellRow, nextPlayerCellCol].color = m_cells[playerCellRow, playerCellCol].color;
 
-        if (m_cells[nextMovableCellRow, nextMovableCellCol].type == EMKCellType.Empty)
-        {
-            //The next cell for the movable object is empty
-            canMove = true;
+        //@TODO Mover el movable object asociado
+        //m_cells[playerCellRow, playerCellCol].type = EMKCellType.Empty;
+        //m_cells[playerCellRow, playerCellCol].color = EMKColor.None;
 
-            m_cells[nextMovableCellRow, nextMovableCellCol].type = EMKCellType.Movable;
-            m_cells[nextMovableCellRow, nextMovableCellCol].color = m_cells[movableCellRow, movableCellCol].color;
+        playerCellRow = nextPlayerCellRow;
+        playerCellCol = nextPlayerCellCol;
 
-            m_cells[movableCellRow, movableCellCol].type = m_cells[playerCellRow, playerCellCol].type;
-            m_cells[movableCellRow, movableCellCol].color = m_cells[playerCellRow, playerCellCol].color;
-
-            m_cells[playerCellRow, playerCellCol].type = EMKCellType.Empty;
-            m_cells[playerCellRow, playerCellCol].color = EMKColor.None;
-
-            playerCellRow = movableCellRow;
-            playerCellCol = movableCellCol;
-        }
-        else if (m_cells[nextMovableCellRow, nextMovableCellCol].type == EMKCellType.Target)
-        {
-            //The next cell for the movable object is a target
-            //Check colors
-            EMKColor nextMovableColor = m_cells[nextMovableCellRow, nextMovableCellCol].color;
-            EMKColor movableColor = m_cells[movableCellRow, movableCellCol].color;
-
-            if (nextMovableColor == movableColor)
-            {
-                //Movable object and target with the same color
-                canMove = true;
-                DecLevelTargetsLeft();
-
-                m_cells[nextMovableCellRow, nextMovableCellCol].type = EMKCellType.TargetFull;
-
-                m_cells[movableCellRow, movableCellCol].type = m_cells[playerCellRow, playerCellCol].type;
-                m_cells[movableCellRow, movableCellCol].color = m_cells[playerCellRow, playerCellCol].color;
-
-                m_cells[playerCellRow, playerCellCol].type = EMKCellType.Empty;
-                m_cells[playerCellRow, playerCellCol].color = EMKColor.None;
-
-                playerCellRow = movableCellRow;
-                playerCellCol = movableCellCol;
-            }
-        }
-
-        return canMove;
-        */
-        return false;
+        return true;
     }
 
     /*********************************************************
