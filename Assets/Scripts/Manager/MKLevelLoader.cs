@@ -32,12 +32,12 @@ public class MKLevelLoader : MonoBehaviour
         foreach (MKCellData mKCellData in loadedData.cellDataList)
         {   
             //SI es jugador lo instancio
-            if(mKCellData.Type == MKCellData.EMKCellType.Player1){
+            if(mKCellData.Type == EMKCellType.Player1){
                 if(MKGame.Instance.GetGameManager().PlaceInCell(mKCellData.PosX,mKCellData.PosY,mKCellData.Type)){
                     GameObject characterInstance = Instantiate(characterPrefab);
                     characterInstance.transform.position = MKGame.Instance.GetGameManager().GetWorldPosition(mKCellData.PosX,mKCellData.PosY); 
                     MKCharacterController characterController = characterInstance.GetComponent<MKCharacterController>();
-                    if(mKCellData.Type == MKCellData.EMKCellType.Player1) characterController.m_PlayerNumber = EMKPlayerNumber.Player1;
+                    if(mKCellData.Type == EMKCellType.Player1) characterController.m_PlayerNumber = EMKPlayerNumber.Player1;
                     else characterController.m_PlayerNumber = EMKPlayerNumber.Player2;
                     characterController.m_CharacterIndexPosition.x = mKCellData.PosX;
                     characterController.m_CharacterIndexPosition.y = mKCellData.PosY;
