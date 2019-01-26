@@ -116,8 +116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d21fa135f664f41a942b23acee1a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testLevelName: 1
   currentLevelJson:
     cellDataList: []
+  characterPrefab: {fileID: 3754997251738001958, guid: 717b1333e0d2f794e84e5f5da29d31ed,
+    type: 3}
 --- !u!114 &6388695879665218621
 MonoBehaviour:
   m_ObjectHideFlags: 0
