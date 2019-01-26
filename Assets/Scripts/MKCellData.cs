@@ -31,7 +31,8 @@ public enum EMKCellType
     Player1,
     Player2,
     PlayerWithMovable1,
-    PlayerWithMovable2
+    PlayerWithMovable2,
+    Button
 }
 
 //Cell information, that will be serialized by the LevelLoader

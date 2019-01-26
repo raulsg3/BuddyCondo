@@ -5,27 +5,48 @@ using UnityEngine;
 public class MKColorController : MonoBehaviour
 {
     private Color furnitureColor;
+    
+    public MeshRenderer[] meshRendererArray;
+    public List<MeshRenderer> meshRendererList;
 
     private void Awake()
     {
-        //colorMap
+        meshRendererList = new List<MeshRenderer>();
+        meshRendererArray = GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer meshRenderer in meshRendererArray){
+            meshRendererList.Add(meshRenderer);
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetColor(EMKColor baseColor, EMKCellType type)
     {
+        if(type == EMKCellType.Target){
+          foreach (MeshRenderer meshRenderer in meshRendererList){
+            meshRenderer.enabled = false;
+            cakeslice.Outline outline = meshRenderer.gameObject.AddComponent<cakeslice.Outline>();
+            if(baseColor == EMKColor.Red){
+                outline.color = 0;
+            }else if (baseColor == EMKColor.Green){
+                outline.color = 1;
+            }else if (baseColor == EMKColor.Blue){
+                outline.color = 2;
+            }
+          }
+        }else if (type == EMKCellType.Movable){
+            foreach (MeshRenderer meshRenderer in meshRendererList){
+                cakeslice.Outline outline = meshRenderer.gameObject.AddComponent<cakeslice.Outline>();
+                if(baseColor == EMKColor.Red){
+                    outline.color = 0;
+                }else if (baseColor == EMKColor.Green){
+                    outline.color = 1;
+                }else if (baseColor == EMKColor.Blue){
+                    outline.color = 2;
+                }
+          }
+        }
         furnitureColor = colorMap[baseColor];
+
     }
 
     private IDictionary<EMKColor, Color> colorMap = new Dictionary<EMKColor, Color>()

@@ -47,7 +47,7 @@ public class MKLevelLoader : MonoBehaviour
                     {
                         characterController.m_PlayerNumber = EMKPlayerNumber.Player2;
                         characterController.playerPower = PlayerPower.VERTICAL;
-                        MKGame.Instance.GetCharacterManager().player2 =characterController; 
+                        MKGame.Instance.GetCharacterManager().player2 = characterController; 
 
                     } 
                     MKGame.Instance.GetCharacterManager().SetPlayerActiveStatus(false);
