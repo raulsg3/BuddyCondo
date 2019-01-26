@@ -14,6 +14,7 @@ public class MKGameManager : MonoBehaviour
 
     //Time
     protected float m_gameAccTime;
+    protected float m_levelInitTime;
 
     //Targets
     protected uint m_levelTargetsLeft;
@@ -24,7 +25,7 @@ public class MKGameManager : MonoBehaviour
     public uint GameCurrentLevel
     {
         get { return m_gameCurrentLevel; }
-        private set { m_gameCurrentLevel = value; }
+        protected set { m_gameCurrentLevel = value; }
     }
 
     public String Player1Name
@@ -42,13 +43,13 @@ public class MKGameManager : MonoBehaviour
     public float GameAccTime
     {
         get { return m_gameAccTime; }
-        private set { m_gameAccTime = value; }
+        protected set { m_gameAccTime = value; }
     }
 
     public uint LevelTargetsLeft
     {
         get { return m_levelTargetsLeft; }
-        private set { m_levelTargetsLeft = value; }
+        protected set { m_levelTargetsLeft = value; }
     }
 
     void Start()
@@ -69,6 +70,7 @@ public class MKGameManager : MonoBehaviour
                 m_cells[r, c].row = r;
                 m_cells[r, c].col = c;
                 m_cells[r, c].type = EMKCellType.Empty;
+                m_cells[r, c].color = EMKColor.None;
             }
         }
     }
@@ -86,6 +88,18 @@ public class MKGameManager : MonoBehaviour
     public void IncLevelTargetsLeft()
     {
         LevelTargetsLeft++;
+    }
+
+    public void StartLevel()
+    {
+        m_levelInitTime = Time.time;
+    }
+
+    protected void EndLevel()
+    {
+        //@TODO Time
+        IncGameCurrentLevel();
+        MKGame.Instance.GetFlowManager().WinLevel(GameCurrentLevel);
     }
 
     public Vector3 GetWorldPosition(uint row, uint col)
@@ -127,21 +141,32 @@ public class MKGameManager : MonoBehaviour
         return new Vector2(nextRow, nextCol);
     }
 
-    public bool PlaceInCell(uint row, uint col, EMKCellType type)
+    public bool PlaceInCell(uint row, uint col, EMKCellType type, EMKColor color)
     {
-        if (CanPlaceInCell(row, col, type))
+        if (!CanPlaceInCell(row, col, type))
             return false;
 
         if (type == EMKCellType.Target)
             IncLevelTargetsLeft();
 
         m_cells[row, col].type = type;
+        m_cells[row, col].color = color;
         return true;
     }
 
     protected bool CanPlaceInCell(uint row, uint col, EMKCellType type)
     {
         return m_cells[row, col].type == EMKCellType.Empty;
+    }
+
+    protected bool IsCellTypePlayer(EMKCellType cellType)
+    {
+        return cellType == EMKCellType.Player1 || cellType == EMKCellType.Player2;
+    }
+
+    protected bool IsCellTypePlayerWithMovable(EMKCellType cellType)
+    {
+        return cellType == EMKCellType.PlayerWithMovable1 || cellType == EMKCellType.PlayerWithMovable2;
     }
 
     /*********************************************************
@@ -152,14 +177,15 @@ public class MKGameManager : MonoBehaviour
         EMKCellType currentCellType = m_cells[currentCellRow, currentCellCol].type;
 
         //Players
-        if (currentCellType == EMKCellType.Player)
+        if (IsCellTypePlayer(currentCellType))
         {
             return CanMovePlayerToCell(ref currentCellRow, ref currentCellCol, move);
         }
 
         //Players with a movable object
-        if (currentCellType == EMKCellType.PlayerWithMovable)
+        if (IsCellTypePlayerWithMovable(currentCellType))
         {
+            //@TODO
             return CanMoveMovableToNextCell(ref currentCellRow, ref currentCellCol, move);
         }
 
@@ -182,8 +208,11 @@ public class MKGameManager : MonoBehaviour
             return false;
 
         //Next cell is empty
-        m_cells[nextCellRow, nextCellCol].type = EMKCellType.Player;
+        m_cells[nextCellRow, nextCellCol].type = m_cells[currentCellRow, currentCellCol].type;
+        m_cells[nextCellRow, nextCellCol].color = m_cells[currentCellRow, currentCellCol].color;
+
         m_cells[currentCellRow, currentCellCol].type = EMKCellType.Empty;
+        m_cells[currentCellRow, currentCellCol].color = EMKColor.None;
 
         currentCellRow = nextCellRow;
         currentCellCol = nextCellCol;
@@ -211,28 +240,47 @@ public class MKGameManager : MonoBehaviour
 
         bool canMove = false;
 
-        /*
-        if (m_cells[nextCellRow, nextCellCol].type == EMKCellType.Empty)
+        if (m_cells[nextMovableCellRow, nextMovableCellCol].type == EMKCellType.Empty)
         {
+            //The next cell for the movable object is empty
             canMove = true;
+
+            m_cells[nextMovableCellRow, nextMovableCellCol].type = EMKCellType.Movable;
+            m_cells[nextMovableCellRow, nextMovableCellCol].color = m_cells[movableCellRow, movableCellCol].color;
+
+            m_cells[movableCellRow, movableCellCol].type = m_cells[playerCellRow, playerCellCol].type;
+            m_cells[movableCellRow, movableCellCol].color = m_cells[playerCellRow, playerCellCol].color;
+
+            m_cells[playerCellRow, playerCellCol].type = EMKCellType.Empty;
+            m_cells[playerCellRow, playerCellCol].color = EMKColor.None;
+
+            playerCellRow = movableCellRow;
+            playerCellCol = movableCellCol;
         }
-        else if (m_cells[nextCellRow, nextCellCol].type == EMKCellType.Target)
+        else if (m_cells[nextMovableCellRow, nextMovableCellCol].type == EMKCellType.Target)
         {
-            canMove = true;
+            //The next cell for the movable object is a target
+            //Check colors
+            EMKColor nextMovableColor = m_cells[nextMovableCellRow, nextMovableCellCol].color;
+            EMKColor movableColor = m_cells[movableCellRow, movableCellCol].color;
+
+            if (nextMovableColor == movableColor)
+            {
+                //Movable object and target with the same color
+                canMove = true;
+
+                m_cells[nextMovableCellRow, nextMovableCellCol].type = EMKCellType.TargetFull;
+
+                m_cells[movableCellRow, movableCellCol].type = m_cells[playerCellRow, playerCellCol].type;
+                m_cells[movableCellRow, movableCellCol].color = m_cells[playerCellRow, playerCellCol].color;
+
+                m_cells[playerCellRow, playerCellCol].type = EMKCellType.Empty;
+                m_cells[playerCellRow, playerCellCol].color = EMKColor.None;
+
+                playerCellRow = movableCellRow;
+                playerCellCol = movableCellCol;
+            }
         }
-
-
-        //The next for the movable object is not empty
-        if (m_cells[nextCellRow, nextCellCol].type != EMKCellType.Empty)
-            return false;
-
-        //Next cell is empty
-        m_cells[nextCellRow, nextCellCol].type = EMKCellType.Player;
-        m_cells[currentCellRow, currentCellCol].type = EMKCellType.Empty;
-
-        currentCellRow = nextCellRow;
-        currentCellCol = nextCellCol;
-        */
 
         return canMove;
     }
@@ -245,15 +293,16 @@ public class MKGameManager : MonoBehaviour
         EMKCellType currentCellType = m_cells[currentCellRow, currentCellCol].type;
 
         //Players
-        if (currentCellType == EMKCellType.Player)
+        if (IsCellTypePlayer(currentCellType))
         {
             return CanPlayerInteractWithCell(currentCellRow, currentCellCol, move);
         }
 
         //Players with a movable object
-        if (currentCellType == EMKCellType.PlayerWithMovable)
+        if (IsCellTypePlayerWithMovable(currentCellType))
         {
-            m_cells[currentCellRow, currentCellCol].type = EMKCellType.Player;
+            EMKCellType typePlayer = (currentCellType == EMKCellType.PlayerWithMovable1) ? EMKCellType.Player1 : EMKCellType.Player2;
+            m_cells[currentCellRow, currentCellCol].type = typePlayer;
             return true;
         }
 
@@ -276,7 +325,9 @@ public class MKGameManager : MonoBehaviour
             return false;
 
         //The objective cell is a Movable object
-        m_cells[currentCellRow, currentCellCol].type = EMKCellType.PlayerWithMovable;
+        EMKCellType currentCellType = m_cells[currentCellRow, currentCellCol].type;
+        EMKCellType typePlayer = (currentCellType == EMKCellType.Player1) ? EMKCellType.PlayerWithMovable1 : EMKCellType.PlayerWithMovable2;
+        m_cells[currentCellRow, currentCellCol].type = typePlayer;
 
         return true;
     }

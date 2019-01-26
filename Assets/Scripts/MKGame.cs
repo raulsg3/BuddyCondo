@@ -45,6 +45,11 @@ public class MKGame : USSimpleSingleton<MKGame>
         return m_MKGameContent;
     }
 
+    public MKCharacterManager GetCharacterManager()
+    {
+        return m_MKCharacterManager;
+    }
+
     [SerializeField]
     private MKRankingManager m_MKRankingManager;
 
@@ -65,4 +70,7 @@ public class MKGame : USSimpleSingleton<MKGame>
 
     [SerializeField]
     private MKGameContent m_MKGameContent;
+    
+    [SerializeField]
+    private MKCharacterManager m_MKCharacterManager;
 }

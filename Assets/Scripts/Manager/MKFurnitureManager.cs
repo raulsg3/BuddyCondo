@@ -30,7 +30,7 @@ public class MKFurnitureManager : MonoBehaviour
             }
 
             // Initialize the cell in the GameManager
-            MKGame.Instance.GetGameManager().PlaceInCell(cell.PosX, cell.PosY, cell.Type);
+            MKGame.Instance.GetGameManager().PlaceInCell(cell.PosX, cell.PosY, cell.Type, cell.Color);
             if(cell.Type == EMKCellType.Target){
 
             }
@@ -40,7 +40,7 @@ public class MKFurnitureManager : MonoBehaviour
                 GameObject furnitureObject = Instantiate(Resources.Load(cell.PrefabName)) as GameObject;
                 furnitureObject.transform.position = MKGame.Instance.GetGameManager().GetWorldPosition(cell.PosX, cell.PosY);
                 furnitureObject.transform.Rotate(0f, cell.RotationY, 0f);
-                furnitureObject.GetComponent<MKColorController>().SetColor(cell.Color,cell.Color);
+                furnitureObject.GetComponent<MKColorController>().SetColor(cell.Color,cell.Type);
                 furnitureList.Add(furnitureObject);
             }
         }

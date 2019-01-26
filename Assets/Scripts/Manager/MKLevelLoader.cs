@@ -32,28 +32,32 @@ public class MKLevelLoader : MonoBehaviour
         foreach (MKCellData mKCellData in loadedData.cellDataList)
         {   
             //SI es jugador lo instancio
-            if(mKCellData.Type == EMKCellType.Player1){
-                if(MKGame.Instance.GetGameManager().PlaceInCell(mKCellData.PosX,mKCellData.PosY,mKCellData.Type)){
+            if(mKCellData.Type == EMKCellType.Player1 || mKCellData.Type == EMKCellType.Player2){
+                // if(true){
+                if(MKGame.Instance.GetGameManager().PlaceInCell(mKCellData.PosX,mKCellData.PosY,mKCellData.Type,mKCellData.Color)){
                     GameObject characterInstance = Instantiate(characterPrefab);
                     characterInstance.transform.position = MKGame.Instance.GetGameManager().GetWorldPosition(mKCellData.PosX,mKCellData.PosY); 
                     MKCharacterController characterController = characterInstance.GetComponent<MKCharacterController>();
                     if(mKCellData.Type == EMKCellType.Player1){
                         characterController.m_PlayerNumber = EMKPlayerNumber.Player1;
-                        characterController.playerPower = PlayerPower.VERTICAL;
+                        characterController.playerPower = PlayerPower.HORIZONTAL;
+                        MKGame.Instance.GetCharacterManager().player1 = characterController; 
                     } 
                     else
                     {
                         characterController.m_PlayerNumber = EMKPlayerNumber.Player2;
-                        characterController.playerPower = PlayerPower.HORIZONTAL;
+                        characterController.playerPower = PlayerPower.VERTICAL;
+                        MKGame.Instance.GetCharacterManager().player2 =characterController; 
+
                     } 
+                    MKGame.Instance.GetCharacterManager().SetPlayerActiveStatus(false);
                     characterController.m_CharacterIndexPositionX = mKCellData.PosX;
                     characterController.m_CharacterIndexPositionY = mKCellData.PosY;
                 }
             }
         }
 
-        //TODO llamar a kaito para decirle que se ha cargado el nivel
-        // MKGame.Instance.GetFlowManager().nex
+        MKGame.Instance.GetFlowManager().NextLevelLoaded();
     }
 
    

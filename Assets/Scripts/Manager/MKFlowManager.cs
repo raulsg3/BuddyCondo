@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MKFlowManager : MonoBehaviour
 {
@@ -9,30 +10,71 @@ public class MKFlowManager : MonoBehaviour
     {
         m_State = new State();
         m_MKLevelLoader = MKGame.Instance.GetLevelLoader();
+        m_MKCharacterManager = MKGame.Instance.GetCharacterManager();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void ChangeLevel()
+    public void WinLevel(uint level)
     {
-        int level = Random.Range(1,1); //1 FOR DEBUG PORPOUSES
-        m_MKLevelLoader.LoadLevel("level_"+level.ToString());
-        if (m_State.GameStatus != (int)Status.Game)
+        if (m_State.GameStatus != (int)Status.Game) { throw new System.Exception("No puedes llamarme desde fuera del Game."); }
+
+        m_MKCharacterManager.SetPlayerActiveStatus(false);
+
+        //ALGO PARA FADE IN EL CARTEL DE VICTORIA?
+        GameObject uIDataGO = GameObject.FindGameObjectWithTag("UIData");
+        GameObject victoryUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("victoryUI");
+        victoryUIGO.SetActive(true);
+
+        LoadLevel(level);
+    }
+
+    public void LoadLevel(uint level)
+    {
+        m_MKLevelLoader.LoadLevel(level.ToString());
+        m_State.GameStatus = (int)Status.LoadingLevel;
+    }
+
+    public void NextLevelLoaded()
+    {
+        if (m_State.GameStatus != (int)Status.LoadingLevel && m_State.GameStatus != (int)Status.Menu)
         {
-            m_State.GameStatus = (int)Status.Game;
+            Debug.Log(m_State.GameStatus);
+            throw new System.Exception("No puedes llamarme desde fuera del Loading o del menu.");
         }
 
-        //MOSTRAR UI DE VICTORIA
+        //ALGO PARA FADE OUT EL CARTEL DE VICTORIA?
+        GameObject uIDataGO = GameObject.FindGameObjectWithTag("UIData");
+        GameObject victoryUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("victoryUI");
+        victoryUIGO.SetActive(false);
+        GameObject startingUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("startingUI");
+        startingUIGO.SetActive(true);
+        StartCoroutine(TimeToStart());
+
+        m_State.GameStatus = (int)Status.Game;
     }
 
-    public void GameOver()
+    IEnumerator TimeToStart()
     {
-        
-    }
+        GameObject uIDataGO = GameObject.FindGameObjectWithTag("UIData");
+        GameObject startingUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("startingUI");
+        startingUIGO.GetComponent<Text>().text = 3.ToString();
+        yield return new WaitForSeconds(1);
+        startingUIGO.GetComponent<Text>().text = 2.ToString();
+        yield return new WaitForSeconds(1);
+        startingUIGO.GetComponent<Text>().text = 1.ToString();
+        yield return new WaitForSeconds(1);
+        startingUIGO.GetComponent<Text>().text = "GO!";
+        yield return new WaitForSeconds(1);
+        startingUIGO.SetActive(false);
+
+        m_MKCharacterManager.SetPlayerActiveStatus(true);
+        MKGame.Instance.GetGameManager().StartLevel();
+    } 
 
     internal class State
     {
@@ -47,10 +89,11 @@ public class MKFlowManager : MonoBehaviour
         {
             get { return currentStatus; }
             set { this.currentStatus = value; }
-        }
+        }   
     }
 
-    enum Status { Menu, Game, GameOver }
+    enum Status { Menu, Game, GameOver, LoadingLevel }
     State m_State;
     MKLevelLoader m_MKLevelLoader;
+    MKCharacterManager m_MKCharacterManager;
 }

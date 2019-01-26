@@ -27,10 +27,11 @@ public enum EMKCellType
     Movable,
     Decoration,
     Target,
+    TargetFull,
     Player1,
     Player2,
-    Player,
-    PlayerWithMovable
+    PlayerWithMovable1,
+    PlayerWithMovable2
 }
 
 //Cell information, that will be serialized by the LevelLoader
@@ -51,5 +52,6 @@ public class MKCellData
         public uint row;
         public uint col;
         public EMKCellType type;
+        public EMKColor color;
     }
 }

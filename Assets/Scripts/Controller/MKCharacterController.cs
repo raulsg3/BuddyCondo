@@ -22,6 +22,7 @@ public class MKCharacterController : MonoBehaviour
     public PlayerFacing currentPlayerFacing; 
     public Transform m_transform; 
     public PlayerPower playerPower; 
+    public bool playerActive = false;
     void Start()
     {
         m_CharacterContent = MKGame.Instance.GetGameContent().GetCharacterContent();
@@ -58,6 +59,8 @@ public class MKCharacterController : MonoBehaviour
 
     void Update()
     {
+        if(!playerActive) return;
+        
         // Process input, grab & movement
         Vector2 CurrentInput = ProcessPlayerInput();
 
@@ -183,6 +186,7 @@ public class MKCharacterController : MonoBehaviour
         SetPlayerFacingWithVector(_MovementToProcess);
 
         if(MKGame.Instance.GetGameManager().MoveToCell(ref m_CharacterIndexPositionX,ref m_CharacterIndexPositionY,GetEMKMoveFromVector(_MovementToProcess))){
+            Debug.Log("true");
             // Precalculate the adjacent cell position
             Vector2 PrecalculatedPositionIndex;
             
