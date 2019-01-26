@@ -96,7 +96,8 @@ public class LevelEditorGenerator : MonoBehaviour
                 (cell.mKCellData.PosY == 9) ||
                 (cell.mKCellData.PosX == 7)) // -> middle border
             {
-                cell.mKCellData.Type = EMKCellType.Decoration;
+                if(cell.mKCellData.Type != EMKCellType.Button) // do NOT override the Buttons
+                    cell.mKCellData.Type = EMKCellType.Decoration;
             }
         }
     }
