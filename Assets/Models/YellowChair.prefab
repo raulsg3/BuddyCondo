@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 00d7a63d3e3c47443a067983f8a52c88, type: 2}
+  - {fileID: 2100000, guid: 0083e613388e5704b895a84b3619e31b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 407852}
   m_Layer: 0
-  m_Name: BlueChair
+  m_Name: YellowChair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1ecaf9abd3124be41993fc62c8aa8cfb, type: 2}
+  - {fileID: 2100000, guid: 51139037a05ad7b47a325699a1ce99b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -277,7 +277,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b5571f96d4853cb46847a25463df4adb, type: 2}
+  - {fileID: 2100000, guid: 51139037a05ad7b47a325699a1ce99b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -369,7 +369,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5bc2f9281eaea1a43816c96c0979d3c4, type: 2}
+  - {fileID: 2100000, guid: aff5e2717e38ad644be78066efecf704, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -461,7 +461,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc134f08e2892594cb672a04761a9420, type: 2}
+  - {fileID: 2100000, guid: 51139037a05ad7b47a325699a1ce99b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
