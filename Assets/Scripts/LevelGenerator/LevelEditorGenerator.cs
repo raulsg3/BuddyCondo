@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEditor;
 
 public class LevelEditorGenerator : MonoBehaviour
 {
+    public GameObject GOtoCopy;
+
     public float xSize;
     public float ySize;
 
@@ -58,6 +61,17 @@ public class LevelEditorGenerator : MonoBehaviour
                 cellInstance.GetComponent<CellGenerator>().mKCellData.PosY = j;
 
             }
+        }
+    }
+
+    [Button]
+    public void FillSelectionWithGameObject()
+    {
+        foreach(GameObject go in Selection.gameObjects)
+        {
+            GameObject newGO = Instantiate(GOtoCopy, Vector3.zero, Quaternion.identity);
+            newGO.transform.parent = go.transform;
+            newGO.transform.localPosition = Vector3.zero;
         }
     }
 

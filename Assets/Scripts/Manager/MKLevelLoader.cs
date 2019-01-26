@@ -37,19 +37,25 @@ public class MKLevelLoader : MonoBehaviour
                     GameObject characterInstance = Instantiate(characterPrefab);
                     characterInstance.transform.position = MKGame.Instance.GetGameManager().GetWorldPosition(mKCellData.PosX,mKCellData.PosY); 
                     MKCharacterController characterController = characterInstance.GetComponent<MKCharacterController>();
-                    if(mKCellData.Type == EMKCellType.Player1) characterController.m_PlayerNumber = EMKPlayerNumber.Player1;
-                    else characterController.m_PlayerNumber = EMKPlayerNumber.Player2;
+                    if(mKCellData.Type == EMKCellType.Player1){
+                        characterController.m_PlayerNumber = EMKPlayerNumber.Player1;
+                        characterController.playerPower = PlayerPower.VERTICAL;
+                    } 
+                    else
+                    {
+                        characterController.m_PlayerNumber = EMKPlayerNumber.Player2;
+                        characterController.playerPower = PlayerPower.HORIZONTAL;
+                    } 
                     characterController.m_CharacterIndexPosition.x = mKCellData.PosX;
                     characterController.m_CharacterIndexPosition.y = mKCellData.PosY;
-
                 }
             }
         }
+
+        //TODO llamar a kaito para decirle que se ha cargado el nivel
     }
 
-    public void AllFurnitureLoaded(){
-        
-    }
+   
     
 }
 

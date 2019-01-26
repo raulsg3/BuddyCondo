@@ -8,13 +8,52 @@ public enum EMKPlayerNumber
     Player2,
 }
 
+public enum PlayerFacing{
+    UP,DOWN,RIGHT,LEFT
+}
+public enum PlayerPower{
+    VERTICAL,HORIZONTAL
+}
+
+
 public class MKCharacterController : MonoBehaviour
 {
     // --------------------------------------------------------------
-
+    public PlayerFacing currentPlayerFacing; 
+    public Transform m_transform; 
+    public PlayerPower playerPower; 
     void Start()
     {
         m_CharacterContent = MKGame.Instance.GetGameContent().GetCharacterContent();
+        SetPlayerFacing(PlayerFacing.UP);
+    }
+
+    public void SetPlayerFacingWithVector(Vector2 facing){
+        // Debug.Log(facing);
+        if(facing.x == 0 && facing.y == 1){
+            SetPlayerFacing(PlayerFacing.UP);
+        }else if(facing.x == 0 && facing.y == -1){
+            SetPlayerFacing(PlayerFacing.DOWN);
+        }else if(facing.x == 1 && facing.y == 0){
+            SetPlayerFacing(PlayerFacing.RIGHT);
+        }else if(facing.x == -1 && facing.y == 0){
+            SetPlayerFacing(PlayerFacing.LEFT);
+        }else{
+            // Debug.LogError("No se econtro facing para "+facing);
+        }
+    }
+
+    public void SetPlayerFacing(PlayerFacing playerFacing ){
+        currentPlayerFacing = playerFacing;
+        if(playerFacing == PlayerFacing.UP){
+            m_transform.eulerAngles = new Vector3(0,0,0);
+        }else if (playerFacing == PlayerFacing.RIGHT){
+            m_transform.eulerAngles = new Vector3(0,90,0);
+        }else if (playerFacing == PlayerFacing.DOWN){
+            m_transform.eulerAngles = new Vector3(0,180,0);
+        }else if (playerFacing == PlayerFacing.LEFT){
+            m_transform.eulerAngles = new Vector3(0,270,0);
+        }
     }
 
     void Update()
@@ -69,13 +108,15 @@ public class MKCharacterController : MonoBehaviour
         }
 
         // Invalidate y if there is an x
-        if (CurrentInput.x > 0)
+        if (CurrentInput.x != 0)
         {
             CurrentInput.y = 0.0f;
         }
 
         return CurrentInput;
     }
+
+    public bool isObjectGrabbed;
 
     void ProcessCharacterGrab()
     {
@@ -85,25 +126,47 @@ public class MKCharacterController : MonoBehaviour
         }
 
         // Check if the player wants to perform a grab
-        if (m_PlayerNumber == EMKPlayerNumber.Player1 && Input.GetButton("Grab1"))
+        if (m_PlayerNumber == EMKPlayerNumber.Player1 && Input.GetButtonDown("Grab1"))
         {
-            // Hack! use cheated object to grab if defined
-            if (m_CheatedObjectToGrab)
-            {
-                m_GrabbedGameObject = m_CheatedObjectToGrab;
+            if(MKGame.Instance.GetGameManager().InteractWithCell((uint)m_CharacterIndexPosition.x,(uint)m_CharacterIndexPosition.y,GetMoveFromFacing())){
+                Debug.Log("Suscceful grab player 1");
+                // Hack! use cheated object to grab if defined
+                if (m_CheatedObjectToGrab)
+                {
+                    m_GrabbedGameObject = m_CheatedObjectToGrab;
+                }
             }
         }
-        else if(m_PlayerNumber == EMKPlayerNumber.Player2 && Input.GetButton("Grab2"))
+        else if(m_PlayerNumber == EMKPlayerNumber.Player2 && Input.GetButtonDown("Grab2"))
         {
-            // Hack! use cheated object to grab if defined
-            if(m_CheatedObjectToGrab)
-            {
-                m_GrabbedGameObject = m_CheatedObjectToGrab;
+            if(MKGame.Instance.GetGameManager().InteractWithCell((uint)m_CharacterIndexPosition.x,(uint)m_CharacterIndexPosition.y,GetMoveFromFacing())){
+                Debug.Log("Suscceful grab player 2");
+                // Hack! use cheated object to grab if defined
+                if (m_CheatedObjectToGrab)
+                {
+                    m_GrabbedGameObject = m_CheatedObjectToGrab;
+                }
             }
         }
         else
         {
-            m_GrabbedGameObject = null;
+            // m_GrabbedGameObject = null;
+        }
+    }
+
+    private EMKMove GetEMKMoveFromVector(Vector2 direction){
+        if(direction.x == 1 && direction.y == 0){
+            return EMKMove.Right;
+        }else if(direction.x == -1 && direction.y == 0){
+            return EMKMove.Left;
+        }
+        else if(direction.x == 0 && direction.y == 1){
+            return EMKMove.Up;
+        }else if(direction.x == 0 && direction.y == -1){
+            return EMKMove.Bottom;
+        }else{
+            Debug.LogError("No se encontro dirección para "+direction);
+            return EMKMove.Bottom;
         }
     }
 
@@ -111,31 +174,36 @@ public class MKCharacterController : MonoBehaviour
     {
         // Debug.Log(_MovementToProcess);
         // Check if we can move to that cell!
+        if(_MovementToProcess.x == 0&& _MovementToProcess.y==0) return;
         if (bIsMoving)
         {
             return;
         }
 
-        // Precalculate the adjacent cell position
-        Vector2 PrecalculatedPositionIndex = m_CharacterIndexPosition;
-        PrecalculatedPositionIndex += _MovementToProcess;
+        SetPlayerFacingWithVector(_MovementToProcess);
 
-        // Check the remaining time
-        if (m_TimeRemainingToMove <= 0 && _MovementToProcess.magnitude > 0.1f)
-        {
-            Vector2 PositionToSet = transform.position;
+        // if(MKGame.Instance.GetGameManager().MoveToCell((uint)m_CharacterIndexPosition.x,(uint)m_CharacterIndexPosition.y,GetEMKMoveFromVector(_MovementToProcess))){
+        if(true){
+            // Precalculate the adjacent cell position
+            Vector2 PrecalculatedPositionIndex = m_CharacterIndexPosition;
+            PrecalculatedPositionIndex += _MovementToProcess;
 
-            // Update the indexes
-            m_CharacterIndexPosition = PrecalculatedPositionIndex;
+            // Check the remaining time
+            if (m_TimeRemainingToMove <= 0 && _MovementToProcess.magnitude > 0.1f)
+            {
+                Vector2 PositionToSet = transform.position;
 
-            // Update the position
-            m_PositionToMove += new Vector3(_MovementToProcess.x, 0.0f, _MovementToProcess.y);
-            m_TimeRemainingToMove = m_CharacterContent.m_MoveCooldown;
-            m_MovementStartPosition = transform.position;
+                // Update the indexes
+                m_CharacterIndexPosition = PrecalculatedPositionIndex;
 
-            bIsMoving = true;
+                // Update the position
+                m_PositionToMove += new Vector3(_MovementToProcess.x, 0.0f, _MovementToProcess.y);
+                m_TimeRemainingToMove = m_CharacterContent.m_MoveCooldown;
+                m_MovementStartPosition = transform.position;
+
+                bIsMoving = true;
+            }
         }
-
     }
 
     // --------------------------------------------------------------
@@ -159,6 +227,7 @@ public class MKCharacterController : MonoBehaviour
             // Lerp the grabbed object position if required
             if(m_GrabbedGameObject)
             {
+                Debug.Log("asdf");
                 m_GrabbedGameObject.transform.position = Vector3.Lerp(m_GrabbedGameObject.transform.position, m_MovementStartPosition, m_CharacterContent.m_MovementInterpSpeed * Time.deltaTime);
             }
 
@@ -168,6 +237,19 @@ public class MKCharacterController : MonoBehaviour
                 transform.position = m_PositionToMove;
                 bIsMoving = false;
             }
+        }
+    }
+    private EMKMove GetMoveFromFacing(){
+        if(currentPlayerFacing == PlayerFacing.DOWN){
+            return EMKMove.Bottom;
+        }else if(currentPlayerFacing == PlayerFacing.RIGHT){
+            return EMKMove.Right;
+        }else if(currentPlayerFacing == PlayerFacing.LEFT){
+            return EMKMove.Left;
+        }else if(currentPlayerFacing == PlayerFacing.UP){
+            return EMKMove.Up;
+        }else{
+            return EMKMove.Up;
         }
     }
 
@@ -193,7 +275,7 @@ public class MKCharacterController : MonoBehaviour
 
     private Vector3 m_MovementStartPosition = new Vector3(0.0f, 0.0f);
 
-    private GameObject m_GrabbedGameObject;
+    public GameObject m_GrabbedGameObject;
 
     public GameObject m_CheatedObjectToGrab;
 
