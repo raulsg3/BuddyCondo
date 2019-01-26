@@ -26,5 +26,12 @@ public class CellGenerator : MonoBehaviour
             
             Gizmos.DrawWireSphere(transform.position,0.5f);
         }
+
+        if(mKCellData != null && mKCellData.Type == EMKCellType.Player1 ){
+            Gizmos.DrawWireCube(transform.position,new Vector3(0.5f,0.5f,0.5f));
+        }
+            if(mKCellData != null && mKCellData.Type == EMKCellType.Player2 ){
+            Gizmos.DrawWireCube(transform.position,new Vector3(0.5f,0.5f,0.5f));
+        }
     }
 }
