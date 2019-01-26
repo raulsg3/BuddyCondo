@@ -27,6 +27,7 @@ public enum EMKCellType
     Movable,
     Decoration,
     Target,
+    TargetFull,
     Player1,
     Player2,
     Player,
@@ -51,5 +52,6 @@ public class MKCellData
         public uint row;
         public uint col;
         public EMKCellType type;
+        public EMKColor color;
     }
 }

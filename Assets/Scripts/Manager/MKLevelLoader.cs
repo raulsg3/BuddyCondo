@@ -34,7 +34,7 @@ public class MKLevelLoader : MonoBehaviour
             //SI es jugador lo instancio
             if(mKCellData.Type == EMKCellType.Player1 || mKCellData.Type == EMKCellType.Player2){
                 // if(true){
-                if(MKGame.Instance.GetGameManager().PlaceInCell(mKCellData.PosX,mKCellData.PosY,mKCellData.Type)){
+                if(MKGame.Instance.GetGameManager().PlaceInCell(mKCellData.PosX,mKCellData.PosY,mKCellData.Type,mKCellData.Color)){
                     GameObject characterInstance = Instantiate(characterPrefab);
                     characterInstance.transform.position = MKGame.Instance.GetGameManager().GetWorldPosition(mKCellData.PosX,mKCellData.PosY); 
                     MKCharacterController characterController = characterInstance.GetComponent<MKCharacterController>();

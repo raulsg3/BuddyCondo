@@ -30,7 +30,7 @@ public class MKFurnitureManager : MonoBehaviour
             }
 
             // Initialize the cell in the GameManager
-            MKGame.Instance.GetGameManager().PlaceInCell(cell.PosX, cell.PosY, cell.Type);
+            MKGame.Instance.GetGameManager().PlaceInCell(cell.PosX, cell.PosY, cell.Type, cell.Color);
             if(cell.Type == EMKCellType.Target){
 
             }
