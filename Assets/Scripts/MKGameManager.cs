@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -57,8 +58,14 @@ public class MKGameManager : MonoBehaviour
         }
     }
 
+    internal void InitiaizeCell(int posX, int posY, MKCellData.ECellType cellType, MKCellData.EColor color)
+    {
+        Debug.Log("MKGameManager.GetWorldPosition() NOT IMPLEMENTED");
+    }
+
     public Vector3 GetWorldPosition(Vector2 logicPosition)
     {
+        Debug.Log("MKGameManager.GetWorldPosition() NOT IMPLEMENTED");
         return new Vector3(0, 0, 0);
     }
 }

@@ -5,7 +5,7 @@ public class MKCellData
     public int PosX;
     public int PosY;
     public string PrefabName;
-    public string RotationY;
+    public float RotationY;
     public EColor Color;
     public ECellType CellType;
 

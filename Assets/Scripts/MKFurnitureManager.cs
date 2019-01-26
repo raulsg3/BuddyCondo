@@ -26,17 +26,19 @@ public class MKFurnitureManager : MonoBehaviour
         foreach (MKCellData cell in cellList)
         {
             // Initialize the cell in the GameManager
-
+            MKGame.Instance.GetGameManager().InitiaizeCell(cell.PosX, cell.PosY, cell.CellType, cell.Color);
 
             // Instantiate the GameObjects with the cell data
-            GameObject furniture = Instantiate(Resources.Load(cell.PrefabName)) as GameObject;
-
+            GameObject furnitureObject = Instantiate(Resources.Load(cell.PrefabName)) as GameObject;
+            Vector2 furniturePosition = new Vector2(cell.PosX, cell.PosY);
+            furnitureObject.transform.position = MKGame.Instance.GetGameManager().GetWorldPosition(furniturePosition);
+            furnitureObject.transform.Rotate(0f, cell.RotationY, 0f);
+            furnitureObject.GetComponent<MKColorController>().SetColor(cell.Color);
             Debug.Log("Added: " + cell.PrefabName);
-            furnitureList.Add(furniture);
+            furnitureList.Add(furnitureObject);
         }
 
-
-        return false;
+        return true;
     }
 
     
