@@ -22,6 +22,7 @@ public class MKCharacterController : MonoBehaviour
     public PlayerFacing currentPlayerFacing; 
     public Transform m_transform; 
     public PlayerPower playerPower; 
+    public bool playerActive = false;
     void Start()
     {
         m_CharacterContent = MKGame.Instance.GetGameContent().GetCharacterContent();
