@@ -59,6 +59,8 @@ public class MKCharacterController : MonoBehaviour
 
     void Update()
     {
+        if(!playerActive) return;
+        
         // Process input, grab & movement
         Vector2 CurrentInput = ProcessPlayerInput();
 
