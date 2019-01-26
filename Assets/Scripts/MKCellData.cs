@@ -2,8 +2,8 @@
 [System.Serializable]
 public class MKCellData
 {
-    public int PosX;
-    public int PosY;
+    public uint PosX;
+    public uint PosY;
     public float RotationY;
     public string PrefabName;
     public EMKColor Color;
@@ -26,7 +26,8 @@ public class MKCellData
         Black,
         Blue,
         Red,
-        Yellow
+        Yellow,
+        Green
     }
 
     //Cell typedef
