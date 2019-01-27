@@ -25,6 +25,10 @@ public class MKAudioManager : MonoBehaviour
     public AudioSource m_ambientalMusic;
     public AudioSource m_grabbingstuf;
     public AudioSource m_fanfare;
+    public AudioSource m_3;
+    public AudioSource m_2;
+    public AudioSource m_1;
+    public AudioSource m_go;
 
     // Start is called before the first frame update
     void Start()

@@ -32,7 +32,7 @@ public class MKFlowManager : MonoBehaviour
     public void WinLevel(uint level)
     {
         //if (m_State.GameStatus != (int)Status.Game) { throw new System.Exception("No puedes llamarme desde fuera del Game."); }
-        m_MKAudioManager.m_AudioTest.GetComponent<AudioSource>().Play() ;
+        m_MKAudioManager.m_AudioTest.GetComponent<AudioSource>().Play();
 
         m_MKCharacterManager.SetPlayerActiveStatus(false);
 
@@ -104,12 +104,16 @@ public class MKFlowManager : MonoBehaviour
         GameObject uIDataGO = GameObject.FindGameObjectWithTag("UIData");
         GameObject startingUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("startingUI");
         startingUIGO.GetComponent<Text>().text = 3.ToString();
+        m_MKAudioManager.m_3.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1);
         startingUIGO.GetComponent<Text>().text = 2.ToString();
+        m_MKAudioManager.m_2.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1);
         startingUIGO.GetComponent<Text>().text = 1.ToString();
+        m_MKAudioManager.m_1.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1);
         startingUIGO.GetComponent<Text>().text = "GO!";
+        m_MKAudioManager.m_go.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1);
         startingUIGO.SetActive(false);
 
