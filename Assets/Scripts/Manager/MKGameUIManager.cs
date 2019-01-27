@@ -7,21 +7,36 @@ public class MKGameUIManager : MonoBehaviour
 {   
     private Text levelText;
     private Text timeText;
+    private Vector3 initalVerticalPos;
+    private Vector3 initalHorizontalPos;
+    private bool hasInitial =false;
 
+    private GameObject UpDownGO;
+    private GameObject LeftRigthGO;
+    
     [Button]
     public void ChangePowersIU(){
-        GameObject UpDownGO = GameObject.FindGameObjectWithTag("UpDownUI");
-        GameObject LeftRigthGO = GameObject.FindGameObjectWithTag("LeftRightUI");
+        UpDownGO = GameObject.FindGameObjectWithTag("UpDownUI");
+        LeftRigthGO = GameObject.FindGameObjectWithTag("LeftRightUI");
         if (UpDownGO == null || LeftRigthGO == null)
         {
             Debug.LogError("No se encontro el UpDown o LeftRigthGO tag en MainScene. return");
             return;
         }
-
+        if(!hasInitial){
+            hasInitial = true;
+            initalVerticalPos = UpDownGO.transform.position; 
+            initalHorizontalPos = LeftRigthGO.transform.position; 
+        }
         // TODO: Hacer esto con una fucking animación
         Vector3 posAux = UpDownGO.transform.position;
         UpDownGO.transform.position = LeftRigthGO.transform.position;
         LeftRigthGO.transform.position = posAux;
+    }
+
+    public void ResetUI(){
+        UpDownGO.transform.position =initalVerticalPos;
+        LeftRigthGO.transform.position = initalHorizontalPos;
     }
 
     public void UpdateLevelText(string level){

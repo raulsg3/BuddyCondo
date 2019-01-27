@@ -68,6 +68,7 @@ public class MKLevelLoader : MonoBehaviour
         //TODO nomore levels
 
         MKGame.Instance.GetFlowManager().NextLevelLoaded();
+        MKGame.Instance.GetUIManager().ResetUI();
     }
 
     [Button]
