@@ -35,7 +35,7 @@ public class MKUIData : MonoBehaviour
                 return endGameUI;
                 break;
             case "yourScoreUI":
-                return endGameUI;
+                return yourScoreUI;
                 break;
             default:
                 return null;

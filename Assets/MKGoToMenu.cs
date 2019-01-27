@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MKScoreVisual : MonoBehaviour
+public class MKGoToMenu : MonoBehaviour
 {
-    public GameObject Player1;
-    public GameObject Player2;
-    public GameObject Score;
+    public void DOIT()
+    {
+        Destroy(MKGame.Instance.gameObject);
+        SceneManager.LoadScene("MenuScene");
+    }
 
     // Start is called before the first frame update
     void Start()

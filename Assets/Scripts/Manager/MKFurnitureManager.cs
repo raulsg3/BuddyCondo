@@ -50,7 +50,7 @@ public class MKFurnitureManager : MonoBehaviour
 
     public void MoveFurniture(uint oldX, uint oldY, uint newX, uint newY)
     {
-        Debug.Log("MOVING from (" + oldX + "," + oldY + ") to (" + newX + "," + newY + ")");
+        // Debug.Log("MOVING from (" + oldX + "," + oldY + ") to (" + newX + "," + newY + ")");
 
         GameObject movableFurniture = GetMovableFromPosition(oldX, oldY);
 
