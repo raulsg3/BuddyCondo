@@ -7,6 +7,14 @@ public class MKCharacterManager : MonoBehaviour
   public MKCharacterController player1;
   public MKCharacterController player2;
 
+   public void OnMovebleInTarget(EMKCellType eMKPlayerNumber){
+       if(eMKPlayerNumber == EMKCellType.Player1){
+
+       }else{
+
+       }
+       
+   }
   public void SetPlayerActiveStatus(bool status){
     if(player1 != null){
         player1.playerActive = status;

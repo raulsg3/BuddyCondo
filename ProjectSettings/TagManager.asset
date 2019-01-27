@@ -11,7 +11,8 @@ TagManager:
   - StartingUI
   - UIData
   - FadeImage
-  - AudioManager
+  - LeftRightUI
+  - UpDownUI
   layers:
   - Default
   - TransparentFX

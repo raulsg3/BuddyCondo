@@ -7,6 +7,6 @@ public class MKFurnitureContent : ScriptableObject
 {
     public List<GameObject> furnitureList;
     public List<GameObject> movableObjectsList;
-
+    public GameObject swapPowersButton;
 
 }
