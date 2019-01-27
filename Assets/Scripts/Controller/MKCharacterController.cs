@@ -42,7 +42,7 @@ public class MKCharacterController : MonoBehaviour
 
     [Button]
     public void PlayPush(){
-        // playerAnimator.Play("Push",0,0f);
+        playerAnimator.Play("Push",0,0f);
     }
 
     public void SetPlayerFacingWithVector(Vector2 facing){
