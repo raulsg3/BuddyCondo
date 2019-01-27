@@ -50,6 +50,7 @@ public class MKRankingManager : MonoBehaviour
     public void FillRankingMenuData()
     {
         PopulateRankingData();
+        SortRankingData();
         if (m_scores != null && m_scores.scores.Count != 0)
         { 
             MKUIData uiData = GameObject.FindGameObjectWithTag("UIData").GetComponent<MKUIData>();
@@ -66,7 +67,7 @@ public class MKRankingManager : MonoBehaviour
 
     public void SortRankingData()
     {
-        m_scores.scores.Sort((x, y) => x.score > y.score ? 1 : -1);
+        m_scores.scores.Sort((x, y) => x.score < y.score ? -1 : 0);
     }
 
     private MKGameManager m_MKGameManager;
