@@ -22,16 +22,23 @@ public class MKLevelLoader : MonoBehaviour
     public void LoadLevel(string levelName){
 
         // Read the json from the file into a string
-        string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/level_" + levelName + ".json"); 
-        Debug.Log(jsonString);
         LevelJson loadedData = new LevelJson(); 
-        loadedData = JsonUtility.FromJson<LevelJson>(jsonString);
+        try{
+            string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/level_" + levelName + ".json"); 
+            // Debug.Log(jsonString);
+            loadedData = JsonUtility.FromJson<LevelJson>(jsonString);
+        }catch{
+            Debug.Log("No se encontro el archivo");
+            MKGame.Instance.GetFlowManager().NoMoreLevels();
+            // Nomore
+        }
 
         //Los muebles los intancia lin e ignora los playesr
         MKGame.Instance.GetFurnitureManager().CreateFurniture(loadedData.cellDataList);
 
         foreach (MKCellData mKCellData in loadedData.cellDataList)
         {   
+            // Debug.Log(mKCellData.Type);
             //SI es jugador lo instancio
             if(mKCellData.Type == EMKCellType.Player1 || mKCellData.Type == EMKCellType.Player2){
                 // if(true){
@@ -57,6 +64,8 @@ public class MKLevelLoader : MonoBehaviour
                 }
             }
         }
+
+        //TODO nomore levels
 
         MKGame.Instance.GetFlowManager().NextLevelLoaded();
     }
