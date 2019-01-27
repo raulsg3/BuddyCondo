@@ -299,7 +299,7 @@ public class MKCharacterController : MonoBehaviour
         // }
 
         grabbingObject = false;
-        
+        PlayIlde();
     }
 
     private EMKMove GetEMKMoveFromVector(Vector2 direction){
