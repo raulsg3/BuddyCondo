@@ -22,7 +22,7 @@ public class MKCharacterController : MonoBehaviour
     public Transform m_transform; 
     public PlayerPower playerPower; 
     public bool playerActive = false;
-     public LayerMask layermask;
+    public LayerMask furnitureLayermask;
     private MKColorController currentColorController;
     RaycastHit hit;
     private Transform myTransform;
@@ -78,15 +78,39 @@ public class MKCharacterController : MonoBehaviour
 
         UpdateMovement();
     }
+
+    public bool CanMoveObjectInThisDirection(Vector3 direction){
+        Debug.Log(playerPower + gameObject.name + direction);
+        if(PlayerPower.HORIZONTAL == playerPower){
+            if(direction.x != 0f  ){
+                return true;
+            }else
+                return false;
+        }else{
+            if(direction.z != 0f   ){
+                return true;
+            }else
+                return false;
+        }
+    }
    
     private void CastRayForFeedback(){
         if(myTransform == null) myTransform = transform;
         
-        if(Physics.Raycast(myTransform.position,myTransform.forward,out hit,layermask)){
+        if(Physics.Raycast(myTransform.position,myTransform.forward,out hit,1.2f,furnitureLayermask)){
             MKColorController colorController = hit.transform.GetComponentInParent(typeof(MKColorController)) as MKColorController;
             if (colorController != null && colorController.myType == EMKCellType.Movable ){
-                currentColorController = colorController;
-                currentColorController.ShowFeedback();
+                if(CanMoveObjectInThisDirection(myTransform.forward)){
+                    Debug.Log("Can move");
+                    currentColorController = colorController;
+                    currentColorController.ShowFeedback();
+                }else{
+                    if(currentColorController!= null){
+
+                        currentColorController.HideFeedback();
+                        currentColorController = null;
+                    }       
+                }
             }
             else
             {

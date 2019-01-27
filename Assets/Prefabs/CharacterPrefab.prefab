@@ -109,7 +109,7 @@ MonoBehaviour:
   m_transform: {fileID: 3754997251738001979}
   playerPower: 0
   playerActive: 0
-  layermask:
+  furnitureLayermask:
     serializedVersion: 2
     m_Bits: 512
   m_PlayerNumber: 0
