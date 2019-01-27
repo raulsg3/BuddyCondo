@@ -49,10 +49,14 @@ public class MKGameUIManager : MonoBehaviour
         //     timeText = GetComponent<Text>();
         // }
 
-        string textMinSec = string.Format("{0}:{1:00}", (int)time / 60, (int)time % 60);
+        string minutes = Mathf.Floor(time / 60).ToString("00");
+        string seconds = (time % 60).ToString("00");
+
+        string textMinSec = string.Format("{0}:{1}", minutes, seconds);
+
         // timeText.text = "Time: " + time;
         Debug.Log(textMinSec);
-        SingletonRichardSalvation.Instance.timeText.text = ""+time;
+        SingletonRichardSalvation.Instance.timeText.text = textMinSec;
 
     }
 
