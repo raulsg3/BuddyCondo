@@ -307,7 +307,7 @@ public class MKCharacterController : MonoBehaviour
         {   
             return;
         }
-        Debug.Log(grabbingObject);
+        // Debug.Log(grabbingObject);
         if(grabbingObject && !CanMoveInThisDirectionWithObjectGrabbed(_MovementToProcess)){
             Debug.Log("No se puede mover en esta direción co un objeto");
             return;
