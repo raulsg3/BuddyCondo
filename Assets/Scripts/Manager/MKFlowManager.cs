@@ -27,6 +27,8 @@ public class MKFlowManager : MonoBehaviour
     public void test() { WinLevel(1); }
     [Button]
     public void test2() { WinLevel(2); }
+    [Button]
+    public void test3() { WinLevel(999); }
     public void WinLevel(uint level)
     {
         //if (m_State.GameStatus != (int)Status.Game) { throw new System.Exception("No puedes llamarme desde fuera del Game."); }
@@ -57,7 +59,7 @@ public class MKFlowManager : MonoBehaviour
 
         StartCoroutine(FadeOut());
     }
-    [Button]
+
     public void NoMoreLevels()
     {
         if (m_State.GameStatus != (int)Status.LoadingLevel)

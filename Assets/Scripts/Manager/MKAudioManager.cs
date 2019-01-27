@@ -17,6 +17,14 @@ public class MKAudioManager : MonoBehaviour
     #endregion
 
     public AudioSource m_AudioTest;
+    public AudioSource m_pushChangeButton;
+    public AudioSource m_movingBox1;
+    public AudioSource m_movingBox2;
+    public AudioSource m_movingBox3;
+    public AudioSource m_boxInPlace;
+    public AudioSource m_ambientalMusic;
+    public AudioSource m_grabbingstuf;
+    public AudioSource m_fanfare;
 
     // Start is called before the first frame update
     void Start()
