@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f1506de5df0a61941af0ab4fb14b2ec0
+guid: 0a584a94068c2984caecb742a898cd07
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -75,10 +75,15 @@ ModelImporter:
     400068: //RootNode
     2100000: No Name
     4300000: Box002
-    7400000: Idle
+    7400000: mixamo.com
     9500000: //RootNode
     13700000: Box002
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 79b95fb20fdb1f0489aa6b18751f2984, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -89,7 +94,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: 
+    motionNodeName: mixamorig:Hips
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -105,35 +110,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Idle
-      takeName: mixamo.com
-      firstFrame: 0
-      lastFrame: 117
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []

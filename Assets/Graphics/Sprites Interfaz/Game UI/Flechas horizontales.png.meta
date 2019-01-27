@@ -1,7 +1,11 @@
 fileFormatVersion: 2
 guid: 1435b3bc5434f7a47a50ce0cd108962c
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Flechas horizontales_1
+    21300002: Flechas horizontales_2
+    21300004: Flechas horizontales_3
+    21300006: Flechas horizontales_5
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -93,7 +97,87 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Flechas horizontales_1
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 895
+        width: 265
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e69a581aadf02c84b8ab0210c9b3b07e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechas horizontales_2
+      rect:
+        serializedVersion: 2
+        x: 1686
+        y: 974
+        width: 4
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3171d69ad6d4bc4ab656962f9401e91
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechas horizontales_3
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 900
+        width: 4
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f1ed717462a08e45bdd78d4d270c643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechas horizontales_5
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 868
+        width: 122
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac9821acdfdfe04d80ff15abf2fdaf2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline:
     - - {x: 434, y: 344}
       - {x: 434, y: 454}

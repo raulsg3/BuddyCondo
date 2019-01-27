@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: 97aacaf5a8f4c3049b0af2bb6caa5813
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Flechas verticales_0
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -93,7 +94,27 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Flechas verticales_0
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 891
+        width: 183
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ac245a3ed69484a88eb3d825996214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

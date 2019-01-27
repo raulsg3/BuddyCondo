@@ -26,11 +26,23 @@ public class MKCharacterController : MonoBehaviour
     public MKColorController currentColorController;
     RaycastHit hit;
     private Transform myTransform;
+    public Animator playerAnimator;
     void Start()
     {
         m_CharacterContent = MKGame.Instance.GetGameContent().GetCharacterContent();
         SetPlayerFacing(PlayerFacing.UP);
         grabbingObject=false;
+
+    }
+
+    [Button]
+    public void PlayIlde(){
+        playerAnimator.Play("Idle",0,0f);
+    }
+
+    [Button]
+    public void PlayPush(){
+        // playerAnimator.Play("Push",0,0f);
     }
 
     public void SetPlayerFacingWithVector(Vector2 facing){
@@ -246,6 +258,7 @@ public class MKCharacterController : MonoBehaviour
 
     public void ObjectPlacedInRightPlace(){
 
+        // ProcessCharacterGrab
         if(currentColorController == null){
             if(Physics.Raycast(myTransform.position,myTransform.forward,out hit,1.2f,furnitureLayermask)){
                 MKColorController colorController = hit.transform.GetComponentInParent(typeof(MKColorController)) as MKColorController;
