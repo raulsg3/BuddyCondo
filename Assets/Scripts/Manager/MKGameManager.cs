@@ -153,6 +153,29 @@ public class MKGameManager : MonoBehaviour
         return new Vector2(nextRow, nextCol);
     }
 
+    public EMKMove GetMoveOppositeDirection(EMKMove move)
+    {
+        EMKMove oppositeMoveDir = move;
+
+        switch (move)
+        {
+            case EMKMove.Up:
+                oppositeMoveDir = EMKMove.Bottom;
+                break;
+            case EMKMove.Right:
+                oppositeMoveDir = EMKMove.Left;
+                break;
+            case EMKMove.Bottom:
+                oppositeMoveDir = EMKMove.Up;
+                break;
+            case EMKMove.Left:
+                oppositeMoveDir = EMKMove.Right;
+                break;
+        }
+
+        return oppositeMoveDir;
+    }
+
     public bool PlaceInCell(uint row, uint col, EMKCellType type, EMKColor color)
     {
         if (!CanPlaceInCell(row, col, type))
@@ -314,7 +337,10 @@ public class MKGameManager : MonoBehaviour
 
                 m_cells[nextMovableCellRow, nextMovableCellCol].type = EMKCellType.TargetFull;
 
-                m_cells[movableCellRow, movableCellCol].type = m_cells[playerCellRow, playerCellCol].type;
+                EMKCellType currentPlayerType = m_cells[playerCellRow, playerCellCol].type;
+                EMKCellType newPlayerType = (currentPlayerType == EMKCellType.PlayerWithMovable1) ? EMKCellType.Player1 : EMKCellType.Player2;
+
+                m_cells[movableCellRow, movableCellCol].type = newPlayerType;
                 m_cells[movableCellRow, movableCellCol].color = m_cells[playerCellRow, playerCellCol].color;
 
                 m_cells[playerCellRow, playerCellCol].type = EMKCellType.Empty;
@@ -346,11 +372,19 @@ public class MKGameManager : MonoBehaviour
         m_cells[nextPlayerCellRow, nextPlayerCellCol].type = m_cells[playerCellRow, playerCellCol].type;
         m_cells[nextPlayerCellRow, nextPlayerCellCol].color = m_cells[playerCellRow, playerCellCol].color;
 
-        //@TODO Mover el movable object asociado
-        //MKGame.Instance.GetFurnitureManager().MoveFurniture(
-        //  movableCellRow, movableCellCol, nextMovableCellRow, nextMovableCellCol);
-        //m_cells[playerCellRow, playerCellCol].type = EMKCellType.Empty;
-        //m_cells[playerCellRow, playerCellCol].color = EMKColor.None;
+        EMKMove movableMoveDirection = GetMoveOppositeDirection(move);
+        Vector2 movableCell = GetNextLogicPosition(playerCellRow, playerCellCol, movableMoveDirection);
+        uint movableCellRow = (uint)movableCell.x;
+        uint movableCellCol = (uint)movableCell.y;
+
+        MKGame.Instance.GetFurnitureManager().MoveFurniture(
+            movableCellRow, movableCellCol, playerCellRow, playerCellCol);
+
+        m_cells[playerCellRow, playerCellCol].type = m_cells[movableCellRow, movableCellCol].type;
+        m_cells[playerCellRow, playerCellCol].color = m_cells[movableCellRow, movableCellCol].color;
+
+        m_cells[movableCellRow, movableCellCol].type = EMKCellType.Empty;
+        m_cells[movableCellRow, movableCellCol].color = EMKColor.None;
 
         playerCellRow = nextPlayerCellRow;
         playerCellCol = nextPlayerCellCol;
