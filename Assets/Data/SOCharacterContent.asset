@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SOCharacterContent
   m_EditorClassIdentifier: 
   m_CharacterPrefab: {fileID: 0}
-  m_MoveCooldown: 0.3
+  m_MoveCooldown: 0.2
   m_MovementInterpSpeed: 15
