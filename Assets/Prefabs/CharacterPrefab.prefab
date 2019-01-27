@@ -114,7 +114,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   currentColorController: {fileID: 0}
-  playerAnimator: {fileID: 0}
+  playerAnimator: {fileID: 6983496764337723295}
   blueTexture: {fileID: 2800000, guid: 294661a88b7e41a40b08a5d9ba1b1335, type: 3}
   redTexture: {fileID: 2800000, guid: e91dc488824a1a34c80d4b7d9bcd3770, type: 3}
   meshRenderer: {fileID: 6983496764333582687}
@@ -327,6 +327,12 @@ PrefabInstance:
 --- !u!4 &6983496764345448507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400068, guid: 0a584a94068c2984caecb742a898cd07,
+    type: 3}
+  m_PrefabInstance: {fileID: 6983496764345049855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6983496764337723295 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 0a584a94068c2984caecb742a898cd07,
     type: 3}
   m_PrefabInstance: {fileID: 6983496764345049855}
   m_PrefabAsset: {fileID: 0}
