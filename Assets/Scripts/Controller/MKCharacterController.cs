@@ -23,13 +23,14 @@ public class MKCharacterController : MonoBehaviour
     public PlayerPower playerPower; 
     public bool playerActive = false;
     public LayerMask furnitureLayermask;
-    private MKColorController currentColorController;
+    public MKColorController currentColorController;
     RaycastHit hit;
     private Transform myTransform;
     void Start()
     {
         m_CharacterContent = MKGame.Instance.GetGameContent().GetCharacterContent();
         SetPlayerFacing(PlayerFacing.UP);
+        grabbingObject=false;
     }
 
     public void SetPlayerFacingWithVector(Vector2 facing){
@@ -80,19 +81,43 @@ public class MKCharacterController : MonoBehaviour
     }
 
     public bool CanMoveObjectInThisDirection(Vector3 direction){
-        Debug.Log(playerPower + gameObject.name + direction);
+        // Debug.Log(direction.x);
         if(PlayerPower.HORIZONTAL == playerPower){
-            if(direction.x != 0f  ){
+            if((int)direction.x != 0f ){
                 return true;
-            }else
+            }else{
                 return false;
+            }
         }else{
-            if(direction.z != 0f   ){
+            if((int)direction.z != 0){
                 return true;
-            }else
+            }else{
+
                 return false;
+            }
         }
     }
+
+
+
+    private bool CanMoveInThisDirectionWithObjectGrabbed(Vector3 direction){
+        // Debug.Log(direction);
+         if(PlayerPower.HORIZONTAL == playerPower){
+            if((int)direction.x != 0f ){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            if((int)direction.y != 0){
+                return true;
+            }else{
+
+                return false;
+            }
+        }
+    }
+    
    
     private void CastRayForFeedback(){
         if(myTransform == null) myTransform = transform;
@@ -101,7 +126,7 @@ public class MKCharacterController : MonoBehaviour
             MKColorController colorController = hit.transform.GetComponentInParent(typeof(MKColorController)) as MKColorController;
             if (colorController != null && colorController.myType == EMKCellType.Movable ){
                 if(CanMoveObjectInThisDirection(myTransform.forward)){
-                    Debug.Log("Can move");
+                    // Debug.Log("Can move");
                     currentColorController = colorController;
                     currentColorController.ShowFeedback();
                 }else{
@@ -175,10 +200,16 @@ public class MKCharacterController : MonoBehaviour
         return CurrentInput;
     }
 
+    public bool grabbingObject = false;
+
     void ProcessCharacterGrab()
     {
         if(bIsMoving)
         {
+            return;
+        }
+
+        if(!CanMoveObjectInThisDirection(transform.forward)){
             return;
         }
 
@@ -187,20 +218,52 @@ public class MKCharacterController : MonoBehaviour
         {
             if(MKGame.Instance.GetGameManager().InteractWithCell(m_CharacterIndexPositionX,m_CharacterIndexPositionY,GetMoveFromFacing())){
                 Debug.Log("Suscceful grab or drop player 1");
-                currentColorController.ToogleGrabFeedBack();
+                if(currentColorController!= null){
+                    grabbingObject = !grabbingObject;
+                    currentColorController.ToogleGrabFeedBack();
+                }
+                else{
+                    Debug.Log("currentColorController is null");
+                }
             }
         }
         else if(m_PlayerNumber == EMKPlayerNumber.Player2 && Input.GetButtonDown("Grab2"))
         {
             if(MKGame.Instance.GetGameManager().InteractWithCell(m_CharacterIndexPositionX,m_CharacterIndexPositionY,GetMoveFromFacing())){
                 Debug.Log("Suscceful grab or drop player 2");
-                currentColorController.ToogleGrabFeedBack();
+                if(currentColorController!= null){
+                    grabbingObject = !grabbingObject;
+                    currentColorController.ToogleGrabFeedBack();
+
+                }
+                else
+                {
+                    Debug.Log("currentColorController is null");
+                }
             }
         }
-        else
-        {
-            // m_GrabbedGameObject = null;
+    }
+
+    public void ObjectPlacedInRightPlace(){
+
+        if(currentColorController == null){
+            if(Physics.Raycast(myTransform.position,myTransform.forward,out hit,1.2f,furnitureLayermask)){
+                MKColorController colorController = hit.transform.GetComponentInParent(typeof(MKColorController)) as MKColorController;
+                Debug.Log(colorController + colorController.gameObject.name);
+                if (colorController != null && colorController.myType == EMKCellType.Movable ||colorController.myType == EMKCellType.TargetFull  ){
+                    colorController.SetObjectInTarget();
+                }
+            }
+        }else{
+            currentColorController.SetObjectInTarget();
         }
+        // if(currentColorController != null){
+        // }else{
+        //     Debug.Log("currentColorController is null");
+        // }
+
+        grabbingObject = false;
+        
     }
 
     private EMKMove GetEMKMoveFromVector(Vector2 direction){
@@ -228,11 +291,17 @@ public class MKCharacterController : MonoBehaviour
         // Check if we can move to that cell!
         if(_MovementToProcess.x == 0&& _MovementToProcess.y==0) return;
         if (bIsMoving)
-        {
+        {   
+            return;
+        }
+        Debug.Log(grabbingObject);
+        if(grabbingObject && !CanMoveInThisDirectionWithObjectGrabbed(_MovementToProcess)){
+            Debug.Log("No se puede mover en esta direción co un objeto");
             return;
         }
 
-        SetPlayerFacingWithVector(_MovementToProcess);
+        if(!grabbingObject)
+            SetPlayerFacingWithVector(_MovementToProcess);
 
         if (m_TimeRemainingToMove <= 0 && _MovementToProcess.magnitude > 0.1f)
         {
