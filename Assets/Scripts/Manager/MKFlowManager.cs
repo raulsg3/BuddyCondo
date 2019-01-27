@@ -21,7 +21,7 @@ public class MKFlowManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyCode(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape))
         {
             EndGame();
         }
