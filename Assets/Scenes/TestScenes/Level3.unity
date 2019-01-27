@@ -2186,38 +2186,6 @@ MonoBehaviour:
     PrefabName: 
     Color: 0
     Type: 0
---- !u!84 &146995121
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1920
-  m_Height: 1080
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &162763236
 GameObject:
   m_ObjectHideFlags: 0
@@ -4372,38 +4340,6 @@ MonoBehaviour:
     PrefabName: Decorate_Box(1x1)
     Color: 0
     Type: 2
---- !u!84 &277027659
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1920
-  m_Height: 1080
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &279183916
 GameObject:
   m_ObjectHideFlags: 0
@@ -5594,7 +5530,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 277027659}
+  m_TargetTexture: {fileID: 1716673806}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -7829,8 +7765,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 534669904}
   outlineCamera: {fileID: 338293285}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 277027659}
-  extraRenderTexture: {fileID: 146995121}
+  renderTexture: {fileID: 1716673806}
+  extraRenderTexture: {fileID: 1868952484}
 --- !u!1 &535709476
 GameObject:
   m_ObjectHideFlags: 0
@@ -12970,8 +12906,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 4
     PosY: 2
-    RotationY: 180
-    PrefabName: Furniture_ChairBlue(1x1)
+    RotationY: 0
+    PrefabName: 
     Color: 0
     Type: 0
 --- !u!1 &927324740
@@ -17672,8 +17608,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 5
     PosY: 8
-    RotationY: 180
-    PrefabName: Furniture_ChairBlue(1x1)
+    RotationY: 0
+    PrefabName: 
     Color: 0
     Type: 0
 --- !u!1 &1172608905
@@ -25078,6 +25014,38 @@ MonoBehaviour:
     PrefabName: Furniture_Stool(1x1)
     Color: 0
     Type: 2
+--- !u!84 &1716673806
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1920
+  m_Height: 1080
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1718705964
 GameObject:
   m_ObjectHideFlags: 0
@@ -26868,6 +26836,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1864541486}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1868952484
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1920
+  m_Height: 1080
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1876814102
 GameObject:
   m_ObjectHideFlags: 0
