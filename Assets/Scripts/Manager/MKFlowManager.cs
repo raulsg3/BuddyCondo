@@ -54,7 +54,6 @@ public class MKFlowManager : MonoBehaviour
     {
         if (m_State.GameStatus != (int)Status.LoadingLevel && m_State.GameStatus != (int)Status.Menu)
         {
-            Debug.Log(m_State.GameStatus);
             throw new System.Exception("No puedes llamarme desde fuera del Loading o del menu.");
         }
 
@@ -65,7 +64,6 @@ public class MKFlowManager : MonoBehaviour
     {
         if (m_State.GameStatus != (int)Status.LoadingLevel)
         {
-            Debug.Log(m_State.GameStatus);
             throw new System.Exception("No puedes llamarme desde fuera del Loading o del menu.");
         }
 
@@ -169,15 +167,16 @@ public class MKFlowManager : MonoBehaviour
         GameObject endGameUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("endGameUI");
         endGameUIGO.SetActive(true);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         
         endGameUIGO.SetActive(false);
         GameObject yourScoreUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("yourScoreUI");
-        yourScoreUIGO.GetComponent<MKScoreVisual>().Player1.GetComponent<Text>().text = m_MKGameManager.Player1Name;
-        yourScoreUIGO.GetComponent<MKScoreVisual>().Player2.GetComponent<Text>().text = m_MKGameManager.Player2Name;
-        yourScoreUIGO.GetComponent<MKScoreVisual>().Score.GetComponent<Text>().text = m_MKGameManager.GameAccTime.ToString();
+        yourScoreUIGO.GetComponent<MKMenuRanking>().scores[0].GetComponent<MKScoreVisual>().Player1.GetComponent<Text>().text = m_MKGameManager.Player1Name;
+        yourScoreUIGO.GetComponent<MKMenuRanking>().scores[0].GetComponent<MKScoreVisual>().Player2.GetComponent<Text>().text = m_MKGameManager.Player2Name;
+        yourScoreUIGO.GetComponent<MKMenuRanking>().scores[0].GetComponent<MKScoreVisual>().Score.GetComponent<Text>().text = m_MKGameManager.GameAccTime.ToString();
         yourScoreUIGO.SetActive(true);
-        //GUARDAR ESOS DATOS AL JSON LA FUNCIÓN QUE YA HAY
+        m_MKRankingManager.ScoreToJson();
+        m_MKRankingManager.FillRankingMenuData();
 
         yield return new WaitForSeconds(5);
         
@@ -191,7 +190,7 @@ public class MKFlowManager : MonoBehaviour
         m_State.GameStatus = (int)Status.Menu;
         loading = false;
 
-        if (fadeImage == null) { fadeImage = GameObject.FindGameObjectWithTag("FadeImage").GetComponent<Image>(); }
+        /*if (fadeImage == null) { fadeImage = GameObject.FindGameObjectWithTag("FadeImage").GetComponent<Image>(); }
         try { GameObject.FindGameObjectWithTag("UIData").GetComponent<MKUIData>().GetUIGO("victoryUI").SetActive(false); } catch { }
         fadeImage.enabled = true;
         Color currentColor = fadeImage.color;
@@ -203,9 +202,10 @@ public class MKFlowManager : MonoBehaviour
             fadeImage.color = currentColor;
             yield return null;
         }
-        fadeImage.enabled = false;
+        fadeImage.enabled = false;*/
 
-        SceneManager.LoadScene("MenuScene");
+        goToMenu = GameObject.FindGameObjectWithTag("DOIT");
+        goToMenu.GetComponent<MKGoToMenu>().DOIT();
     }
 
     internal class State
@@ -234,4 +234,6 @@ public class MKFlowManager : MonoBehaviour
     public Image fadeImage;
     private bool loading;
     public float fadeSpeed = 0.5f;
+
+    public GameObject goToMenu;
 }
