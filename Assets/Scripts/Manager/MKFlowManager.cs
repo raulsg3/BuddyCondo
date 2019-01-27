@@ -31,8 +31,8 @@ public class MKFlowManager : MonoBehaviour
     public void test3() { WinLevel(999); }
     public void WinLevel(uint level)
     {
+        m_MKAudioManager.m_ambientalMusic.GetComponent<AudioSource>().Stop();
         //if (m_State.GameStatus != (int)Status.Game) { throw new System.Exception("No puedes llamarme desde fuera del Game."); }
-        m_MKAudioManager.m_AudioTest.GetComponent<AudioSource>().Play();
 
         m_MKCharacterManager.SetPlayerActiveStatus(false);
 
@@ -118,6 +118,7 @@ public class MKFlowManager : MonoBehaviour
         startingUIGO.SetActive(false);
 
         m_MKCharacterManager.SetPlayerActiveStatus(true);
+        m_MKAudioManager.m_ambientalMusic.GetComponent<AudioSource>().Play();
         MKGame.Instance.GetGameManager().StartLevel();
     }
 
