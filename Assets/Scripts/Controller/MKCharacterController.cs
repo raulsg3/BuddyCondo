@@ -239,6 +239,11 @@ public class MKCharacterController : MonoBehaviour
                 Debug.Log("Suscceful grab or drop player 1");
                 if(currentColorController!= null){
                     grabbingObject = !grabbingObject;
+                    if(grabbingObject){
+                        PlayPush();
+                    }else{
+                        PlayIlde();
+                    }
                     currentColorController.ToogleGrabFeedBack();
                     MKAudioManager.Instance.m_grabbingstuf.GetComponent<AudioSource>().Play();
                 }
@@ -253,6 +258,11 @@ public class MKCharacterController : MonoBehaviour
                 Debug.Log("Suscceful grab or drop player 2");
                 if(currentColorController!= null){
                     grabbingObject = !grabbingObject;
+                    if(grabbingObject){
+                        PlayPush();
+                    }else{
+                        PlayIlde();
+                    }
                     currentColorController.ToogleGrabFeedBack();
                     MKAudioManager.Instance.m_grabbingstuf.GetComponent<AudioSource>().Play();
                 }
