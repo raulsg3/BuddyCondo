@@ -354,6 +354,8 @@ public class MKGameManager : MonoBehaviour
                 EMKCellType currentPlayerType = m_cells[playerCellRow, playerCellCol].type;
                 EMKCellType newPlayerType = (currentPlayerType == EMKCellType.PlayerWithMovable1) ? EMKCellType.Player1 : EMKCellType.Player2;
 
+                MKGame.Instance.GetCharacterManager().OnMovebleInTarget(currentPlayerType);
+
                 m_cells[movableCellRow, movableCellCol].type = newPlayerType;
                 m_cells[movableCellRow, movableCellCol].color = m_cells[playerCellRow, playerCellCol].color;
 
