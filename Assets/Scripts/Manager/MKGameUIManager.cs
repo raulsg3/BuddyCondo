@@ -43,7 +43,6 @@ public class MKGameUIManager : MonoBehaviour
             GameObject timeTextGO = GameObject.FindGameObjectWithTag("TimeTextTag");
             if(timeText == null)
             {
-                // Debug.LogError("No se encontro el timeText. return");
                 return;
             }
             timeText = GetComponent<Text>();
