@@ -21,15 +21,17 @@ public class MKFlowManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyCode(KeyCode.Escape))
+        {
+            EndGame();
+        }
+    }
+    
+    public void EndGame()
+    {
+        WinLevel(999);
     }
 
-    [Button]
-    public void test() { WinLevel(1); }
-    [Button]
-    public void test2() { WinLevel(2); }
-    [Button]
-    public void test3() { WinLevel(999); }
     public void WinLevel(uint level)
     {
         m_MKAudioManager.m_ambientalMusic.GetComponent<AudioSource>().Stop();
