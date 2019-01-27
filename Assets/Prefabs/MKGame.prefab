@@ -676,7 +676,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cdff171d32dcc7845b3785228fb0dffc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b55cfbbc5f4312b4c819c9ed9373af8d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1580,6 +1580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 0}
   fadeSpeed: 0.5
+  goToMenu: {fileID: 0}
 --- !u!114 &134360193229674116
 MonoBehaviour:
   m_ObjectHideFlags: 0

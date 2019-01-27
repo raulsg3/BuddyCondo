@@ -70,7 +70,7 @@ public class MKRankingManager : MonoBehaviour
 
     public void SortRankingData()
     {
-        m_scores.scores.Sort((x, y) => x.score > y.score ? -1 : 1);
+        m_scores.scores.Sort((x, y) => x.score > y.score ? 1 : -1);
     }
 
     private MKGameManager m_MKGameManager;
