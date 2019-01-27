@@ -7,6 +7,9 @@ public class MKCharacterManager : MonoBehaviour
   public MKCharacterController player1;
   public MKCharacterController player2;
 
+   public void OnMovebleInTarget(EMKPlayerNumber eMKPlayerNumber){
+       
+   }
   public void SetPlayerActiveStatus(bool status){
     if(player1 != null){
         player1.playerActive = status;

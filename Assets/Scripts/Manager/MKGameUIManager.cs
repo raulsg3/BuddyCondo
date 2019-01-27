@@ -37,7 +37,7 @@ public class MKGameUIManager : MonoBehaviour
         levelText.text = "Level " + level;
     }
 
-    public void UpdateTimeText(string time){
+    public void UpdateTimeText(float time){
         if(timeText == null){
             GameObject timeTextGO = GameObject.FindGameObjectWithTag("TimeTextTag");
             if(timeText == null)
