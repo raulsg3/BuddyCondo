@@ -27,6 +27,9 @@ public class MKCharacterController : MonoBehaviour
     RaycastHit hit;
     private Transform myTransform;
     public Animator playerAnimator;
+    public Texture2D blueTexture;
+    public Texture2D redTexture;
+    public Material myMaterial;
     void Start()
     {
         m_CharacterContent = MKGame.Instance.GetGameContent().GetCharacterContent();
