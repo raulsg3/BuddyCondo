@@ -11,6 +11,10 @@ public class MKColorController : MonoBehaviour
     [HideInInspector]
     public List<MeshRenderer> meshRendererList;
     public EMKCellType myType;
+public GameObject grabPrefab;
+    public GameObject grabGOInstance;
+    private bool isGrabbed = false;
+    public bool objectInTarget=false;
     private void Awake()
     {
         meshRendererList = new List<MeshRenderer>();
@@ -54,10 +58,21 @@ public class MKColorController : MonoBehaviour
         furnitureColor = colorMap[baseColor];
     }
 
-    public GameObject grabPrefab;
-    public GameObject grabGOInstance;
+    public void SetObjectInTarget(){
+        objectInTarget=false;
+        HideFeedback();
+        if(grabGOInstance != null)
+            grabGOInstance.GetComponent<GrabFeedBack>().ShowAsUnGrabbed();
+
+
+    }
 
     public void ShowFeedback(){
+        if(objectInTarget) {
+            HideFeedback();
+            return;
+        }
+
         if(grabGOInstance == null){
            grabGOInstance = Instantiate(MKGame.Instance.GetFurnitureManager().grabFeedbackPrefab,transform);
         }
@@ -72,9 +87,9 @@ public class MKColorController : MonoBehaviour
     }
 
     public void HideFeedback(){
-        grabGOInstance.GetComponent<GrabFeedBack>().canvas.enabled=false;
+        if(grabGOInstance != null)
+            grabGOInstance.GetComponent<GrabFeedBack>().canvas.enabled=false;
     }
-    private bool isGrabbed = false;
     public void ToogleGrabFeedBack(){
         if(grabGOInstance == null){
             Debug.LogError("No se ha instanciado el feeback. Return"); 
@@ -82,6 +97,13 @@ public class MKColorController : MonoBehaviour
         }
 
         isGrabbed = !isGrabbed;
+        
+        if(objectInTarget){
+            isGrabbed=false;
+            grabGOInstance.GetComponent<GrabFeedBack>().ShowAsUnGrabbed();
+            return;
+        }
+
         if(isGrabbed){
             grabGOInstance.GetComponent<GrabFeedBack>().ShowAsGrabbed();
 
