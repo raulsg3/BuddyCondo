@@ -34,7 +34,9 @@ public class MKGameUIManager : MonoBehaviour
     }
 
     public void ResetUI(){
+        if(UpDownGO != null)
         UpDownGO.transform.position =initalVerticalPos;
+        if(LeftRigthGO != null)
         LeftRigthGO.transform.position = initalHorizontalPos;
     }
 
