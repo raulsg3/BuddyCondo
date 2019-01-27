@@ -46,7 +46,7 @@ public class MKFlowManager : MonoBehaviour
 
     public void LoadLevel(uint level)
     {
-        MKGame.Instance.GetUIManager().UpdateLevelText(level);
+        MKGame.Instance.GetUIManager().UpdateLevelText(level.ToString());
         m_State.GameStatus = (int)Status.LoadingLevel;
         m_MKLevelLoader.LoadLevel(level.ToString());
     }
