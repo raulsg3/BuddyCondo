@@ -76,6 +76,18 @@ public class LevelEditorGenerator : MonoBehaviour
     {
         foreach(GameObject go in Selection.gameObjects)
         {
+            //Remove the children
+            List<GameObject> toDelete = new List<GameObject>();
+            foreach(Transform child in go.transform)
+            {
+                toDelete.Add(child.gameObject);
+            }
+            foreach(GameObject deleted in toDelete)
+            {
+                DestroyImmediate(deleted);
+            }
+
+            //Add the new GO
             GameObject newGO = Instantiate(GOtoCopy, Vector3.zero, Quaternion.identity);
             newGO.name = newGO.name.Replace("(Clone)", "");
             newGO.transform.parent = go.transform;
