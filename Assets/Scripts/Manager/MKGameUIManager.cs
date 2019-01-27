@@ -14,7 +14,6 @@ public class MKGameUIManager : MonoBehaviour
         GameObject LeftRigthGO = GameObject.FindGameObjectWithTag("LeftRightUI");
         if (UpDownGO == null || LeftRigthGO == null)
         {
-            Debug.LogError("No se encontro el UpDown o LeftRigthGO tag en MainScene. return");
             return;
         }
 
@@ -55,7 +54,6 @@ public class MKGameUIManager : MonoBehaviour
         string textMinSec = string.Format("{0}:{1}", minutes, seconds);
 
         // timeText.text = "Time: " + time;
-        Debug.Log(textMinSec);
         SingletonRichardSalvation.Instance.timeText.text = textMinSec;
 
     }
