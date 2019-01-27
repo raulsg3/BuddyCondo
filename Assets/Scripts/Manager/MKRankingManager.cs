@@ -22,19 +22,16 @@ public class MKRankingManager : MonoBehaviour
     public void ScoreToJson()
     {
         PopulateRankingData();
-        if (m_scores != null && m_scores.scores.Count != 0)
+        m_MKGameManager = MKGame.Instance.GetGameManager();
+        MKScore score = new MKScore(m_MKGameManager.Player1Name, m_MKGameManager.Player2Name, m_MKGameManager.GameAccTime);
+        m_scores.scores.Add(score);
+        SortRankingData();
+        while (m_scores.scores.Count > 6)
         {
-            m_MKGameManager = MKGame.Instance.GetGameManager();
-            MKScore score = new MKScore(m_MKGameManager.Player1Name, m_MKGameManager.Player2Name, m_MKGameManager.GameAccTime);
-            m_scores.scores.Add(score);
-            SortRankingData();
-            while (m_scores.scores.Count > 6)
-            {
-                m_scores.scores.RemoveAt(m_scores.scores.Count - 1);
-            }
-            string json = JsonUtility.ToJson(m_scores);
-            File.WriteAllText(Application.persistentDataPath + "/ranking.json", json);
+            m_scores.scores.RemoveAt(m_scores.scores.Count - 1);
         }
+        string json = JsonUtility.ToJson(m_scores);
+        File.WriteAllText(Application.persistentDataPath + "/ranking.json", json);
     }
     
     public void PopulateRankingData()
