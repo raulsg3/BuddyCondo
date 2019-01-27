@@ -55,7 +55,6 @@ public class USSimpleSingleton<T> : MonoBehaviour where T : MonoBehaviour
     private void OnDestroy()
     {
         m_Instance = null;
-        m_IsDestroyed = true;
     }
 
     #endregion // Private methods 
