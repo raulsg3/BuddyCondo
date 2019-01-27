@@ -40,17 +40,18 @@ public class MKGameUIManager : MonoBehaviour
     }
 
     public void UpdateTimeText(float time){
-        if(timeText == null){
-            GameObject timeTextGO = GameObject.FindGameObjectWithTag("TimeTextTag");
-            if(timeText == null)
-            {
-                return;
-            }
-            timeText = GetComponent<Text>();
-        }
+        // if(timeText == null){
+        //     GameObject timeTextGO = GameObject.FindGameObjectWithTag("TimeTextTag");
+        //     if(timeText == null)
+        //     {
+        //         return;
+        //     }
+        //     timeText = GetComponent<Text>();
+        // }
 
         string textMinSec = string.Format("{0}:{1:00}", (int)time / 60, (int)time % 60);
         // timeText.text = "Time: " + time;
+        Debug.Log(textMinSec);
         SingletonRichardSalvation.Instance.timeText.text = ""+time;
 
     }
