@@ -46,7 +46,7 @@ public class MKMenuManager : MonoBehaviour
             return;
         }
         MKGame.Instance.GetGameManager().Player1Name = player1.text;
-        MKGame.Instance.GetGameManager().Player2Name = player1.text;
+        MKGame.Instance.GetGameManager().Player2Name = player2.text;
         StartCoroutine(FadeAndLoad());
     }
     public void DeactivatePlayer1Error(){
