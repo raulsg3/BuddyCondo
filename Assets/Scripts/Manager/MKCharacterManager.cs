@@ -9,12 +9,12 @@ public class MKCharacterManager : MonoBehaviour
 
    public void OnMovebleInTarget(EMKCellType eMKPlayerNumber){
        if(eMKPlayerNumber == EMKCellType.Player1){
-
+           player1.ObjectPlacedInRightPlace();
        }else{
-
+           player2.ObjectPlacedInRightPlace();
        }
-       
    }
+   
   public void SetPlayerActiveStatus(bool status){
     if(player1 != null){
         player1.playerActive = status;

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+#if UNITY_EDITOR
 using UnityEditor;
-
+#endif
 public class LevelEditorGenerator : MonoBehaviour
 {
     public GameObject GOtoCopy;
@@ -70,7 +71,7 @@ public class LevelEditorGenerator : MonoBehaviour
             }
         }
     }
-
+    #if UNITY_EDITOR
     [Button]
     public void FillSelectionWithGameObject()
     {
@@ -94,6 +95,7 @@ public class LevelEditorGenerator : MonoBehaviour
             newGO.transform.localPosition = Vector3.zero;
         }
     }
+    #endif
 
     [Button]
     public void SetBordersAsDecoration()
