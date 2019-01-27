@@ -20,12 +20,10 @@ public class MKCharacterManager : MonoBehaviour
     if(player1 != null){
         player1.playerActive = status;
     }else{
-        Debug.Log("player 1 is null");
     }
     if(player2 != null){
         player2.playerActive = status;
     }else{
-        Debug.Log("player 2 is null");
     }
   }
   public void ChangePowers(){

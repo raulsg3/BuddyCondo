@@ -15,13 +15,11 @@ public class USSimpleSingleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             if (m_IsDestroyed)
             {
-                Debug.LogError("Someone is trying to access the singleton of " + typeof(T).ToString() + " after being destroyed");
                 return null;
             }
 
             if (m_Instance == null)
             {
-                Debug.LogError("Someone is trying to access the singleton of " + typeof(T).ToString() + " without being initialized");
                 return null;
             }
 
@@ -41,7 +39,6 @@ public class USSimpleSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         if (m_Instance != null)
         {
-            Debug.LogError("There is more than one instance of " + this.GetType().Name);
         }
 
         m_Instance = this as T;

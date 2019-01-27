@@ -61,7 +61,6 @@ public class MKRankingManager : MonoBehaviour
             {
                 MKScoreVisual scoreCO = menuRankingCO.scores[i].GetComponent<MKScoreVisual>();
                 scoreCO.Player1.GetComponent<Text>().text = m_scores.scores[i].playerOne;
-                Debug.Log(m_scores.scores[i]);
                 scoreCO.Player2.GetComponent<Text>().text = m_scores.scores[i].playerTwo;
                 scoreCO.Score.GetComponent<Text>().text = m_scores.scores[i].score.ToString();
             }

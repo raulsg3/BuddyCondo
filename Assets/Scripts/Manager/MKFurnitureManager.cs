@@ -55,8 +55,7 @@ public class MKFurnitureManager : MonoBehaviour
 
         GameObject movableFurniture = GetMovableFromPosition(oldX, oldY);
 
-        if(movableFurniture == null)
-            Debug.LogError("MoveFurniture CANNOT BE MOVED");
+        if(movableFurniture == null) { }
 
         movableFurniture.GetComponent<MKFurniturePositionHelper>().UpdatePosition(newX, newY);
         int mus = UnityEngine.Random.Range(0, 2);
