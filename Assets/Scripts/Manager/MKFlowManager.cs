@@ -46,7 +46,7 @@ public class MKFlowManager : MonoBehaviour
 
     public void LoadLevel(uint level)
     {
-        MKGame.Instance.GetUIManager().UpdateLevelText(level.ToString());
+        //MKGame.Instance.GetUIManager().UpdateLevelText(level.ToString());
         m_State.GameStatus = (int)Status.LoadingLevel;
         m_MKLevelLoader.LoadLevel(level.ToString());
     }
@@ -168,7 +168,7 @@ public class MKFlowManager : MonoBehaviour
         GameObject endGameUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("endGameUI");
         endGameUIGO.SetActive(true);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         
         endGameUIGO.SetActive(false);
         GameObject yourScoreUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("yourScoreUI");
@@ -179,7 +179,7 @@ public class MKFlowManager : MonoBehaviour
         m_MKRankingManager.ScoreToJson();
         m_MKRankingManager.FillRankingMenuData();
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
         
         yourScoreUIGO.SetActive(false);
         GameObject rankingUIGO = uIDataGO.GetComponent<MKUIData>().GetUIGO("rankingUI");
