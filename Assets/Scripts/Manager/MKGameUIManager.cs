@@ -9,7 +9,18 @@ public class MKGameUIManager : MonoBehaviour
     private Text timeText;
 
     public void ChangePowersIU(){
-        
+        GameObject UpDownGO = GameObject.FindGameObjectWithTag("UpDownUI");
+        GameObject LeftRigthGO = GameObject.FindGameObjectWithTag("LeftRightUI");
+        if (UpDownGO == null || LeftRigthGO == null)
+        {
+            Debug.LogError("No se encontro el UpDown o LeftRigthGO tag en MainScene. return");
+            return;
+        }
+
+        // TODO: Hacer esto con una fucking animación
+        Vector3 posAux = UpDownGO.transform.position;
+        UpDownGO.transform.position = LeftRigthGO.transform.position;
+        LeftRigthGO.transform.position = posAux;
     }
 
     public void UpdateLevelText(string level){
