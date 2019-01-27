@@ -42,7 +42,7 @@ public class MKCharacterController : MonoBehaviour
 
     [Button]
     public void PlayPush(){
-        // playerAnimator.Play("Push",0,0f);
+        playerAnimator.Play("Push",0,0f);
     }
 
     public void SetPlayerFacingWithVector(Vector2 facing){
@@ -307,7 +307,7 @@ public class MKCharacterController : MonoBehaviour
         {   
             return;
         }
-        Debug.Log(grabbingObject);
+        // Debug.Log(grabbingObject);
         if(grabbingObject && !CanMoveInThisDirectionWithObjectGrabbed(_MovementToProcess)){
             Debug.Log("No se puede mover en esta direción co un objeto");
             return;
