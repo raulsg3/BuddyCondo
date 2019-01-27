@@ -160,6 +160,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &10334752
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +431,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &34522986
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,6 +887,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &47478680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1435,40 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
+--- !u!84 &66795669
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1920
+  m_Height: 1080
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &67292257
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,6 +2490,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &140436232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,6 +2761,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &150682312
 GameObject:
   m_ObjectHideFlags: 0
@@ -3105,6 +3149,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &191378624
 GameObject:
   m_ObjectHideFlags: 0
@@ -3586,6 +3632,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &214204365
 GameObject:
   m_ObjectHideFlags: 0
@@ -3725,6 +3773,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &217626173
 GameObject:
   m_ObjectHideFlags: 0
@@ -3884,6 +3934,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &243735418
 GameObject:
   m_ObjectHideFlags: 0
@@ -3931,6 +3983,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &252734769
 GameObject:
   m_ObjectHideFlags: 0
@@ -4136,6 +4190,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &266996535
 GameObject:
   m_ObjectHideFlags: 0
@@ -5408,7 +5464,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 2037085153}
+  m_TargetTexture: {fileID: 741188635}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -5775,6 +5831,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &349173142
 GameObject:
   m_ObjectHideFlags: 0
@@ -8466,7 +8524,7 @@ MonoBehaviour:
     RotationY: 0
     PrefabName: 
     Color: 0
-    Type: 6
+    Type: 5
 --- !u!1 &504396356
 GameObject:
   m_ObjectHideFlags: 0
@@ -8698,6 +8756,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &517157667
 GameObject:
   m_ObjectHideFlags: 0
@@ -8937,8 +8997,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 534669904}
   outlineCamera: {fileID: 338293285}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 2037085153}
-  extraRenderTexture: {fileID: 1173024975}
+  renderTexture: {fileID: 741188635}
+  extraRenderTexture: {fileID: 66795669}
 --- !u!1 &549347354
 GameObject:
   m_ObjectHideFlags: 0
@@ -11603,6 +11663,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &665117975
 GameObject:
   m_ObjectHideFlags: 0
@@ -11887,6 +11949,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &671695096
 GameObject:
   m_ObjectHideFlags: 0
@@ -12046,6 +12110,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &692022113
 GameObject:
   m_ObjectHideFlags: 0
@@ -12440,6 +12506,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &702681064
 GameObject:
   m_ObjectHideFlags: 0
@@ -12690,6 +12758,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &723995726
 GameObject:
   m_ObjectHideFlags: 0
@@ -12894,6 +12964,38 @@ MonoBehaviour:
     PrefabName: Decorate_Box(1x1)
     Color: 2
     Type: 3
+--- !u!84 &741188635
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1920
+  m_Height: 1080
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &742227422
 GameObject:
   m_ObjectHideFlags: 0
@@ -13334,6 +13436,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &774257986
 GameObject:
   m_ObjectHideFlags: 0
@@ -13709,6 +13813,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &794113586
 GameObject:
   m_ObjectHideFlags: 0
@@ -13959,6 +14065,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &805469330
 GameObject:
   m_ObjectHideFlags: 0
@@ -14780,6 +14888,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &864075807
 GameObject:
   m_ObjectHideFlags: 0
@@ -15030,6 +15140,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &873986708
 GameObject:
   m_ObjectHideFlags: 0
@@ -16134,6 +16246,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &929427869
 GameObject:
   m_ObjectHideFlags: 0
@@ -18334,6 +18448,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1021980017
 GameObject:
   m_ObjectHideFlags: 0
@@ -18598,6 +18714,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1031052990
 GameObject:
   m_ObjectHideFlags: 0
@@ -18737,6 +18855,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1032682826
 GameObject:
   m_ObjectHideFlags: 0
@@ -19394,6 +19514,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1080388120
 GameObject:
   m_ObjectHideFlags: 0
@@ -21702,6 +21824,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1159581187
 GameObject:
   m_ObjectHideFlags: 0
@@ -22004,6 +22128,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1165149111
 GameObject:
   m_ObjectHideFlags: 0
@@ -22207,38 +22333,6 @@ MonoBehaviour:
     PrefabName: 
     Color: 0
     Type: 0
---- !u!84 &1173024975
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1920
-  m_Height: 1080
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1181123058
 GameObject:
   m_ObjectHideFlags: 0
@@ -22286,6 +22380,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1186108433
 GameObject:
   m_ObjectHideFlags: 0
@@ -22647,6 +22743,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1192977041
 GameObject:
   m_ObjectHideFlags: 0
@@ -24152,6 +24250,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1292567536
 GameObject:
   m_ObjectHideFlags: 0
@@ -24749,6 +24849,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1327999428
 GameObject:
   m_ObjectHideFlags: 0
@@ -25147,6 +25249,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1337031536
 GameObject:
   m_ObjectHideFlags: 0
@@ -26991,6 +27095,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1417790550
 GameObject:
   m_ObjectHideFlags: 0
@@ -27274,6 +27380,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1443071066
 GameObject:
   m_ObjectHideFlags: 0
@@ -28050,6 +28158,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1482167659
 GameObject:
   m_ObjectHideFlags: 0
@@ -28504,6 +28614,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1506097485
 GameObject:
   m_ObjectHideFlags: 0
@@ -29692,6 +29804,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1573041497
 GameObject:
   m_ObjectHideFlags: 0
@@ -29851,6 +29965,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1581880700
 GameObject:
   m_ObjectHideFlags: 0
@@ -31140,6 +31256,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1686666275
 GameObject:
   m_ObjectHideFlags: 0
@@ -31220,6 +31338,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1704860045
 GameObject:
   m_ObjectHideFlags: 0
@@ -31267,6 +31387,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1722603209
 GameObject:
   m_ObjectHideFlags: 0
@@ -31517,6 +31639,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1729858933
 GameObject:
   m_ObjectHideFlags: 0
@@ -32483,6 +32607,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1816988257
 GameObject:
   m_ObjectHideFlags: 0
@@ -32705,7 +32831,7 @@ MonoBehaviour:
     RotationY: 0
     PrefabName: 
     Color: 0
-    Type: 5
+    Type: 6
 --- !u!1 &1831697563
 GameObject:
   m_ObjectHideFlags: 0
@@ -33502,6 +33628,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1886564941
 GameObject:
   m_ObjectHideFlags: 0
@@ -34850,6 +34978,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &1977342311
 GameObject:
   m_ObjectHideFlags: 0
@@ -35964,38 +36094,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023510302}
   m_Mesh: {fileID: 4300004, guid: 3ef61c1a4a529754ca7c2c66a43c60d0, type: 3}
---- !u!84 &2037085153
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1920
-  m_Height: 1080
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &2058517583
 GameObject:
   m_ObjectHideFlags: 0
@@ -36043,6 +36141,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1001 &2063233519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36349,6 +36449,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &2090188190
 GameObject:
   m_ObjectHideFlags: 0
@@ -36987,6 +37089,8 @@ MonoBehaviour:
   meshRendererArray: []
   meshRendererList: []
   myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
 --- !u!1 &2128167402
 GameObject:
   m_ObjectHideFlags: 0
