@@ -57,7 +57,10 @@ public class MKGameManager : MonoBehaviour
         GameCurrentLevel = 1;
         GameAccTime = 0;
         LevelTargetsLeft = 0;
+        CreateCellGridArray();
+    }
 
+    public void CreateCellGridArray(){
         uint gridRows = MKGame.Instance.GetGameContent().GetGameManagerContent().m_gridRows;
         uint gridCols = MKGame.Instance.GetGameContent().GetGameManagerContent().m_gridCols;
 
@@ -73,8 +76,8 @@ public class MKGameManager : MonoBehaviour
                 m_cells[r, c].color = EMKColor.None;
             }
         }
-    }
 
+    }
     public void IncGameCurrentLevel()
     {
         GameCurrentLevel++;
@@ -93,6 +96,9 @@ public class MKGameManager : MonoBehaviour
     public void DecLevelTargetsLeft()
     {
         LevelTargetsLeft--;
+        if(LevelTargetsLeft == 0){
+            EndLevel();
+        }
     }
 
     public void StartLevel()
@@ -105,6 +111,7 @@ public class MKGameManager : MonoBehaviour
         //@TODO Time
         IncGameCurrentLevel();
         MKGame.Instance.GetFlowManager().WinLevel(GameCurrentLevel);
+        CreateCellGridArray();
     }
 
     public Vector3 GetWorldPosition(uint row, uint col)
@@ -361,7 +368,15 @@ public class MKGameManager : MonoBehaviour
         //Players
         if (IsCellTypePlayer(currentCellType))
         {
-            return CanPlayerInteractWithCell(currentCellRow, currentCellCol, move);
+            if(CanPlayerInteractWithCell(currentCellRow, currentCellCol, move)){
+                if(currentCellType == EMKCellType.Button){
+                    Debug.Log("Boton presionado!");
+                    MKGame.Instance.GetCharacterManager().ChangePowers();
+                    MKGame.Instance.GetUIManager().ChangePowersIU();
+                }
+                return true;
+            }else
+                return false ;
         }
 
         //Players with a movable object

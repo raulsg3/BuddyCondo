@@ -83,7 +83,6 @@ public class MKCharacterController : MonoBehaviour
         if(myTransform == null) myTransform = transform;
         
         if(Physics.Raycast(myTransform.position,myTransform.forward,out hit,layermask)){
-            Debug.Log(hit.transform.gameObject.name);
             MKColorController colorController = hit.transform.GetComponentInParent(typeof(MKColorController)) as MKColorController;
             if (colorController != null && colorController.myType == EMKCellType.Movable ){
                 currentColorController = colorController;
@@ -151,7 +150,6 @@ public class MKCharacterController : MonoBehaviour
 
         return CurrentInput;
     }
-
 
     void ProcessCharacterGrab()
     {
