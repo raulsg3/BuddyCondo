@@ -48,3 +48,5 @@ MonoBehaviour:
   startingUI: {fileID: 0}
   menupanelgoUI: {fileID: 0}
   titleUI: {fileID: 0}
+  endGameUI: {fileID: 0}
+  yourScoreUI: {fileID: 0}

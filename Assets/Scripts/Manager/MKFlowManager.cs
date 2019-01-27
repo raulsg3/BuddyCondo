@@ -32,6 +32,7 @@ public class MKFlowManager : MonoBehaviour
     public void WinLevel(uint level)
     {
         m_MKAudioManager.m_ambientalMusic.GetComponent<AudioSource>().Stop();
+        m_MKAudioManager.m_fanfare.GetComponent<AudioSource>().Play();
         //if (m_State.GameStatus != (int)Status.Game) { throw new System.Exception("No puedes llamarme desde fuera del Game."); }
 
         m_MKCharacterManager.SetPlayerActiveStatus(false);
