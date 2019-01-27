@@ -9,6 +9,8 @@ public class MKUIData : MonoBehaviour
     public GameObject startingUI;
     public GameObject menupanelgoUI;
     public GameObject titleUI;
+    public GameObject endGameUI;
+    public GameObject yourScoreUI;
 
     public GameObject GetUIGO(string uiElement)
     {
@@ -28,6 +30,12 @@ public class MKUIData : MonoBehaviour
                 break;
             case "titleUI":
                 return titleUI;
+                break;
+            case "endGameUI":
+                return endGameUI;
+                break;
+            case "yourScoreUI":
+                return endGameUI;
                 break;
             default:
                 return null;

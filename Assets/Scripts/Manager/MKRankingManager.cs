@@ -21,9 +21,8 @@ public class MKRankingManager : MonoBehaviour
     
     public void ScoreToJson()
     {
-        /*m_MKGameManager = MKGame.Instance.GetGameManager();
-        MKScore score = new MKScore(m_MKGameManager.Player1Name, m_MKGameManager.Player2Name, m_MKGameManager.GameCurrentLevel, m_MKGameManager.GameAccTime);*/
-        MKScore score = new MKScore("xxx", "vvv", 1, 8);
+        m_MKGameManager = MKGame.Instance.GetGameManager();
+        MKScore score = new MKScore(m_MKGameManager.Player1Name, m_MKGameManager.Player2Name, m_MKGameManager.GameAccTime);
         m_scores.scores.Add(score);
         SortRankingData();
         while (m_scores.scores.Count > 6 )
@@ -60,7 +59,6 @@ public class MKRankingManager : MonoBehaviour
                 scoreCO.Player1.GetComponent<Text>().text = m_scores.scores[i].playerOne;
                 Debug.Log(m_scores.scores[i]);
                 scoreCO.Player2.GetComponent<Text>().text = m_scores.scores[i].playerTwo;
-                scoreCO.Level.GetComponent<Text>().text = m_scores.scores[i].level.ToString();
                 scoreCO.Score.GetComponent<Text>().text = m_scores.scores[i].score.ToString();
             }
         }
@@ -68,7 +66,7 @@ public class MKRankingManager : MonoBehaviour
 
     public void SortRankingData()
     {
-        m_scores.scores.Sort((x, y) => x.score > y.score ? -1 : (x.score == y.score ? (x.level > y.level ? -1 : 0) : 1));
+        m_scores.scores.Sort((x, y) => x.score > y.score ? -1 : 1);
     }
 
     private MKGameManager m_MKGameManager;
@@ -79,14 +77,12 @@ public class MKRankingManager : MonoBehaviour
     {
         public string playerOne;
         public string playerTwo;
-        public uint level;
         public float score;
 
-        public MKScore(string playerOne, string playerTwo, uint level, float score)
+        public MKScore(string playerOne, string playerTwo, float score)
         {
             this.playerOne = playerOne;
             this.playerTwo = playerTwo;
-            this.level = level;
             this.score = score;
         }
     }
