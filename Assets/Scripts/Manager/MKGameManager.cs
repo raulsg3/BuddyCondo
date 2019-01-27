@@ -113,6 +113,11 @@ public class MKGameManager : MonoBehaviour
         }
     }
 
+    public EMKCellType GetCellType(uint row, uint col)
+    {
+        return m_cells[row, col].type;
+    }
+
     public void StartLevel()
     {
         m_countTime = true;

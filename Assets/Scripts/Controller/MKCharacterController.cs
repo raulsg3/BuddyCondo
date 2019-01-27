@@ -228,7 +228,12 @@ public class MKCharacterController : MonoBehaviour
             return;
         }
 
-        if(!CanMoveObjectInThisDirection(transform.forward)){
+        Vector2 nextLogicPosition = MKGame.Instance.GetGameManager().GetNextLogicPosition(
+            m_CharacterIndexPositionX, m_CharacterIndexPositionY, GetMoveFromFacing());
+
+        EMKCellType cellType = MKGame.Instance.GetGameManager().GetCellType((uint)nextLogicPosition.x, (uint)nextLogicPosition.y);
+
+        if (cellType != EMKCellType.Button && !CanMoveObjectInThisDirection(transform.forward)){
             return;
         }
 
