@@ -12,8 +12,9 @@ public class MKCharacterManager : MonoBehaviour
            player1.ObjectPlacedInRightPlace();
        }else{
            player2.ObjectPlacedInRightPlace();
-       }
-   }
+        }
+        MKAudioManager.Instance.m_boxInPlace.GetComponent<AudioSource>().Play();
+    }
    
   public void SetPlayerActiveStatus(bool status){
     if(player1 != null){
