@@ -25,17 +25,18 @@ public class MKGameUIManager : MonoBehaviour
     }
 
     public void UpdateLevelText(string level){
-        if(levelText == null){
-            GameObject levelTextGO = GameObject.FindGameObjectWithTag("LevelTextTag");
-            if(levelTextGO == null)
-            {
-                Debug.LogError("No se encontro el levelText. return");
-                return;
-            }
-            levelText = GetComponent<Text>();
-        }
-
-        levelText.text = "Level " + level;
+        // if(levelText == null){
+        //     GameObject levelTextGO = GameObject.FindGameObjectWithTag("LevelTextTag");
+        //     if(levelTextGO == null)
+        //     {
+        //         Debug.LogError("No se encontro el levelText. return");
+        //         return;
+        //     }
+        //     levelText = GetComponent<Text>();
+        // }
+        // Debug.Log(levelText);
+        SingletonRichardSalvation.Instance.levelText.text = ""+level;
+        // levelText.text = "Level " + level;
     }
 
     public void UpdateTimeText(float time){
@@ -49,7 +50,9 @@ public class MKGameUIManager : MonoBehaviour
         }
 
         string textMinSec = string.Format("{0}:{1:00}", (int)time / 60, (int)time % 60);
-        timeText.text = "Time: " + time;
+        // timeText.text = "Time: " + time;
+        SingletonRichardSalvation.Instance.timeText.text = ""+time;
+
     }
 
     void OnDestroy(){
