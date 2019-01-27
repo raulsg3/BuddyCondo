@@ -14,7 +14,7 @@ public class MKGameManager : MonoBehaviour
 
     //Time
     protected float m_gameAccTime;
-    protected float m_levelInitTime;
+    protected bool  m_countTime;
 
     //Targets
     protected uint m_levelTargetsLeft;
@@ -57,7 +57,19 @@ public class MKGameManager : MonoBehaviour
         GameCurrentLevel = 1;
         GameAccTime = 0;
         LevelTargetsLeft = 0;
+
+        m_countTime = false;
+
         CreateCellGridArray();
+    }
+
+    void Update()
+    {
+        if (m_countTime)
+        {
+            IncGameAccTime(Time.deltaTime);
+            MKGame.Instance.GetUIManager().UpdateTimeText(GameAccTime);
+        }
     }
 
     public void CreateCellGridArray(){
@@ -76,8 +88,8 @@ public class MKGameManager : MonoBehaviour
                 m_cells[r, c].color = EMKColor.None;
             }
         }
-
     }
+
     public void IncGameCurrentLevel()
     {
         GameCurrentLevel++;
@@ -103,14 +115,16 @@ public class MKGameManager : MonoBehaviour
 
     public void StartLevel()
     {
-        m_levelInitTime = Time.time;
+        m_countTime = true;
     }
 
     protected void EndLevel()
     {
-        //@TODO Time
+        m_countTime = false;
+
         IncGameCurrentLevel();
         MKGame.Instance.GetFlowManager().WinLevel(GameCurrentLevel);
+
         CreateCellGridArray();
     }
 
@@ -402,15 +416,7 @@ public class MKGameManager : MonoBehaviour
         //Players
         if (IsCellTypePlayer(currentCellType))
         {
-            if(CanPlayerInteractWithCell(currentCellRow, currentCellCol, move)){
-                if(currentCellType == EMKCellType.Button){
-                    Debug.Log("Boton presionado!");
-                    MKGame.Instance.GetCharacterManager().ChangePowers();
-                    MKGame.Instance.GetUIManager().ChangePowersIU();
-                }
-                return true;
-            }else
-                return false ;
+            return CanPlayerInteractWithCell(currentCellRow, currentCellCol, move);
         }
 
         //Players with a movable object
@@ -435,14 +441,28 @@ public class MKGameManager : MonoBehaviour
         if (objCellRow == currentCellRow && objCellCol == currentCellCol)
             return false;
 
-        //The objective cell is not a Movable object
-        if (m_cells[objCellRow, objCellCol].type != EMKCellType.Movable)
+        EMKCellType objCellType = m_cells[objCellRow, objCellCol].type;
+
+        //The objective cell is not a Movable object or a Button
+        if (objCellType != EMKCellType.Movable && objCellType != EMKCellType.Button)
             return false;
 
-        //The objective cell is a Movable object
-        EMKCellType currentCellType = m_cells[currentCellRow, currentCellCol].type;
-        EMKCellType typePlayer = (currentCellType == EMKCellType.Player1) ? EMKCellType.PlayerWithMovable1 : EMKCellType.PlayerWithMovable2;
-        m_cells[currentCellRow, currentCellCol].type = typePlayer;
+        if (objCellType == EMKCellType.Movable)
+        {
+            //The objective cell is a Movable object
+            EMKCellType currentCellType = m_cells[currentCellRow, currentCellCol].type;
+            EMKCellType typePlayer = (currentCellType == EMKCellType.Player1) ? EMKCellType.PlayerWithMovable1 : EMKCellType.PlayerWithMovable2;
+            m_cells[currentCellRow, currentCellCol].type = typePlayer;
+        }
+        else if (objCellType == EMKCellType.Button)
+        {
+            //The objective cell is a Button (actually, is THE button, we assume there is only one)
+            if (MKGame.Instance.GetFurnitureManager().PressButton() == true)
+            {
+                MKGame.Instance.GetCharacterManager().ChangePowers();
+                MKGame.Instance.GetUIManager().ChangePowersIU();
+            }
+        }
 
         return true;
     }
