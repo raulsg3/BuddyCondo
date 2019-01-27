@@ -20,12 +20,6 @@ public class MKFurnitureManager : MonoBehaviour
             // Initialize the cell in the GameManager
             MKGame.Instance.GetGameManager().PlaceInCell(cell.PosX, cell.PosY, cell.Type, cell.Color);
 
-            // Add it to the movable list if is of the type (Movable)
-            if(cell.Type == EMKCellType.Movable)
-            {
-
-            }
-
             // Instantiate the GameObjects with the cell data
             if(!string.IsNullOrEmpty(cell.PrefabName))
             {
@@ -38,6 +32,12 @@ public class MKFurnitureManager : MonoBehaviour
                 // Add the Position Helper to the GameObject and set The transform
                 furnitureObject.AddComponent<MKFurniturePositionHelper>();
                 furnitureObject.GetComponent<MKFurniturePositionHelper>().UpdatePosition(cell.PosX, cell.PosY);
+
+                // Save the reference if it's the button
+                if (cell.Type == EMKCellType.Button)
+                {
+                    MKGame.Instance.GetGameContent().GetFurnitureContent().swapPowersButton = furnitureObject;
+                }
 
                 furnitureList.Add(furnitureObject);
             }
@@ -58,6 +58,11 @@ public class MKFurnitureManager : MonoBehaviour
             Debug.LogError("MoveFurniture CANNOT BE MOVED");
 
         movableFurniture.GetComponent<MKFurniturePositionHelper>().UpdatePosition(newX, newY);
+    }
+
+    public bool PressButton()
+    {
+        return MKGame.Instance.GetGameContent().GetFurnitureContent().swapPowersButton.GetComponent<MKButtonController>().PressButton();
     }
 
     private GameObject GetMovableFromPosition(uint posX, uint posY)

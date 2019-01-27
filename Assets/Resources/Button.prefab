@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7155517736415204612}
   - component: {fileID: 1005095206065593591}
+  - component: {fileID: 3237260067648766376}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -45,6 +46,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6403a669a2ac121419b5830d3bab7226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRendererArray: []
+  meshRendererList: []
+  myType: 0
+  grabPrefab: {fileID: 0}
+  grabGOInstance: {fileID: 0}
+--- !u!114 &3237260067648766376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941210121855878375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdad9fad930e59449b3c7749930d90a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_cooldown: 1
 --- !u!1001 &3917000142534482740
 PrefabInstance:
   m_ObjectHideFlags: 0
