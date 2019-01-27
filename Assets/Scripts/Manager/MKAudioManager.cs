@@ -15,8 +15,7 @@ public class MKAudioManager : MonoBehaviour
         s_instance = this;
     }
     #endregion
-
-    public AudioSource m_AudioTest;
+    
     public AudioSource m_pushChangeButton;
     public AudioSource m_movingBox1;
     public AudioSource m_movingBox2;

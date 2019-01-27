@@ -27,12 +27,19 @@ public class MKCharacterController : MonoBehaviour
     RaycastHit hit;
     private Transform myTransform;
     public Animator playerAnimator;
+    public Texture2D blueTexture;
+    public Texture2D redTexture;
+    public SkinnedMeshRenderer meshRenderer;
     void Start()
     {
         m_CharacterContent = MKGame.Instance.GetGameContent().GetCharacterContent();
         SetPlayerFacing(PlayerFacing.UP);
         grabbingObject=false;
-
+        if(m_PlayerNumber == EMKPlayerNumber.Player1){
+            meshRenderer.material.SetTexture("_MainTex",blueTexture);
+        }else{
+            meshRenderer.material.SetTexture("_MainTex",redTexture);
+        }
     }
 
     [Button]
@@ -233,6 +240,7 @@ public class MKCharacterController : MonoBehaviour
                 if(currentColorController!= null){
                     grabbingObject = !grabbingObject;
                     currentColorController.ToogleGrabFeedBack();
+                    MKAudioManager.Instance.m_grabbingstuf.GetComponent<AudioSource>().Play();
                 }
                 else{
                     Debug.Log("currentColorController is null");
@@ -246,7 +254,7 @@ public class MKCharacterController : MonoBehaviour
                 if(currentColorController!= null){
                     grabbingObject = !grabbingObject;
                     currentColorController.ToogleGrabFeedBack();
-
+                    MKAudioManager.Instance.m_grabbingstuf.GetComponent<AudioSource>().Play();
                 }
                 else
                 {

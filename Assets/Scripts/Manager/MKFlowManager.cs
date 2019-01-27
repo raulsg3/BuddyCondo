@@ -15,6 +15,7 @@ public class MKFlowManager : MonoBehaviour
         m_MKRankingManager = MKGame.Instance.GetRankingManager();
         m_MKGameManager = MKGame.Instance.GetGameManager();
         m_MKAudioManager = MKAudioManager.Instance;
+        m_MKAudioManager.m_ambientalMusic.GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame
@@ -46,6 +47,7 @@ public class MKFlowManager : MonoBehaviour
 
     public void LoadLevel(uint level)
     {
+        m_MKAudioManager.m_ambientalMusic.GetComponent<AudioSource>().Stop();
         //MKGame.Instance.GetUIManager().UpdateLevelText(level.ToString());
         m_State.GameStatus = (int)Status.LoadingLevel;
         m_MKLevelLoader.LoadLevel(level.ToString());
