@@ -48,6 +48,7 @@ public class MKGameUIManager : MonoBehaviour
             timeText = GetComponent<Text>();
         }
 
+        string textMinSec = string.Format("{0}:{1:00}", (int)time / 60, (int)time % 60);
         timeText.text = "Time: " + time;
     }
 
