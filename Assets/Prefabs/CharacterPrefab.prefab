@@ -117,7 +117,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 0}
   blueTexture: {fileID: 2800000, guid: 294661a88b7e41a40b08a5d9ba1b1335, type: 3}
   redTexture: {fileID: 2800000, guid: e91dc488824a1a34c80d4b7d9bcd3770, type: 3}
-  myMaterial: {fileID: 0}
+  meshRenderer: {fileID: 6983496764333582687}
   grabbingObject: 0
   m_PlayerNumber: 0
   m_CharacterIndexPositionX: 0
@@ -327,6 +327,12 @@ PrefabInstance:
 --- !u!4 &6983496764345448507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400068, guid: 0a584a94068c2984caecb742a898cd07,
+    type: 3}
+  m_PrefabInstance: {fileID: 6983496764345049855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &6983496764333582687 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: 0a584a94068c2984caecb742a898cd07,
     type: 3}
   m_PrefabInstance: {fileID: 6983496764345049855}
   m_PrefabAsset: {fileID: 0}

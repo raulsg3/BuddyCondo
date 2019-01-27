@@ -29,13 +29,17 @@ public class MKCharacterController : MonoBehaviour
     public Animator playerAnimator;
     public Texture2D blueTexture;
     public Texture2D redTexture;
-    public Material myMaterial;
+    public SkinnedMeshRenderer meshRenderer;
     void Start()
     {
         m_CharacterContent = MKGame.Instance.GetGameContent().GetCharacterContent();
         SetPlayerFacing(PlayerFacing.UP);
         grabbingObject=false;
-
+        if(m_PlayerNumber == EMKPlayerNumber.Player1){
+            meshRenderer.material.SetTexture("_MainTex",blueTexture);
+        }else{
+            meshRenderer.material.SetTexture("_MainTex",redTexture);
+        }
     }
 
     [Button]
