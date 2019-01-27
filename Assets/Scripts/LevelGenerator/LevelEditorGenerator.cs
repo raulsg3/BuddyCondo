@@ -94,7 +94,7 @@ public class LevelEditorGenerator : MonoBehaviour
                 (cell.mKCellData.PosX == 14) ||
                 (cell.mKCellData.PosY == 0) ||
                 (cell.mKCellData.PosY == 9) ||
-                (cell.mKCellData.PosX == 7)) // -> middle border
+                ((cell.mKCellData.PosX == 7) && (this.levelNumber != "6"))) // -> middle border (except in level 6)
             {
                 if(cell.mKCellData.Type != EMKCellType.Button) // do NOT override the Buttons
                     cell.mKCellData.Type = EMKCellType.Decoration;
