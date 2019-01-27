@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine;
 
 public class MKFurnitureManager : MonoBehaviour
 {
@@ -58,6 +59,22 @@ public class MKFurnitureManager : MonoBehaviour
             Debug.LogError("MoveFurniture CANNOT BE MOVED");
 
         movableFurniture.GetComponent<MKFurniturePositionHelper>().UpdatePosition(newX, newY);
+        int mus = UnityEngine.Random.Range(0, 2);
+        switch (mus)
+        {
+            case 0:
+                MKAudioManager.Instance.m_movingBox1.GetComponent<AudioSource>().Play();
+                break;
+            case 1:
+                MKAudioManager.Instance.m_movingBox2.GetComponent<AudioSource>().Play();
+                break;
+            case 2:
+                MKAudioManager.Instance.m_movingBox3.GetComponent<AudioSource>().Play();
+                break;
+            default:
+                MKAudioManager.Instance.m_movingBox1.GetComponent<AudioSource>().Play();
+                break;
+        }
     }
 
     public bool PressButton()

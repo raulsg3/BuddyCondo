@@ -233,6 +233,7 @@ public class MKCharacterController : MonoBehaviour
                 if(currentColorController!= null){
                     grabbingObject = !grabbingObject;
                     currentColorController.ToogleGrabFeedBack();
+                    MKAudioManager.Instance.m_grabbingstuf.GetComponent<AudioSource>().Play();
                 }
                 else{
                     Debug.Log("currentColorController is null");
@@ -246,7 +247,7 @@ public class MKCharacterController : MonoBehaviour
                 if(currentColorController!= null){
                     grabbingObject = !grabbingObject;
                     currentColorController.ToogleGrabFeedBack();
-
+                    MKAudioManager.Instance.m_grabbingstuf.GetComponent<AudioSource>().Play();
                 }
                 else
                 {

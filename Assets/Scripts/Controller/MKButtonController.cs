@@ -29,6 +29,7 @@ public class MKButtonController : MonoBehaviour
             m_currentCooldown = m_cooldown;
             pressedButtonGO.SetActive(true);
             unpressedButtonGO.SetActive(false);
+            MKAudioManager.Instance.m_pushChangeButton.GetComponent<AudioSource>().Play();
             return true;
         }
 
