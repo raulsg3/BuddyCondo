@@ -8,6 +8,7 @@ public class MKGameUIManager : MonoBehaviour
     private Text levelText;
     private Text timeText;
 
+    [Button]
     public void ChangePowersIU(){
         GameObject UpDownGO = GameObject.FindGameObjectWithTag("UpDownUI");
         GameObject LeftRigthGO = GameObject.FindGameObjectWithTag("LeftRightUI");

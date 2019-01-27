@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class MKStartFirstLevel : MonoBehaviour
 {
-
+    public Image fadeImage;
+    void Awake(){
+        fadeImage.enabled = true;
+    }
     // Start is called before the first frame update
     IEnumerator Start()
     {
