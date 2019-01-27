@@ -63,7 +63,9 @@ public class MKFlowManager : MonoBehaviour
     {
         if (loading) yield break;
         loading = true;
-        fadeImage.gameObject.SetActive(true);
+        // fadeImage.gameObject.SetActive(true);
+        fadeImage.enabled = true;
+
         Color currentColor = fadeImage.color;
         currentColor.a = 0f;
         fadeImage.color = currentColor;
@@ -105,7 +107,8 @@ public class MKFlowManager : MonoBehaviour
         loading = true;
         if (fadeImage == null) { fadeImage = GameObject.FindGameObjectWithTag("FadeImage").GetComponent<Image>(); }
         try { GameObject.FindGameObjectWithTag("UIData").GetComponent<MKUIData>().GetUIGO("victoryUI").SetActive(false); } catch { }
-        fadeImage.gameObject.SetActive(true);
+        // fadeImage.gameObject.SetActive(true);
+        fadeImage.enabled = true;
         Color currentColor = fadeImage.color;
         currentColor.a = 1f;
         fadeImage.color = currentColor;
@@ -115,7 +118,8 @@ public class MKFlowManager : MonoBehaviour
             fadeImage.color = currentColor;
             yield return null;
         }
-        fadeImage.gameObject.SetActive(false);
+        // fadeImage.gameObject.SetActive(false);
+        fadeImage.enabled = false;
 
         yield return new WaitForSeconds(1);
 

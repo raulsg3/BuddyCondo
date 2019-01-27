@@ -8,6 +8,10 @@ public class MKGameUIManager : MonoBehaviour
     private Text levelText;
     private Text timeText;
 
+    public void ChangePowersIU(){
+        
+    }
+
     public void UpdateLevelText(string level){
         if(levelText == null){
             GameObject levelTextGO = GameObject.FindGameObjectWithTag("LevelTextTag");
