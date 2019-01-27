@@ -143,8 +143,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 374151098}
+  m_Children: []
   m_Father: {fileID: 1080388122}
   m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -224,7 +223,7 @@ MonoBehaviour:
     RotationY: 0
     PrefabName: 
     Color: 0
-    Type: 2
+    Type: 0
 --- !u!1 &2769040
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +366,7 @@ MonoBehaviour:
     PosX: 6
     PosY: 0
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &23940823
@@ -1800,7 +1799,7 @@ MonoBehaviour:
     PosX: 14
     PosY: 6
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &134173530
@@ -1911,8 +1910,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 10
     PosY: 9
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Furniture_ChairRed(1x1)
     Color: 0
     Type: 2
 --- !u!1 &134516304
@@ -3285,7 +3284,7 @@ MonoBehaviour:
     PosX: 7
     PosY: 2
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall3(1x1)
     Color: 0
     Type: 2
 --- !u!1001 &228421581
@@ -3472,7 +3471,7 @@ MonoBehaviour:
     PosX: 4
     PosY: 6
     RotationY: 0
-    PrefabName: 
+    PrefabName: Furniture_TableSmall2(1x1)
     Color: 0
     Type: 2
 --- !u!1 &236090434
@@ -4114,8 +4113,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 8
     PosY: 8
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Decorate_Chest(1x1)
     Color: 3
     Type: 3
 --- !u!1 &273638868
@@ -4338,7 +4337,7 @@ MonoBehaviour:
     PosX: 0
     PosY: 3
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall3(1x1)
     Color: 0
     Type: 2
 --- !u!1 &279183916
@@ -4738,7 +4737,7 @@ MonoBehaviour:
     PosX: 7
     PosY: 9
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &293389229
@@ -4960,8 +4959,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 6
     PosY: 9
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Decorate_Piano(1x2)
     Color: 0
     Type: 2
 --- !u!1 &299660919
@@ -5072,8 +5071,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 3
     PosY: 6
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Decorate_RockingChair(1x1)
     Color: 0
     Type: 2
 --- !u!1 &317400292
@@ -5371,7 +5370,7 @@ MonoBehaviour:
     PosX: 1
     PosY: 3
     RotationY: 0
-    PrefabName: 
+    PrefabName: Decorate_Shelf(1x1)
     Color: 0
     Type: 2
 --- !u!1 &337054793
@@ -5456,7 +5455,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 1932870048}
+  m_TargetTexture: {fileID: 815033366}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -5900,81 +5899,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367632274}
   m_Mesh: {fileID: 4300002, guid: 3ef61c1a4a529754ca7c2c66a43c60d0, type: 3}
---- !u!1001 &374151097
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1746216}
-    m_Modifications:
-    - target: {fileID: 1941210121855878375, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_Name
-      value: Furniture_ChairBlue(1x1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b50f20d05ccb9964aa630f859a43b0cb, type: 3}
---- !u!4 &374151098 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-    type: 3}
-  m_PrefabInstance: {fileID: 374151097}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &386678259
 GameObject:
   m_ObjectHideFlags: 0
@@ -6399,7 +6323,7 @@ MonoBehaviour:
     PosX: 12
     PosY: 1
     RotationY: 0
-    PrefabName: 
+    PrefabName: Decorate_Bed(1x2)
     Color: 0
     Type: 2
 --- !u!1 &414597743
@@ -6652,8 +6576,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 12
     PosY: 9
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Furniture_ChairRed(1x1)
     Color: 0
     Type: 2
 --- !u!1001 &445796224
@@ -7540,8 +7464,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 534669904}
   outlineCamera: {fileID: 338293285}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 1932870048}
-  extraRenderTexture: {fileID: 1656004060}
+  renderTexture: {fileID: 815033366}
+  extraRenderTexture: {fileID: 1148545283}
 --- !u!1 &535709476
 GameObject:
   m_ObjectHideFlags: 0
@@ -7834,8 +7758,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 4
     PosY: 3
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Decorate_TableTV(1x2)
     Color: 0
     Type: 2
 --- !u!1 &554808917
@@ -8147,7 +8071,7 @@ MonoBehaviour:
     PosX: 7
     PosY: 6
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &565716427
@@ -8259,7 +8183,7 @@ MonoBehaviour:
     PosX: 2
     PosY: 0
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &569172058
@@ -8887,8 +8811,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 11
     PosY: 6
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Furniture_ChairWood(1x1)
     Color: 0
     Type: 2
 --- !u!1 &600660199
@@ -9187,81 +9111,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7155517736415204612, guid: 92671b1818c036543808d9b8b625e19e,
     type: 3}
   m_PrefabInstance: {fileID: 602888364}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &603728053
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1816178521}
-    m_Modifications:
-    - target: {fileID: 1941210121855878375, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_Name
-      value: Furniture_ChairBlue(1x1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b50f20d05ccb9964aa630f859a43b0cb, type: 3}
---- !u!4 &603728054 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-    type: 3}
-  m_PrefabInstance: {fileID: 603728053}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &613348343
 GameObject:
@@ -10171,7 +10020,7 @@ MonoBehaviour:
     PosX: 0
     PosY: 5
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &690579621
@@ -10385,81 +10234,6 @@ MonoBehaviour:
   grabPrefab: {fileID: 0}
   grabGOInstance: {fileID: 0}
   objectInTarget: 0
---- !u!1001 &740269479
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 978136514}
-    m_Modifications:
-    - target: {fileID: 1941210121855878375, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_Name
-      value: Furniture_ChairBlue(1x1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b50f20d05ccb9964aa630f859a43b0cb, type: 3}
---- !u!4 &740269480 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7155517736415204612, guid: b50f20d05ccb9964aa630f859a43b0cb,
-    type: 3}
-  m_PrefabInstance: {fileID: 740269479}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &741612609
 GameObject:
   m_ObjectHideFlags: 0
@@ -11480,7 +11254,7 @@ MonoBehaviour:
     PosX: 12
     PosY: 0
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &777719762
@@ -11592,7 +11366,7 @@ MonoBehaviour:
     PosX: 14
     PosY: 0
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &779392259
@@ -11906,8 +11680,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 13
     PosY: 3
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Decorate_Shelf(1x1)
     Color: 0
     Type: 2
 --- !u!1 &807865532
@@ -12130,7 +11904,7 @@ MonoBehaviour:
     PosX: 14
     PosY: 3
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1001 &813009380
@@ -12208,6 +11982,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 813009380}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &815033366
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1920
+  m_Height: 1080
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &818925732
 GameObject:
   m_ObjectHideFlags: 0
@@ -12539,7 +12345,7 @@ MonoBehaviour:
     PosX: 0
     PosY: 4
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1001 &865377917
@@ -12909,7 +12715,7 @@ MonoBehaviour:
     PosX: 4
     PosY: 2
     RotationY: 180
-    PrefabName: 
+    PrefabName: Decorate_Chest(1x1)
     Color: 2
     Type: 1
 --- !u!1 &927324740
@@ -13054,7 +12860,7 @@ MonoBehaviour:
     PosX: 4
     PosY: 0
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall5(1x1)
     Color: 0
     Type: 2
 --- !u!1 &938096541
@@ -13457,8 +13263,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 740269480}
+  m_Children: []
   m_Father: {fileID: 1080388122}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13538,7 +13343,7 @@ MonoBehaviour:
     RotationY: 0
     PrefabName: 
     Color: 0
-    Type: 2
+    Type: 0
 --- !u!1 &989097883
 GameObject:
   m_ObjectHideFlags: 0
@@ -14045,7 +13850,7 @@ MonoBehaviour:
     PosX: 14
     PosY: 1
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1011527438
@@ -14268,7 +14073,7 @@ MonoBehaviour:
     PosX: 1
     PosY: 2
     RotationY: 0
-    PrefabName: 
+    PrefabName: Decorate_CoatRack(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1022993513
@@ -14859,7 +14664,7 @@ MonoBehaviour:
     PosX: 13
     PosY: 0
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall3(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1055234800
@@ -14996,67 +14801,67 @@ MonoBehaviour:
     - PosX: 0
       PosY: 0
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableBig(2x2)
       Color: 0
       Type: 2
     - PosX: 0
       PosY: 1
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: 
       Color: 0
       Type: 2
     - PosX: 0
       PosY: 2
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 0
       PosY: 3
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall3(1x1)
       Color: 0
       Type: 2
     - PosX: 0
       PosY: 4
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 0
       PosY: 5
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 0
       PosY: 6
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 0
       PosY: 7
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 0
       PosY: 8
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 0
       PosY: 9
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: 
       Color: 0
       Type: 2
     - PosX: 1
       PosY: 0
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: 
       Color: 0
       Type: 2
     - PosX: 1
@@ -15064,19 +14869,19 @@ MonoBehaviour:
       RotationY: 0
       PrefabName: 
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 1
       PosY: 2
       RotationY: 0
-      PrefabName: 
+      PrefabName: Decorate_CoatRack(1x1)
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 1
       PosY: 3
       RotationY: 0
-      PrefabName: 
+      PrefabName: Decorate_Shelf(1x1)
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 1
       PosY: 4
       RotationY: 0
@@ -15106,17 +14911,17 @@ MonoBehaviour:
       RotationY: 0
       PrefabName: 
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 1
       PosY: 9
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      RotationY: 180
+      PrefabName: Decorate_Shelf(1x2)
       Color: 0
       Type: 2
     - PosX: 2
       PosY: 0
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 2
@@ -15127,442 +14932,442 @@ MonoBehaviour:
       Type: 0
     - PosX: 2
       PosY: 2
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 2
-      PosY: 3
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 2
-      PosY: 4
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 2
-      Type: 1
-    - PosX: 2
-      PosY: 5
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 2
-      PosY: 6
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 2
-      PosY: 7
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 2
-      PosY: 8
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 2
-      Type: 3
-    - PosX: 2
-      PosY: 9
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 3
-      PosY: 0
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 3
-      PosY: 1
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 3
-      PosY: 2
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 3
-      PosY: 3
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 3
-      PosY: 4
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 3
-      PosY: 5
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 3
-      PosY: 6
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 3
-      PosY: 7
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 3
-      PosY: 8
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 3
-      PosY: 9
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 4
-      PosY: 0
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 4
-      PosY: 1
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 4
-      PosY: 2
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 4
-      PosY: 3
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 4
-      PosY: 4
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 4
-      PosY: 5
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 4
-      PosY: 6
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 4
-      PosY: 7
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 4
-      PosY: 8
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 4
-      PosY: 9
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 5
-      PosY: 0
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 5
-      PosY: 1
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 5
-      PosY: 2
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 5
-      PosY: 3
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 5
-      PosY: 4
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 6
-    - PosX: 5
-      PosY: 5
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 5
-      PosY: 6
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 5
-      PosY: 7
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 5
-      PosY: 8
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 5
-      PosY: 9
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 6
-      PosY: 0
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 6
-      PosY: 1
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 6
-      PosY: 2
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 6
-      PosY: 3
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 6
-      PosY: 4
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 6
-      PosY: 5
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 6
-      PosY: 6
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 6
-      PosY: 7
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 6
-      PosY: 8
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 6
-      PosY: 9
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 7
-      PosY: 0
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 7
-      PosY: 1
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 7
-      PosY: 2
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 7
-      PosY: 3
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 7
-      PosY: 4
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 7
-      PosY: 5
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 7
-      PosY: 6
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 7
-      PosY: 7
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 7
-      PosY: 8
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 7
-      PosY: 9
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 8
-      PosY: 0
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 8
-      PosY: 1
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 8
-      PosY: 2
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 8
-      PosY: 3
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 8
-      PosY: 4
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 8
-      PosY: 5
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 8
-      PosY: 6
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 8
-      PosY: 7
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 8
-      PosY: 8
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 8
-      PosY: 9
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 9
-      PosY: 0
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 0
-      Type: 2
-    - PosX: 9
-      PosY: 1
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 9
-      PosY: 2
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 9
-      PosY: 3
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 9
-      PosY: 4
       RotationY: 0
       PrefabName: 
       Color: 0
       Type: 5
+    - PosX: 2
+      PosY: 3
+      RotationY: 0
+      PrefabName: Furniture_TableSmall4(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 2
+      PosY: 4
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 2
+      PosY: 5
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 2
+      PosY: 6
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 2
+      PosY: 7
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 2
+      PosY: 8
+      RotationY: 180
+      PrefabName: Decorate_Bed(1x2)
+      Color: 0
+      Type: 2
+    - PosX: 2
+      PosY: 9
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 2
+    - PosX: 3
+      PosY: 0
+      RotationY: 0
+      PrefabName: Furniture_TableSmall(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 3
+      PosY: 1
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 3
+      PosY: 2
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 3
+      PosY: 3
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 2
+    - PosX: 3
+      PosY: 4
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 3
+      PosY: 5
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 3
+      PosY: 6
+      RotationY: 180
+      PrefabName: Decorate_RockingChair(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 3
+      PosY: 7
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 3
+      PosY: 8
+      RotationY: 180
+      PrefabName: Furniture_Nighstand(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 3
+      PosY: 9
+      RotationY: 180
+      PrefabName: Decorate_Shelf(1x2)
+      Color: 0
+      Type: 2
+    - PosX: 4
+      PosY: 0
+      RotationY: 0
+      PrefabName: Furniture_TableSmall5(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 4
+      PosY: 1
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 4
+      PosY: 2
+      RotationY: 180
+      PrefabName: Decorate_Chest(1x1)
+      Color: 2
+      Type: 1
+    - PosX: 4
+      PosY: 3
+      RotationY: 180
+      PrefabName: Decorate_TableTV(1x2)
+      Color: 0
+      Type: 2
+    - PosX: 4
+      PosY: 4
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 4
+      PosY: 5
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 4
+      PosY: 6
+      RotationY: 0
+      PrefabName: Furniture_TableSmall2(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 4
+      PosY: 7
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 4
+      PosY: 8
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 4
+      PosY: 9
+      RotationY: 0
+      PrefabName: Furniture_TableSmall4(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 5
+      PosY: 0
+      RotationY: 0
+      PrefabName: Furniture_TableSmall(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 5
+      PosY: 1
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 5
+      PosY: 2
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 5
+      PosY: 3
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 5
+      PosY: 4
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 5
+      PosY: 5
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 5
+      PosY: 6
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 2
+    - PosX: 5
+      PosY: 7
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 5
+      PosY: 8
+      RotationY: 180
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 5
+      PosY: 9
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 2
+    - PosX: 6
+      PosY: 0
+      RotationY: 0
+      PrefabName: Furniture_TableSmall(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 6
+      PosY: 1
+      RotationY: 0
+      PrefabName: Furniture_Stool(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 6
+      PosY: 2
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 6
+      PosY: 3
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 6
+      PosY: 4
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 6
+      PosY: 5
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 6
+      PosY: 6
+      RotationY: 180
+      PrefabName: Decorate_Desk(1x2)
+      Color: 0
+      Type: 2
+    - PosX: 6
+      PosY: 7
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 6
+      PosY: 8
+      RotationY: 180
+      PrefabName: Decorate_Chest(1x1)
+      Color: 2
+      Type: 3
+    - PosX: 6
+      PosY: 9
+      RotationY: 180
+      PrefabName: Decorate_Piano(1x2)
+      Color: 0
+      Type: 2
+    - PosX: 7
+      PosY: 0
+      RotationY: 0
+      PrefabName: Furniture_TableSmall(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 7
+      PosY: 1
+      RotationY: 0
+      PrefabName: Furniture_TableSmall(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 7
+      PosY: 2
+      RotationY: 0
+      PrefabName: Furniture_TableSmall3(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 7
+      PosY: 3
+      RotationY: 0
+      PrefabName: Furniture_TableSmall(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 7
+      PosY: 4
+      RotationY: 0
+      PrefabName: Button
+      Color: 0
+      Type: 9
+    - PosX: 7
+      PosY: 5
+      RotationY: 0
+      PrefabName: Furniture_TableSmall(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 7
+      PosY: 6
+      RotationY: 0
+      PrefabName: Furniture_TableSmall(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 7
+      PosY: 7
+      RotationY: 0
+      PrefabName: Furniture_TableSmall(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 7
+      PosY: 8
+      RotationY: 0
+      PrefabName: Furniture_TableSmall(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 7
+      PosY: 9
+      RotationY: 0
+      PrefabName: Furniture_TableSmall(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 8
+      PosY: 0
+      RotationY: 0
+      PrefabName: Furniture_TableSmall2(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 8
+      PosY: 1
+      RotationY: 0
+      PrefabName: Furniture_Stool(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 8
+      PosY: 2
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 8
+      PosY: 3
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 8
+      PosY: 4
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 8
+      PosY: 5
+      RotationY: 180
+      PrefabName: Furniture_ChairWood(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 8
+      PosY: 6
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 2
+    - PosX: 8
+      PosY: 7
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 8
+      PosY: 8
+      RotationY: 180
+      PrefabName: Decorate_Chest(1x1)
+      Color: 3
+      Type: 3
+    - PosX: 8
+      PosY: 9
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 2
+    - PosX: 9
+      PosY: 0
+      RotationY: 0
+      PrefabName: Furniture_TableSmall(1x1)
+      Color: 0
+      Type: 2
+    - PosX: 9
+      PosY: 1
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 9
+      PosY: 2
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 9
+      PosY: 3
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 9
+      PosY: 4
+      RotationY: 0
+      PrefabName: 
+      Color: 0
+      Type: 0
     - PosX: 9
       PosY: 5
       RotationY: 0
@@ -15571,10 +15376,10 @@ MonoBehaviour:
       Type: 0
     - PosX: 9
       PosY: 6
-      RotationY: 0
-      PrefabName: 
+      RotationY: 180
+      PrefabName: Decorate_DeskClean(1x2)
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 9
       PosY: 7
       RotationY: 0
@@ -15589,34 +15394,34 @@ MonoBehaviour:
       Type: 0
     - PosX: 9
       PosY: 9
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      RotationY: 180
+      PrefabName: Decorate_Shelf2(1x2)
       Color: 0
       Type: 2
     - PosX: 10
       PosY: 0
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 10
       PosY: 1
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: 
+      Color: 0
+      Type: 0
+    - PosX: 10
+      PosY: 2
+      RotationY: 180
+      PrefabName: Decorate_Chest(1x1)
       Color: 3
       Type: 1
     - PosX: 10
-      PosY: 2
-      RotationY: 0
-      PrefabName: 
-      Color: 0
-      Type: 0
-    - PosX: 10
       PosY: 3
       RotationY: 0
-      PrefabName: 
+      PrefabName: Decorate_CoatRack(1x1)
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 10
       PosY: 4
       RotationY: 0
@@ -15632,9 +15437,9 @@ MonoBehaviour:
     - PosX: 10
       PosY: 6
       RotationY: 0
-      PrefabName: 
+      PrefabName: Furniture_TableSmall5(1x1)
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 10
       PosY: 7
       RotationY: 0
@@ -15649,14 +15454,14 @@ MonoBehaviour:
       Type: 0
     - PosX: 10
       PosY: 9
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      RotationY: 180
+      PrefabName: Furniture_ChairRed(1x1)
       Color: 0
       Type: 2
     - PosX: 11
       PosY: 0
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 11
@@ -15676,7 +15481,7 @@ MonoBehaviour:
       RotationY: 0
       PrefabName: 
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 11
       PosY: 4
       RotationY: 0
@@ -15691,10 +15496,10 @@ MonoBehaviour:
       Type: 0
     - PosX: 11
       PosY: 6
-      RotationY: 0
-      PrefabName: 
+      RotationY: 180
+      PrefabName: Furniture_ChairWood(1x1)
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 11
       PosY: 7
       RotationY: 0
@@ -15709,34 +15514,34 @@ MonoBehaviour:
       Type: 0
     - PosX: 11
       PosY: 9
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      RotationY: 180
+      PrefabName: Furniture_ChairRed(1x1)
       Color: 0
       Type: 2
     - PosX: 12
       PosY: 0
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 12
       PosY: 1
       RotationY: 0
-      PrefabName: 
+      PrefabName: Decorate_Bed(1x2)
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 12
       PosY: 2
       RotationY: 0
       PrefabName: 
       Color: 0
-      Type: 0
+      Type: 6
     - PosX: 12
       PosY: 3
-      RotationY: 0
-      PrefabName: 
+      RotationY: 180
+      PrefabName: Decorate_Closet(1x2)
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 12
       PosY: 4
       RotationY: 0
@@ -15769,34 +15574,34 @@ MonoBehaviour:
       Type: 0
     - PosX: 12
       PosY: 9
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      RotationY: 180
+      PrefabName: Furniture_ChairRed(1x1)
       Color: 0
       Type: 2
     - PosX: 13
       PosY: 0
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall3(1x1)
       Color: 0
       Type: 2
     - PosX: 13
       PosY: 1
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
-      Color: 3
-      Type: 3
+      PrefabName: 
+      Color: 0
+      Type: 2
     - PosX: 13
       PosY: 2
-      RotationY: 0
-      PrefabName: 
+      RotationY: 270
+      PrefabName: Furniture_Nighstand(1x1)
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 13
       PosY: 3
-      RotationY: 0
-      PrefabName: 
+      RotationY: 180
+      PrefabName: Decorate_Shelf(1x1)
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 13
       PosY: 4
       RotationY: 0
@@ -15824,73 +15629,73 @@ MonoBehaviour:
     - PosX: 13
       PosY: 8
       RotationY: 0
-      PrefabName: 
+      PrefabName: Furniture_TableBig(2x2)
       Color: 0
-      Type: 0
+      Type: 2
     - PosX: 13
       PosY: 9
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: 
       Color: 0
       Type: 2
     - PosX: 14
       PosY: 0
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 14
       PosY: 1
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 14
       PosY: 2
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 14
       PosY: 3
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 14
       PosY: 4
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 14
       PosY: 5
-      RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      RotationY: 270
+      PrefabName: Furniture_TableSmall5(1x1)
       Color: 0
       Type: 2
     - PosX: 14
       PosY: 6
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 14
       PosY: 7
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: Furniture_TableSmall(1x1)
       Color: 0
       Type: 2
     - PosX: 14
       PosY: 8
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: 
       Color: 0
       Type: 2
     - PosX: 14
       PosY: 9
       RotationY: 0
-      PrefabName: Decorate_Box(1x1)
+      PrefabName: 
       Color: 0
       Type: 2
 --- !u!4 &1080388122
@@ -16419,7 +16224,7 @@ MonoBehaviour:
     PosX: 2
     PosY: 3
     RotationY: 0
-    PrefabName: 
+    PrefabName: Furniture_TableSmall4(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1103381509
@@ -16792,7 +16597,7 @@ MonoBehaviour:
     PosX: 8
     PosY: 1
     RotationY: 0
-    PrefabName: 
+    PrefabName: Furniture_Stool(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1113191538
@@ -16904,7 +16709,7 @@ MonoBehaviour:
     PosX: 7
     PosY: 7
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1120415421
@@ -17108,7 +16913,7 @@ MonoBehaviour:
     PosX: 7
     PosY: 5
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1129218323
@@ -17362,6 +17167,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &1148545283
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1920
+  m_Height: 1080
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1148649514
 GameObject:
   m_ObjectHideFlags: 0
@@ -17773,8 +17610,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 13
     PosY: 2
-    RotationY: 0
-    PrefabName: 
+    RotationY: 270
+    PrefabName: Furniture_Nighstand(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1180369080
@@ -18876,8 +18713,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 8
     PosY: 5
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Furniture_ChairWood(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1252359988
@@ -18989,7 +18826,7 @@ MonoBehaviour:
     PosX: 7
     PosY: 1
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1259488970
@@ -19193,7 +19030,7 @@ MonoBehaviour:
     PosX: 7
     PosY: 4
     RotationY: 0
-    PrefabName: 
+    PrefabName: Button
     Color: 0
     Type: 9
 --- !u!1 &1268929597
@@ -19304,8 +19141,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 3
     PosY: 8
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Furniture_Nighstand(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1283340683
@@ -19509,7 +19346,7 @@ MonoBehaviour:
     PosX: 3
     PosY: 0
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1306914095
@@ -19621,7 +19458,7 @@ MonoBehaviour:
     PosX: 5
     PosY: 0
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1328726281
@@ -19844,7 +19681,7 @@ MonoBehaviour:
     PosX: 0
     PosY: 7
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1001 &1334142236
@@ -20326,7 +20163,7 @@ MonoBehaviour:
     PosX: 14
     PosY: 4
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1386549533
@@ -20641,7 +20478,7 @@ MonoBehaviour:
     PosX: 0
     PosY: 6
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1395526839
@@ -20863,8 +20700,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 3
     PosY: 9
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Decorate_Shelf(1x2)
     Color: 0
     Type: 2
 --- !u!1 &1400267723
@@ -21068,7 +20905,7 @@ MonoBehaviour:
     PosX: 10
     PosY: 3
     RotationY: 0
-    PrefabName: 
+    PrefabName: Decorate_CoatRack(1x1)
     Color: 0
     Type: 2
 --- !u!1001 &1414466552
@@ -21413,7 +21250,7 @@ MonoBehaviour:
     PosX: 7
     PosY: 8
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1439919237
@@ -21524,8 +21361,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 1
     PosY: 9
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Decorate_Shelf(1x2)
     Color: 0
     Type: 2
 --- !u!1001 &1440240665
@@ -22008,8 +21845,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 6
     PosY: 6
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Decorate_Desk(1x2)
     Color: 0
     Type: 2
 --- !u!1001 &1454082341
@@ -23161,7 +22998,7 @@ MonoBehaviour:
     PosX: 0
     PosY: 8
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1521480115
@@ -23365,7 +23202,7 @@ MonoBehaviour:
     PosX: 11
     PosY: 0
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1540164296
@@ -24189,8 +24026,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 11
     PosY: 9
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Furniture_ChairRed(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1634469793
@@ -24757,38 +24594,6 @@ MonoBehaviour:
   grabPrefab: {fileID: 0}
   grabGOInstance: {fileID: 0}
   objectInTarget: 0
---- !u!84 &1656004060
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1920
-  m_Height: 1080
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1665219886
 GameObject:
   m_ObjectHideFlags: 0
@@ -25242,7 +25047,7 @@ MonoBehaviour:
     PosX: 0
     PosY: 2
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1690385984
@@ -25446,7 +25251,7 @@ MonoBehaviour:
     PosX: 10
     PosY: 6
     RotationY: 0
-    PrefabName: 
+    PrefabName: Furniture_TableSmall5(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1697075640
@@ -26320,8 +26125,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 10
     PosY: 2
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Decorate_Chest(1x1)
     Color: 3
     Type: 1
 --- !u!1 &1768155546
@@ -26668,8 +26473,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 14
     PosY: 5
-    RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    RotationY: 270
+    PrefabName: Furniture_TableSmall5(1x1)
     Color: 0
     Type: 2
 --- !u!1001 &1814210669
@@ -26777,8 +26582,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.5, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 603728054}
+  m_Children: []
   m_Father: {fileID: 1080388122}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26858,7 +26662,7 @@ MonoBehaviour:
     RotationY: 0
     PrefabName: 
     Color: 0
-    Type: 2
+    Type: 0
 --- !u!1 &1826070725
 GameObject:
   m_ObjectHideFlags: 0
@@ -27864,38 +27668,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927595131}
   m_Mesh: {fileID: 4300002, guid: 3ef61c1a4a529754ca7c2c66a43c60d0, type: 3}
---- !u!84 &1932870048
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1920
-  m_Height: 1080
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1952771130
 GameObject:
   m_ObjectHideFlags: 0
@@ -28005,7 +27777,7 @@ MonoBehaviour:
     PosX: 14
     PosY: 7
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &1957901073
@@ -28366,8 +28138,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 6
     PosY: 8
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Decorate_Chest(1x1)
     Color: 2
     Type: 3
 --- !u!1001 &1988757980
@@ -28554,7 +28326,7 @@ MonoBehaviour:
     PosX: 8
     PosY: 0
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall2(1x1)
     Color: 0
     Type: 2
 --- !u!1001 &2005520594
@@ -29092,7 +28864,7 @@ MonoBehaviour:
     PosX: 0
     PosY: 0
     RotationY: 0
-    PrefabName: 
+    PrefabName: Furniture_TableBig(2x2)
     Color: 0
     Type: 2
 --- !u!1 &2041641006
@@ -29421,7 +29193,7 @@ MonoBehaviour:
     PosX: 7
     PosY: 3
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &2059552772
@@ -29532,8 +29304,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 2
     PosY: 8
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Decorate_Bed(1x2)
     Color: 0
     Type: 2
 --- !u!1 &2060450010
@@ -29960,7 +29732,7 @@ MonoBehaviour:
     PosX: 4
     PosY: 9
     RotationY: 0
-    PrefabName: 
+    PrefabName: Furniture_TableSmall4(1x1)
     Color: 0
     Type: 2
 --- !u!1 &2081652429
@@ -30275,7 +30047,7 @@ MonoBehaviour:
     PosX: 14
     PosY: 2
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1001 &2097714748
@@ -30462,7 +30234,7 @@ MonoBehaviour:
     PosX: 10
     PosY: 0
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &2112456255
@@ -30666,7 +30438,7 @@ MonoBehaviour:
     PosX: 9
     PosY: 0
     RotationY: 0
-    PrefabName: Decorate_Box(1x1)
+    PrefabName: Furniture_TableSmall(1x1)
     Color: 0
     Type: 2
 --- !u!1 &2135925890
@@ -30777,8 +30549,8 @@ MonoBehaviour:
   mKCellData:
     PosX: 12
     PosY: 3
-    RotationY: 0
-    PrefabName: 
+    RotationY: 180
+    PrefabName: Decorate_Closet(1x2)
     Color: 0
     Type: 2
 --- !u!1 &2140110711
