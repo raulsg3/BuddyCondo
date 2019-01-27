@@ -25,31 +25,39 @@ public class MKGameUIManager : MonoBehaviour
     }
 
     public void UpdateLevelText(string level){
-        if(levelText == null){
-            GameObject levelTextGO = GameObject.FindGameObjectWithTag("LevelTextTag");
-            if(levelTextGO == null)
-            {
-                Debug.LogError("No se encontro el levelText. return");
-                return;
-            }
-            levelText = GetComponent<Text>();
-        }
-
-        levelText.text = "Level " + level;
+        // if(levelText == null){
+        //     GameObject levelTextGO = GameObject.FindGameObjectWithTag("LevelTextTag");
+        //     if(levelTextGO == null)
+        //     {
+        //         Debug.LogError("No se encontro el levelText. return");
+        //         return;
+        //     }
+        //     levelText = GetComponent<Text>();
+        // }
+        // Debug.Log(levelText);
+        SingletonRichardSalvation.Instance.levelText.text = ""+level;
+        // levelText.text = "Level " + level;
     }
 
     public void UpdateTimeText(float time){
-        if(timeText == null){
-            GameObject timeTextGO = GameObject.FindGameObjectWithTag("TimeTextTag");
-            if(timeText == null)
-            {
-                return;
-            }
-            timeText = GetComponent<Text>();
-        }
+        // if(timeText == null){
+        //     GameObject timeTextGO = GameObject.FindGameObjectWithTag("TimeTextTag");
+        //     if(timeText == null)
+        //     {
+        //         return;
+        //     }
+        //     timeText = GetComponent<Text>();
+        // }
 
-        string textMinSec = string.Format("{0}:{1:00}", (int)time / 60, (int)time % 60);
-        timeText.text = "Time: " + time;
+        string minutes = Mathf.Floor(time / 60).ToString("00");
+        string seconds = (time % 60).ToString("00");
+
+        string textMinSec = string.Format("{0}:{1}", minutes, seconds);
+
+        // timeText.text = "Time: " + time;
+        Debug.Log(textMinSec);
+        SingletonRichardSalvation.Instance.timeText.text = textMinSec;
+
     }
 
     void OnDestroy(){
